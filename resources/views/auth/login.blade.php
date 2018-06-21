@@ -63,6 +63,7 @@
                     </form>
                 </div-->
                 <div class="card-body">
+                    <h1>login</h1>
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
                         <div class="form-group row">
