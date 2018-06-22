@@ -21,8 +21,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**/
     public function goAdmin()
     {
-        return view('users.admin.admin');
+        $suma = (s+1);
+        $arreglo = array(5,"hola",7);
+
+        return view('users.admin.admin')->with("var",$suma)->with("res",5)->with("array",$arreglo);
     }
 }
