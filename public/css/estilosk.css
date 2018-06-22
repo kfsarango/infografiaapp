@@ -1,0 +1,192 @@
+@import url(https://fonts.googleapis.com/css?family=Cherry+Swash);
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+.encabezado {
+  width: 100%;
+  padding: 0;
+  position: fixed;
+  background-color: transparent;
+  z-index: 3; }
+  .encabezado a {
+    color: #fff !important; }
+  .encabezado #titlePag {
+    font-family: "Cherry Swash", cursive;
+    font-size: 2em; }
+  .encabezado .boton {
+    padding: 10px 35px !important;
+    border-radius: 30px;
+    background-color: transparent;
+    color: #ccc;
+    border: 1px solid #ccc; }
+  .encabezado .boton:hover {
+    border: 1px solid #fff; }
+  .encabezado #items_center {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    flex-direction: row; }
+    .encabezado #items_center li {
+      display: inline-block;
+      border-bottom: 3px solid transparent; }
+      .encabezado #items_center li a {
+        text-decoration: none;
+        padding: 10px 15px;
+        text-transform: uppercase; }
+    .encabezado #items_center li:hover {
+      border-bottom: 3px solid #00E0E0; }
+  .encabezado #logeado {
+    width: 10rem; }
+    .encabezado #logeado a {
+      float: right; }
+    .encabezado #logeado .dropdown-item {
+      color: #ccc !important; }
+
+.encabezado-aux, .encabezado-nothome {
+  background: #482cbf;
+  background: -webkit-linear-gradient(45deg, #482cbf 0%, #6ac6f0 100%);
+  background: -o-linear-gradient(45deg, #482cbf 0%, #6ac6f0 100%);
+  background: linear-gradient(45deg, #482cbf 0%, #6ac6f0 100%); }
+
+.box_inicial {
+  overflow: hidden;
+  position: relative;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  transition-delay: initial;
+  margin: 0;
+  padding: 0; }
+
+.panel_completo {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  transform: translate3d(0, 0, 0); }
+
+.box_foto {
+  position: absolute;
+  height: 690px;
+  background-image: url("../img/fondo.jpg");
+  transform: matrix(1, 0, 0, 1, 0, -12.8571); }
+
+.cont_foto {
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  padding: 0; }
+
+.box_opacidad {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.cont_home {
+  width: 100%;
+  height: 100vh;
+  padding-top: 3em; }
+  .cont_home .cnt_title {
+    width: 100%;
+    margin: 2% 0;
+    overflow: hidden;
+    border-top: solid 1px #3366ff; }
+    .cont_home .cnt_title h2 {
+      background-color: #3366ff;
+      padding: 15px;
+      color: #fff; }
+
+#estadisticas h2 {
+  float: left; }
+
+#graficas h2 {
+  float: right; }
+
+footer {
+  width: 100%;
+  background-color: #0d0d26;
+  color: #fff;
+  padding: 2em 0; }
+  footer h4 {
+    color: #3366ff; }
+  footer figure {
+    width: 100%;
+    text-align: center; }
+  footer ul {
+    list-style: none; }
+    footer ul li .cnt_names {
+      width: 75%;
+      float: left; }
+    footer ul li .cnt_img {
+      width: 25%;
+      float: left; }
+      footer ul li .cnt_img figure {
+        width: 100%; }
+        footer ul li .cnt_img figure img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%; }
+    footer ul #mrg_cnt_li {
+      margin-top: 2em; }
+  footer #cnt_2_logos {
+    margin-top: 4em; }
+  footer i {
+    color: #6699ff; }
+  footer p:hover i {
+    color: #cc00ff; }
+
+.login-box {
+  width: 50%;
+  box-sizing: border-box;
+  margin: 15% auto 10%;
+  border-radius: 10px;
+  box-shadow: 0 0 0.3rem #ccc; }
+  .login-box h3 {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; }
+  .login-box form {
+    width: 100%;
+    padding: 20px; }
+  .login-box button {
+    border: none;
+    outline: none;
+    width: 80%;
+    border: 1px solid #1c8adb;
+    color: #1c8adb;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 20px; }
+  .login-box button:hover {
+    cursor: pointer;
+    background: #1c8adb;
+    color: #fff; }
+
+.centrar {
+  text-align: center; }
+
+.box_aux {
+  width: 100%;
+  height: 5em; }
+
+#cnt_admin {
+  width: 100%;
+  min-height: 35em; }
+
+/*# sourceMappingURL=estilosk.css.map */

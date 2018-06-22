@@ -1,8 +1,11 @@
 <?php
+//use InstaInfo\Categoria;
 
-namespace App\Http\Controllers;
+namespace InstaInfo\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
@@ -22,7 +25,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function goAdmin()
-    {
-        return view('users.admin.admin');
+    {   
+        $tipoUsuarios = DB::table('tipousuarios')->get();
+        //dd($tipoUsuarios);
+        return view('users.admin.admin')
+        ->with('tipos',$tipoUsuarios);
     }
 }
