@@ -36,7 +36,6 @@
                 <div class="links">
                     <a href="https://laravel.com/docs">Home</a>
                     <a href="https://laravel.com/docs">Mapa</a>
-                    <a href="https://laravel.com/docs">Categorías</a>
                     <a href="https://laracasts.com">Contactos</a>
                 </div>
             </div>
