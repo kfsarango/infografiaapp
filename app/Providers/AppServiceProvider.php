@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace InstaInfo\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

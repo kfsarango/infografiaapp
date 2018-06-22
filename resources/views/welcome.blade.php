@@ -28,13 +28,13 @@
             @endif
 
             <div class="content">
-<<<<<<< HEAD
+
                 <div class="title">
                     Proyecto de WEB
                 </div>
 
                 
-=======
+
                 <div class="title m-b-md">
                     <img src="../image/info.png" alt="">
                     Insta | Info 
@@ -45,7 +45,6 @@
                     <a href="https://laravel.com/docs">Mapa</a>
                     <a href="https://laracasts.com">Contactos</a>
                 </div>
->>>>>>> 1e42fea19c49e239b1091fd26266085dc265343d
             </div>
         </div>
 
