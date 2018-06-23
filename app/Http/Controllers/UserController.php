@@ -26,18 +26,18 @@ class UserController extends Controller
      */
     /**/
     public function goAdmin()
-<<<<<<< HEAD
     {
-        $suma = (s+1);
-        $arreglo = array(5,"hola",7);
-
-        return view('users.admin.admin')->with("var",$suma)->with("res",5)->with("array",$arreglo);
-=======
-    {   
+        
         $tipoUsuarios = DB::table('tipousuarios')->get();
         //dd($tipoUsuarios);
         return view('users.admin.admin')
         ->with('tipos',$tipoUsuarios);
->>>>>>> ba8850c70675e103916c3718b1d818aa14287282
+    }
+    public function superAdmin()
+    {
+        $todosUsuarios = DB::table('users')->get();
+       // dd($todosUsuarios);
+        return view('users.superadmin.superadmin') ->with('todos',$todosUsuarios);
+
     }
 }

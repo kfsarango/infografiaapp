@@ -9,7 +9,7 @@ html, body {
 
             .full-height {
                 height: 90vh;
-                background-image: url("../image/fon.jpg");
+                background-image: url("../img/fondos/fo.jpg");
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
@@ -157,6 +157,7 @@ h1 {
 }
 
 .contenedor{
+    width: 100%;
     background: #cccccc;
 }
 
@@ -197,9 +198,10 @@ h1 {
 
 .estadisticas{
     width: 100%;
-    background: -webkit-linear-gradient(#ebebeb, #fafafa);
-    background: -o-linear-gradient(#ebebeb, #fafafa);
-    background: linear-gradient(#ebebeb, #fafafa);
+    border-top: solid 1px #3666ff;
+    margin-top: 1%;
+
+
 }
 
 .estadisticas h2{
@@ -258,12 +260,7 @@ h1 {
     padding: 1%;
 }
 
-.boton{
-    border-bottom: 3px solid red;
-    text-decoration: none;
-    color: black;
-    font-size: 2em;
-}
+
 
 .i1, .d1 h5{
     color: black;
@@ -271,13 +268,12 @@ h1 {
 
 .graficas{
     width: 100%;
-    background: -webkit-linear-gradient(#ebebeb, #fafafa);
-    background: -o-linear-gradient(#ebebeb, #fafafa);
-    background: linear-gradient(#ebebeb, #fafafa);
+    border-top: solid 1px #3666ff;
+    margin-top: 1%;
 }
 
 .graficas h2{
-    width: 17%;
+    width: 22%;
     margin-left: 10%;
     text-align: center;
     padding: 1%;

@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-<h2>hola admin</h2>
-<p>La suma es: {{$var}} </p>
-<p>La resta es: {{$res}} </p>
-<ul>
-	@foreach ($array as $user)
-    	<li>Dato {{ $user }}</li>
-	@endforeach
-</ul>
-=======
+
 @extends('layouts.app')
 
 @section('content')
@@ -23,4 +14,3 @@
 
 @endsection
 
->>>>>>> ba8850c70675e103916c3718b1d818aa14287282
