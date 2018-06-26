@@ -18,6 +18,9 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'UserController@goAdmin')->name('admin');
 Route::get('/super', 'UserController@superAdmin')->name('super');
+Route::get('/editar-p', 'UserController@perfil')->name('editar-p');
+Route::get('/plantilla1', 'UserController@plantilla1')->name('plantilla1');
+Route::get('/plantilla2', 'UserController@plantilla2')->name('plantilla2');
 
 
 

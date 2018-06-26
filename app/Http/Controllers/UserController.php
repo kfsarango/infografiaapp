@@ -40,4 +40,10 @@ class UserController extends Controller
         return view('users.superadmin.superadmin') ->with('todos',$todosUsuarios);
 
     }
+
+    public function perfil()
+    {
+        return view('users.admin.editarPerfil');
+
+    }
 }

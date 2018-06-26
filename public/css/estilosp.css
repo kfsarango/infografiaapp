@@ -266,6 +266,11 @@ h1 {
     color: black;
 }
 
+.sus{
+    border-bottom: 2px solid red;
+    color: black;
+}
+
 .graficas{
     width: 100%;
     border-top: solid 1px #3666ff;
