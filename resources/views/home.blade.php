@@ -21,7 +21,7 @@
             </section>
             <section class="cont_home" id="graficas">
                 <div class="cnt_title">
-                    <h2>Gráficas</h2>
+                    <h2>Gráficas  </h2>
                 </div>
             </section>
         </div>

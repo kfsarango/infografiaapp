@@ -24,6 +24,8 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function goAdmin()
     {   
         $tipoUsuarios = DB::table('tipousuarios')->get();
