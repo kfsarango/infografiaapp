@@ -342,6 +342,31 @@ hr{
     margin: auto;
 }
 
+############## Parte edicion admin ######
+.container{
+    width: 100%;
+}
+
+.container h1{
+    margin-bottom: 3%;
+}
+
+.formE{
+    text-align: center;
+}
+
+.form-group{
+    width: 100%;
+}
+
+.form-group label{
+    text-align: left;
+}
+
+
+############## Fin Parte edicion ######
+
+
 
 footer{
   width: 100%;

@@ -19,8 +19,9 @@ Auth::routes();
 Route::get('/admin', 'UserController@goAdmin')->name('admin');
 Route::get('/super', 'UserController@superAdmin')->name('super');
 Route::get('/edit', 'UserController@perfil')->name('edit');
+Route::post('/edit/{id}', 'UserController@updateAdmin');
+Route::get('/plantilla', 'UserController@diseño');
 
-Route::resource('editarU', 'UserController');
 
 
 
