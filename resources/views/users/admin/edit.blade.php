@@ -6,8 +6,10 @@
 	<div class="container">
 		<h1>Edición de Perfil: </h1>
 
-		<form method="PATCH" action=['UserController@update', {{Auth::user()->id}}]>
-		  		<div class="form-group">
+		{!! Form::open(['route'=>'editarU.updateAdmin', 'method'=>'post']) !!}
+		{!! csrf_field() !!}
+			
+		  		<!--div class="form-group">
 				    <label for="nombre">Nombre:</label>
 				    <input type="text" class="name" id="name" name="nombre" value="{{ Auth::user()->nombres }}">
 			 	</div>
@@ -45,14 +47,15 @@
 			 	<div class="form-group">
 				    <label for="nombre">Password:</label>
 				    <input type="text" class="name" id="name" name="password" value="{{ Auth::user()->password }}">
-			 	</div>
+			 	</div-->
 
 			 	<div class="form-group">
 				    <label for="nombre">Tipo de usuario:</label>
-				    <input type="text" class="name" id="name" name="tipo" value="{{ Auth::user()->tipousuario }}">
+				    {!! Form::text('tipo', 'una cosa', ['class'=>'name']) !!}
 			 	</div>
 		<button type="submit" class="btn btn-success">Actualizar</button>
-	</form>	
+	{!! Form::close() !!}
+
 </div>
 
 @endsection

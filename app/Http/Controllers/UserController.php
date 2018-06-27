@@ -43,7 +43,12 @@ class UserController extends Controller
 
     public function perfil()
     {
-        return view('users.admin.editarPerfil');
+        return view('users.admin.edit');
 
+    }
+
+    public function updateAdmin(Request $request)
+    {
+        dd("hola");
     }
 }
