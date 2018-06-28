@@ -64,6 +64,6 @@ class UserController extends Controller
         $user->seccion=$request->get('seccion'); 
         $user->save();
 
-        return redirect('edit')->with('success','Information has been  deleted');;
+        return redirect('edit')->with('success','Information has been  deleted');
     }
 }

@@ -21,6 +21,10 @@ Route::get('/super', 'UserController@superAdmin')->name('super');
 Route::get('/edit', 'UserController@perfil')->name('edit');
 Route::post('/edit/{id}', 'UserController@updateAdmin');
 Route::get('/plantilla', 'UserController@diseño');
+Route::get('/nuevain', 'InfografiaController@Categoria')->name('nuevain');
+Route::post('/nuevacategoria', 'InfografiaController@createCategoria');
+Route::resource('catego','CategoriaController');
+
 
 
 

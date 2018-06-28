@@ -343,30 +343,106 @@ hr{
 }
 
 ############## Parte edicion admin ######
-.container{
+#cont_p{
     width: 100%;
 }
 
-.container h1{
+#cont_p h1{
     margin-bottom: 3%;
 }
 
-.formE{
-    text-align: center;
-}
-
-.form-group{
+.formG{
     width: 100%;
+    text-align: center;
+    margin-left: 30%;
 }
 
-.form-group label{
+.formG .formC label{
     text-align: left;
 }
 
+.formG .formC input:hover{
+    text-align: left;
+    background: #cccccc;
+}
+
+.formG .formC button{
+    margin-left: 20%;
+}
 
 ############## Fin Parte edicion ######
 
+############## Parte Nueva Categoria e Item ######
+#cont_categoria{
+    width: 100%;
+}
 
+#cont_categoria .iz{
+    border:2px solid #ccc;
+    border-radius: 1%;
+    padding: 1%;
+    margin-bottom: 2%;
+}
+
+#cont_categoria .iz:hover{
+    box-shadow:
+    1px 1px #53a7ea,
+    2px 2px #53a7ea,
+    3px 3px #53a7ea;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+}
+
+#cont_categoria .iz h2{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.new{
+    display: none;
+    margin-top: 1%;
+}
+
+.mostrar{
+    display: inline;
+}
+
+#cont_categoria  .der{
+    border:2px solid #ccc;
+    border-radius: 1%;
+    padding: 1%;
+    margin-bottom: 2%; 
+}
+
+#cont_categoria .der:hover{
+    box-shadow:
+    1px 1px #53a7ea,
+    2px 2px #53a7ea,
+    3px 3px #53a7ea;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+}
+
+#cont_categoria .der h2{
+    width: 100%;
+    text-align: center;
+    font-family: sans-serif;
+
+}
+
+#cont_categoria .Item .datoder{
+    margin-left: 24%;
+}
+
+#cont_categoria .Item .datoder label{
+    margin-right: 10%;
+}
+
+#cont_categoria .der .botones{
+    text-align: center;
+    margin-top: 1%;
+}
+############## Fin Nueva Categoria e Item ######
 
 footer{
   width: 100%;
