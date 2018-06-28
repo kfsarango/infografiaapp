@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    //comporobando si estamos en el home
-    if ( $("#home").length == 0 ) {
-        $('nav').addClass('encabezado-nothome');
+	//comporobando si estamos en el home
+    if ( $("#home_page").length == 0 ) {
+		$('nav').addClass('encabezado-nothome');
     }
 
     //Agregando funcione al encabezado

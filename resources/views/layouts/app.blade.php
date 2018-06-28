@@ -22,7 +22,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/stylesL.css') }}" rel="stylesheet">
     <link href="../css/estilosk.css" rel="stylesheet">
+    <link href="../css/estilosp.css" rel="stylesheet">
 </head>
 <body>
     <nav class="encabezado navbar navbar-expand-md navbar-light navbar-laravel">
@@ -37,15 +39,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul id="items_center">
-                    <!--li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li-->
                     <li>
                         <a href="">Home</a>
                     </li>
@@ -74,6 +67,10 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('editar-p') }}">
+                                    {{ __('Editar Perfil') }}
+                                </a>
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -96,6 +93,10 @@
         @yield('content')
     </main>
 
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        <!--CSRF proteger los formularios-->
+        @csrf
+    </form>
     <footer>
         <section class="container">
             <div class="row">
@@ -200,5 +201,6 @@
         </section>
      </footer>
     <script src="../js/scriptk.js"></script>
+    <script src="../js/superadmin.js"></script>
 </body>
 </html>
