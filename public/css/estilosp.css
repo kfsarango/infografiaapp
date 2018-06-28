@@ -431,7 +431,7 @@ hr{
 }
 
 #cont_categoria .Item .datoder{
-    margin-left: 24%;
+    margin-left: 25%;
 }
 
 #cont_categoria .Item .datoder label{
@@ -442,7 +442,44 @@ hr{
     text-align: center;
     margin-top: 1%;
 }
+
+.botones2{
+    text-align: right;
+    margin-bottom: 1%;
+}
 ############## Fin Nueva Categoria e Item ######
+
+
+############# Modal #########
+.contenedor-modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.contenedor-modal button {
+  position: relative;
+  top: 40%;
+}
+
+.formModal{
+    width: 100%;
+    margin-left: 18%;
+}
+
+.formModal input{
+    width: 100%;
+    text-align: center;
+    margin-left: 15%;
+}
+
+.formModal button{
+    width: 100%;
+    
+}
+
+###########· Fin Modal ######
 
 footer{
   width: 100%;
