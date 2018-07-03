@@ -24,6 +24,7 @@ Route::get('/plantilla', 'UserController@diseño');
 Route::get('/nuevain', 'InfografiaController@Categoria')->name('nuevain');
 Route::post('/nuevacategoria', 'InfografiaController@createCategoria');
 Route::resource('catego','CategoriaController');
+Route::post('/prueba', 'InfografiaController@probandodatos');
 
 
 

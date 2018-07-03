@@ -398,7 +398,7 @@ hr{
     font-family: sans-serif;
 }
 
-.new{
+.new, .new_items{
     display: none;
     margin-top: 1%;
 }
@@ -407,11 +407,22 @@ hr{
     display: inline;
 }
 
+.mostrar_items{
+    display: none;
+}
+
+.mostrar_items input{
+    display: block;
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+
 #cont_categoria  .der{
     border:2px solid #ccc;
     border-radius: 1%;
     padding: 1%;
     margin-bottom: 2%; 
+    width: 50%;
 }
 
 #cont_categoria .der:hover{
@@ -443,10 +454,32 @@ hr{
     margin-top: 1%;
 }
 
-.botones2{
-    text-align: right;
-    margin-bottom: 1%;
+#cont_categoria .der form #items_nuevos{
+    width: 100%;
+    display: inline;
 }
+
+#cont_categoria .der form #items_nuevos div{
+    width: 65%;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+#cont_categoria .der form #items_nuevos div label{
+    margin-right: 2%;
+}
+
+#cont_categoria .der form #items_nuevos section{
+    width: 24%;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+#cont_categoria .der form .cont_boton{
+    width: 100%;
+    text-align: center;
+}
+
 ############## Fin Nueva Categoria e Item ######
 
 

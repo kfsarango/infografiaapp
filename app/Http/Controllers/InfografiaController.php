@@ -35,4 +35,15 @@ class InfografiaController extends Controller
         return redirect('nuevain')->with('success', 'Information has been added');
     }
 
+    public function probandodatos(Request $request)
+    {   
+
+        
+        for ($i = 0; $i < count($datos); $i++) {
+            echo $datos[$i];
+        );
+        // aqui va los datos a comparar
+        }
+    }
+
 }
