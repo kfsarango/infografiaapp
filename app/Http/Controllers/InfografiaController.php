@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Auth; 
 use InstaInfo\User;
+use InstaInfo\Categoria;
 
 class InfografiaController extends Controller
 {
@@ -56,8 +57,9 @@ class InfografiaController extends Controller
                                 ->where('usuarios_idusuario', '=', Auth::User()->id)
                                 ->orderBy('ultima_modificacion', 'desc')
                                 ->first();
-        $idInfo = $idInfografia->idinfografia;
 
+        $idInfo = $infografiaData->idinfografia;
+        dd($idInfo);
         //Recorriendo los datos del formulario de items
         $items = $request->all();
         foreach ($items as $name => $value) {
@@ -72,13 +74,7 @@ class InfografiaController extends Controller
             ]);*/
         }
 
-        
-        $json = json_encode($items);
-        $json2 = json_decode($json);
-
-
-        
-        
+    
     }
 
 }
