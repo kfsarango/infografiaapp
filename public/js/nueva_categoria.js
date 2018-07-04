@@ -17,6 +17,11 @@ $(document).ready(function(){
 
     })
 
+    $("input[name=optradio]").click(function () {    
+        $('#idcat').val($('input:radio[name=optradio]:checked').val())
+
+    });
+
     // --- Inicio agregar Reglas --- //
 	var newcampo;
 	$('#nuevo_item').click(function(){
@@ -36,8 +41,6 @@ $(document).ready(function(){
 	$('#items_nuevos').on('click', '#item_añadido', function() {
 		$(this).closest('.form-group').remove();
 	});
-
-
 });
 
 

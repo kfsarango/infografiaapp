@@ -10,7 +10,7 @@
 			<form>
 					@foreach ($categoriasAll as $categoria)
 						<div class="radio">
-							<label><input type="radio" name="optradio">{{$categoria->nombre}}</label>
+							<label><input type="radio" name="optradio" id="cate" value="{{$categoria->idcategoria}}">{{$categoria->nombre}}</label>
 						</div>
 					@endforeach
 					<section class="cnt_btn_categoria">
@@ -34,6 +34,7 @@
 			<form method="post" action="{{url('prueba')}}">
         	@csrf
 				<div id="items_nuevos">
+					<input id="idcat" type="text" >
 					<div class="form-group">
 						<label for="">Nombre:</label>
 						<input type="text" name="nombre">
