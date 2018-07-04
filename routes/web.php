@@ -12,14 +12,17 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('/home', 'HomeController@index')->name('index');
 
 Auth::routes();
 //Route::get('/','UserController@index')->name('admin');
 Route::get('/admin', 'UserController@goAdmin')->name('admin');
 Route::get('/super', 'UserController@superAdmin')->name('super');
-Route::get('/editar-p', 'UserController@perfil')->name('editar-p');
-Route::get('/plantilla1', 'UserController@plantilla1')->name('plantilla1');
-Route::get('/plantilla2', 'UserController@plantilla2')->name('plantilla2');
+Route::get('/mail', 'UserController@mail')->name('mail');
+Route::get('/edit', 'UserController@perfil')->name('edit');
+Route::post('/edit/{id}', 'UserController@updateAdmin');
+Route::get('/plantilla', 'UserController@diseño');
+
 
 
 

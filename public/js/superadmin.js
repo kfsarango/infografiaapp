@@ -1,5 +1,9 @@
 $(document).ready(function(){
-    $('.form_content').css('display','none');
+    if ($('#username').val() == '') {
+        $('.form_content').css('display','none');
+    } else {
+        $('.form_content').css('display','block');
+    }
     
     $('.newadminbtn').click(function(){
         $('#showFormAdmin').toggle('slow',function(){

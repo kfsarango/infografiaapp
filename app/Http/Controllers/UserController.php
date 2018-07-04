@@ -6,7 +6,7 @@ namespace InstaInfo\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
+use InstaInfo\User;
 class UserController extends Controller
 {
     /**
@@ -46,7 +46,33 @@ class UserController extends Controller
 
     public function perfil()
     {
-        return view('users.admin.editarPerfil');
+        return view('users.admin.edit');
 
+    }
+
+    public function diseño()
+    {
+        return view('plantillas.plantilla1');
+
+    }
+
+    public function mail()
+    {
+        return view('users.superadmin.mail');
+
+    }
+
+    public function updateAdmin(Request $request, $id)
+    {   
+        $user = User::find($id);
+        $user->nombres=$request->get('nombre');
+        $user->apellidos=$request->get('apellido');
+        $user->correo=$request->get('correo');
+        $user->telefono=$request->get('telefono');
+        $user->departamento=$request->get('departamento');
+        $user->seccion=$request->get('seccion'); 
+        $user->save();
+
+        return redirect('edit')->with('success','Information has been  deleted');
     }
 }

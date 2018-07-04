@@ -160,6 +160,7 @@ return [
         InstaInfo\Providers\EventServiceProvider::class,
         InstaInfo\Providers\RouteServiceProvider::class,
 
+
     ],
 
     /*
