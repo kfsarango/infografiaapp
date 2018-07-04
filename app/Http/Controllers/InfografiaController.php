@@ -4,7 +4,6 @@ namespace InstaInfo\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use InstaInfo\Categoria;
 
 class InfografiaController extends Controller
 {
@@ -37,8 +36,6 @@ class InfografiaController extends Controller
 
     public function probandodatos(Request $request)
     {   
-        $id_usuario = Categoria::select('idcategoria')->orderby('created_at','DESC')->first();
-        dd($id_usuario);
     }
 
 }
