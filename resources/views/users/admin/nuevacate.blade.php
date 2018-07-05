@@ -35,11 +35,8 @@
         	@csrf
 				<div id="items_nuevos">
 					<div class="form-group">
-						<p>
-							lo
-						</p>
-						<label for="asias">jaso</label>
-						<input id="idcat" type="text" >
+						
+						<input id="idcat" type="text" name="idcat">
 					</div>
 					
 					<div class="form-group">
@@ -70,7 +67,6 @@
 		</div>
 	</div>
 </section>
-
 <script src="../js/nueva_categoria.js"></script>
 
 

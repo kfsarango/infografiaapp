@@ -61,19 +61,26 @@ class InfografiaController extends Controller
         $idInfo = $infografiaData->idinfografia;
         //Recorriendo los datos del formulario de items
         $items = $request->all();
+        $cont = 0;
+        $idcategoria = $request->get('idcat');
         foreach ($items as $name => $value) {
-            print_r($name);
-            print_r($value);
-            //Insertando los items
-            /*DB::table('items')->insert([
-                'campo' => '',
-                'valor' => '',
-                'categoria_idcategoria' => '',
-                'infografias_idinfografia' => $idInfo
-            ]);*/
+            if ($cont > 1) {
+                print_r($name." - ");
+                //Insertando los items
+                DB::table('items')->insert([
+                    'campo' => $name,
+                    'valor' => $value,
+                    'categoria_idcategoria' => $idcategoria,
+                    'infografias_idinfografia' => $idInfo
+                ]);
+            }
+
+            $cont++;
+            
+            
         }
 
-    
+        return redirect('infografiaFinish')->with('categoria',$idcategoria);
     }
 
 }
