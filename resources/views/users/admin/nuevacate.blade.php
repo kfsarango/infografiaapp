@@ -42,7 +42,7 @@
 					</div>
 					
 					<div class="form-group">
-						<label for="">Nombresss:</label>
+						<label for="">Nombres:</label>
 						<input type="text" name="nombre">
 						<span id="eliminar_item">
 							eliminar

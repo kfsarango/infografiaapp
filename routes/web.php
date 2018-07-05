@@ -27,6 +27,7 @@ Route::post('/nuevacategoria', 'InfografiaController@createCategoria');
 Route::resource('catego','CategoriaController');
 Route::post('/prueba', 'InfografiaController@probandodatos');
 Route::get('/itemsc', 'InfografiaController@items');
+Route::post('/sendplantilla/{id}', 'InfografiaController@plantillaenviada');
 
 
 
