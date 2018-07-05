@@ -59,7 +59,6 @@ class InfografiaController extends Controller
                                 ->first();
 
         $idInfo = $infografiaData->idinfografia;
-        dd($idInfo);
         //Recorriendo los datos del formulario de items
         $items = $request->all();
         foreach ($items as $name => $value) {

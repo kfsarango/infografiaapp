@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     });
 
-    // --- Inicio agregar Reglas --- //
+    // --- Agregado items al formulario --- //
 	var newcampo;
 	$('#nuevo_item').click(function(){
 		$('.save').toggle('slow'),
@@ -38,9 +38,11 @@ $(document).ready(function(){
 		$('.mostrar_items').toggle('slow')
 	});
 
+
 	$('#items_nuevos').on('click', '#item_añadido', function() {
 		$(this).closest('.form-group').remove();
 	});
+
 });
 
 
