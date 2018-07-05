@@ -30,7 +30,7 @@
 		</div>
 
 		<div class="col-md-6 der" >
-			<h2>Crear Nueva Items</h2>
+			<h2>Crear Nuevos Items</h2>
 			<form method="post" action="{{url('prueba')}}">
         	@csrf
 				<div id="items_nuevos">
@@ -39,7 +39,15 @@
 					@endforeach
 					<input id="idcat" type="text" >
 					<div class="form-group">
-						<label for="">Nombre:</label>
+						<p>
+							lo
+						</p>
+						<label for="asias">jaso</label>
+						<input id="idcat" type="text" >
+					</div>
+					
+					<div class="form-group">
+						<label for="">Nombresss:</label>
 						<input type="text" name="nombre">
 						<span id="eliminar_item">
 							eliminar

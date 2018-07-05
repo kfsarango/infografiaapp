@@ -8,7 +8,8 @@ use Illuminate\Notifications\Notifiable;
 
 class Categoria extends Model
 {
-    protected $table = 'categoria';
+	protected $table = 'categoria';
+	
 	protected $fillable = [
 	    'idcategoria', 'nombre'
 	 ];

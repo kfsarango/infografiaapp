@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/home', 'HomeController@index')->name('index');
+
 Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/','UserController@index')->name('admin');
 Route::get('/admin', 'UserController@goAdmin')->name('admin');
 Route::get('/super', 'UserController@superAdmin')->name('super');
+Route::get('/mail', 'UserController@mail')->name('mail');
 Route::get('/edit', 'UserController@perfil')->name('edit');
 Route::post('/edit/{id}', 'UserController@updateAdmin');
 Route::get('/plantilla', 'UserController@diseño');

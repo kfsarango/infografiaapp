@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="box_inicial panel_completo" id="home">
+<section class="box_inicial panel_completo" id="home_page">
     <div class="box_foto cont_foto">
         <div class="box_opacidad">
         </div>
@@ -29,6 +29,9 @@
                     <a class="sus" href="#">Suscribete</a>
                 </div>
             </section>
+            <section class="cont_home" id="graficas">
+                <div class="cnt_title">
+                    <h2>Gráficas  </h2>
         </div>
     </div>
     <hr/>

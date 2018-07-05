@@ -16,6 +16,7 @@
     <script src="../js/jquery3.3.1.min.js"></script>
 
     <!-- Fonts -->
+    
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -39,15 +40,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul id="items_center">
-                    <!--li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li-->
                     <li>
                         <a href="">Home</a>
                     </li>
@@ -102,10 +94,10 @@
         @yield('content')
     </main>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        <!--CSRF proteger los formularios-->
-                                        @csrf
-                                    </form>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        <!--CSRF proteger los formularios-->
+        @csrf
+    </form>
     <footer>
         <section class="container">
             <div class="row">
@@ -210,5 +202,6 @@
         </section>
      </footer>
     <script src="../js/scriptk.js"></script>
+    <script src="../js/superadmin.js"></script>
 </body>
 </html>

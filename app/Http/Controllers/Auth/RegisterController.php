@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Mail; 
+
 class RegisterController extends Controller
 {
     /*
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/super';
 
     /**
      * Create a new controller instance.
@@ -37,7 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -50,7 +52,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'username' => 'required|string|max:25',
-            //'correo' => 'required|string|email|max:255|unique:users',
+            'correo' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -63,9 +65,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Mail::send('users.superadmin.mail', $data, function ($message) use($data){     //
+            $message->from('kleverfsarango@gmail.com', 'InstaInfo');  //
+            $message->to($data['correo']);                            //
+            $message->subject('Bienvenido');                                   //
+           });
         return User::create([
-            'nombres' => '',
-            'apellidos' => '',
+            'nombres' => 'Usuario',
+            'apellidos' => 'Admin',
             'correo' => '',
             'telefono' => '',
             'departamento' => '',

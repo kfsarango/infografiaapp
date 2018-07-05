@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use InstaInfo\Item;
 
+use Carbon\Carbon;
+use Auth; 
+use InstaInfo\User;
+use InstaInfo\Categoria;
 
 class InfografiaController extends Controller
 {
@@ -47,5 +51,37 @@ class InfografiaController extends Controller
         //$campos->getcodes()->distinct('campo');
         dd($campos);
         //echo ("<script>console.log($campos)</script>"); 
+        $date = new Carbon();
+        //creando una nueva infografia para poder guardar los items
+        /*DB::table('infografias')->insert([
+            'nombre' => '',
+            'concepto' => '',
+            'plantilla' => '',
+            'fecha_creacion' => $date,
+            'ultima_modificacion' => $date,
+            'usuarios_idusuario' => Auth::User()->id
+        ]);*/
+
+        //Recuperando ultimo id de la infografia insertada
+        $infografiaData = DB::table('infografias')
+                                ->select('idinfografia')
+                                ->where('usuarios_idusuario', '=', Auth::User()->id)
+                                ->orderBy('ultima_modificacion', 'desc')
+                                ->first();
+
+        $idInfo = $infografiaData->idinfografia;
+        //Recorriendo los datos del formulario de items
+        $items = $request->all();
+        foreach ($items as $name => $value) {
+            print_r($name);
+            print_r($value);
+            //Insertando los items
+            /*DB::table('items')->insert([
+                'campo' => '',
+                'valor' => '',
+                'categoria_idcategoria' => '',
+                'infografias_idinfografia' => $idInfo
+            ]);*/
+        }    
     }
 }

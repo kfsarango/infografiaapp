@@ -24,7 +24,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    /**/
+    
     public function goAdmin()
     {
         
@@ -36,8 +36,11 @@ class UserController extends Controller
     public function superAdmin()
     {
         $todosUsuarios = DB::table('users')->get();
-       // dd($todosUsuarios);
-        return view('users.superadmin.superadmin') ->with('todos',$todosUsuarios);
+        $suscritores = DB::table('suscritos')->get();
+        ($suscritores);
+        return view('users.superadmin.superadmin')
+        ->with('todos',$todosUsuarios)
+        ->with('suscritos',$suscritores);
 
     }
 
@@ -50,6 +53,12 @@ class UserController extends Controller
     public function diseño()
     {
         return view('plantillas.plantilla1');
+
+    }
+
+    public function mail()
+    {
+        return view('users.superadmin.mail');
 
     }
 
