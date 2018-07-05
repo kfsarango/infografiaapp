@@ -4,6 +4,8 @@ namespace InstaInfo\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use InstaInfo\Item;
+
 use Carbon\Carbon;
 use Auth; 
 use InstaInfo\User;
@@ -26,8 +28,9 @@ class InfografiaController extends Controller
     public function Categoria()
     {
         $todasCategorias = DB::table('categoria')->get();
+        $items = DB::table('items')->distinct()->select('campo')->where('categoria_idcategoria', '=', 4)->get();
        // dd($todosUsuarios);
-        return view('users.admin.nuevacate') ->with('categoriasAll',$todasCategorias); 
+        return view('users.admin.nuevacate') ->with('categoriasAll',$todasCategorias)->with('campos',$items); 
     }
 
     public function createCategoria(Request $request)
@@ -35,21 +38,27 @@ class InfografiaController extends Controller
         $id = DB::table('categoria')->insertGetId(
             ['nombre' =>$request->get('nom')]
         );
-        return redirect('nuevain')->with('success', 'Information has been added');
+
+        
+
+        return redirect('nuevain');
+
     }
 
     public function probandodatos(Request $request)
-    {   
+    {
+        $campos = DB::table('items')->select('campo')->distinct('campo')->get();
+ 
         $date = new Carbon();
         //creando una nueva infografia para poder guardar los items
-        /*DB::table('infografias')->insert([
+        DB::table('infografias')->insert([
             'nombre' => '',
             'concepto' => '',
             'plantilla' => '',
             'fecha_creacion' => $date,
             'ultima_modificacion' => $date,
             'usuarios_idusuario' => Auth::User()->id
-        ]);*/
+        ]);
 
         //Recuperando ultimo id de la infografia insertada
         $infografiaData = DB::table('infografias')
@@ -80,7 +89,7 @@ class InfografiaController extends Controller
             
         }
 
-        return redirect('infografiaFinish')->with('categoria',$idcategoria);
+        return redirect('users.admin.infografiaFinish')->with('infografia',$idInfo);
+              
     }
-
 }

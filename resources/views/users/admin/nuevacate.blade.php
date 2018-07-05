@@ -34,8 +34,10 @@
 			<form method="post" action="{{url('prueba')}}">
         	@csrf
 				<div id="items_nuevos">
+					@foreach ($campos as $cam)
+						<div>{{$cam->campo}}</div>
+					@endforeach
 					<div class="form-group">
-						
 						<input id="idcat" type="text" name="idcat">
 					</div>
 					
