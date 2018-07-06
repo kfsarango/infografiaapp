@@ -101,12 +101,14 @@ class InfografiaController extends Controller
         $info->ultima_modificacion=$request->get('datemodificacion');
         $info->save();
 
+        $infografia = Infografia::find($id);
+        $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
 
         if($request->get('numplan')==1){
-            return view('plantillas.plantilla1');
+            return view('plantillas.plantilla1')->with('items',$items);
         }else{
             if($request->get('numplan')==2){
-                return view('plantillas.plantilla2');
+                return view('plantillas.plantilla2')->with('items',$items);
             }            
         }
 
