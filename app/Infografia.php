@@ -10,4 +10,8 @@ class Infografia extends Model
 	protected $fillable = [
 	    'idinfografia', 'nombre', 'concepto', 'plantilla', 'fecha_creacion', 'ultima_modificacion', 'usuarios_idusuario'
 	 ];
+
+	protected $primaryKey = 'idinfografia';
+	
+	public $timestamps = false;
 }

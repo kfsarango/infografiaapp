@@ -64,8 +64,16 @@
 						<input id="idcat" type="text" name="idcat" hidden>
 					</div>
 					<div class="form-group">
+<<<<<<< HEAD
 						<label class="col-sm-6" for="campo1">Campo 1:</label>
 						<input class="col-sm-6 form-control"type="text" name="campo1">
+=======
+						<label for="">Nombres:</label>
+						<input type="text" name="nombre">
+						<span id="eliminar_item">
+							eliminar
+						</span>
+>>>>>>> 79fb46daeb5089ce6de3b5a2585410f5f5cf1461
 					</div>
 
 					

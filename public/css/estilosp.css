@@ -342,8 +342,7 @@ hr{
     margin: auto;
 }
 
-############## Parte edicion admin ######
-
+/*Parte de edicion admin*/
 #cont_p{
     width: 100%;
 }
@@ -370,11 +369,9 @@ hr{
 .formG .formC button{
     margin-left: 20%;
 }
+/*Fin parte de edicion*/
 
-############## Fin Parte edicion ######
-
-############## Parte Nueva Categoria e Item ######
-
+/*Parte de Categoria e Item*/
 #cont_categoria{
     width: 100%;
 }
@@ -440,7 +437,6 @@ hr{
     width: 100%;
     text-align: center;
     font-family: sans-serif;
-
 }
 
 #cont_categoria .Item .datoder{
@@ -457,7 +453,7 @@ hr{
 }
 
 #cont_categoria .der form #items_nuevos{
-    width: 100%;
+    width: 90%;
     display: inline;
 }
 
@@ -481,11 +477,9 @@ hr{
     width: 100%;
     text-align: center;
 }
+/*Fin parte de Catgeoria e Item*/
 
-############## Fin Nueva Categoria e Item ######
-
-
-############# Modal #########
+/*Parte de Modal*/
 .contenedor-modal {
   position: absolute;
   width: 100%;
@@ -513,8 +507,48 @@ hr{
     width: 100%;
     
 }
+/*Fin parte de modal*/
 
-###########· Fin Modal ######
+/*Parte de infografiaFinish*/
+#cont_finish{
+    width: 100%;
+}
+
+#cont_finish #idinfografia{
+    display: none;
+}
+
+#cont_finish .finish_info .fechas{
+    display: inline;
+    margin-left: 30%;
+}
+
+#cont_finish .finish_info .fechas .for{
+    display: inline-block;
+    margin-bottom: 2%;
+}
+
+#cont_finish .finish_info .fotos{
+    display: inline;
+    margin-left: 16%;
+}
+
+#cont_finish .finish_info .fotos .fo{
+    display: inline-block;
+    text-align: center;
+    margin: 2%;
+}
+
+#cont_finish .finish_info .fotos .fo div:hover{
+    transform: scale(1.4);
+}
+
+#cont_finish .form-group{
+    margin-left: 30%;
+}
+
+
+/*Fin parte de infografiaFinish*/
 
 footer{
   width: 100%;

@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use Auth; 
 use InstaInfo\User;
 use InstaInfo\Categoria;
+use InstaInfo\Infografia;
+
 
 class InfografiaController extends Controller
 {
@@ -38,17 +40,14 @@ class InfografiaController extends Controller
         $id = DB::table('categoria')->insertGetId(
             ['nombre' =>$request->get('nom')]
         );
-
-        
-
         return redirect('nuevain');
 
     }
 
     public function probandodatos(Request $request)
     {
+        /*
         $campos = DB::table('items')->select('campo')->distinct('campo')->get();
- 
         $date = new Carbon();
         //creando una nueva infografia para poder guardar los items
         DB::table('infografias')->insert([
@@ -59,6 +58,8 @@ class InfografiaController extends Controller
             'ultima_modificacion' => $date,
             'usuarios_idusuario' => Auth::User()->id
         ]);
+        */
+        
 
         //Recuperando ultimo id de la infografia insertada
         $infografiaData = DB::table('infografias')
@@ -68,6 +69,7 @@ class InfografiaController extends Controller
                                 ->first();
 
         $idInfo = $infografiaData->idinfografia;
+        /*
         //Recorriendo los datos del formulario de items
         $items = $request->all();
         $cont = 0;
@@ -83,13 +85,10 @@ class InfografiaController extends Controller
                     'infografias_idinfografia' => $idInfo
                 ]);
             }
-
             $cont++;
-            
-            
-        }
+        }*/
 
-        return redirect('users.admin.infografiaFinish')->with('infografia',$idInfo);
+        return view('users.admin.infografiaFinish')->with('infografia',$idInfo);
               
     }
 
@@ -97,5 +96,26 @@ class InfografiaController extends Controller
     public function getItemsOfCategory($idcategory){
         $msg = 'hola';
         return Response($msg);
+
+    }
+    
+    public function plantillaenviada(Request $request, $id)
+    {   
+        $info = Infografia::find($id);
+        $info->nombre=$request->get('nombre');
+        $info->concepto=$request->get('detalle');
+        $info->plantilla=$request->get('numplan');
+        $info->ultima_modificacion=$request->get('datemodificacion');
+        $info->save();
+
+
+        if($request->get('numplan')==1){
+            return view('plantillas.plantilla1');
+        }else{
+            if($request->get('numplan')==2){
+                return view('plantillas.plantilla2');
+            }            
+        }
+
     }
 }
