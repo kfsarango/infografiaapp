@@ -28,6 +28,8 @@ Route::resource('catego','CategoriaController');
 Route::post('/prueba', 'InfografiaController@probandodatos');
 Route::get('/itemsc', 'InfografiaController@items');
 
+//Ajax
+Route::get('/getitems', 'InfografiaController@getItemsOfCategory');
 
 
 

@@ -92,4 +92,10 @@ class InfografiaController extends Controller
         return redirect('users.admin.infografiaFinish')->with('infografia',$idInfo);
               
     }
+
+
+    public function getItemsOfCategory($idcategory){
+        $msg = 'hola';
+        return Response($msg);
+    }
 }

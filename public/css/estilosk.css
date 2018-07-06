@@ -212,6 +212,61 @@ html, body {
         #cont_super_admin .tab-content .users_content ul li .drop:hover {
           color: #ff3333; }
 
+#cont_categoria {
+  min-height: 38em; }
+  #cont_categoria #cnt-category {
+    border-right: 1px solid #ccc; }
+    #cont_categoria #cnt-category label {
+      display: block; }
+      #cont_categoria #cnt-category label input {
+        margin-right: 2%; }
+  #cont_categoria #cnt-data form {
+    width: 70%;
+    margin: auto;
+    margin-top: 3%; }
+    #cont_categoria #cnt-data form #items_nuevos {
+      width: 100%;
+      overflow: hidden; }
+      #cont_categoria #cnt-data form #items_nuevos .form-group {
+        margin: 1% 0; }
+        #cont_categoria #cnt-data form #items_nuevos .form-group i {
+          position: absolute;
+          color: #ff8080;
+          right: 4rem;
+          font-size: 1.5rem; }
+        #cont_categoria #cnt-data form #items_nuevos .form-group i:hover {
+          color: #ff0000;
+          cursor: pointer; }
+  #cont_categoria #cnt-data .cnt_btn_categoria {
+    width: 100%;
+    margin-bottom: 2%;
+    overflow: hidden; }
+    #cont_categoria #cnt-data .cnt_btn_categoria span {
+      float: right; }
+  #cont_categoria #cnt-data .cont_boton {
+    margin-top: 2%;
+    width: 100%;
+    text-align: center; }
+  #cont_categoria .new {
+    width: 70%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 0.3rem #ccc;
+    overflow: hidden; }
+    #cont_categoria .new h5 {
+      padding: 10px 0; }
+    #cont_categoria .new #btns-cnt {
+      width: 50%;
+      margin: auto;
+      margin-top: 2%; }
+      #cont_categoria .new #btns-cnt .btn1 {
+        float: left; }
+      #cont_categoria .new #btns-cnt .btn2 {
+        float: right; }
+  #cont_categoria .new:hover {
+    box-shadow: 0 0 0.3rem #66a3ff; }
+
 footer {
   width: 100%;
   background-color: #0d0d26;
