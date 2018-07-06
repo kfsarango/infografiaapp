@@ -17,22 +17,17 @@ $(document).ready(function(){
 
     })
 
-    $("input[name=optradio]").click(function () {    
-        $('#idcat').val($('input:radio[name=optradio]:checked').val())
-
-    });
+    
 
     // --- Agregado items al formulario --- //
 	var newcampo;
 	$('#nuevo_item').click(function(){
 		$('.save').toggle('slow'),
 		newcampo = '<div class="form-group">'+
-						'<label for="">'+$('#nombre').val()+':</label>'+
-						'<input type="text" name="'+$('#nombre').val()+'">'+
-						'<span id="item_añadido">'+
-							'eliminar'+
-						'</span>'+
-					'</div>';
+					'<label class="col-sm-6" for="">'+$('#nombre').val()+':</label>'+
+					'<input class="col-sm-6 form-control"type="text" name="'+$('#nombre').val()+'">'+
+					'<i class="fas fa-trash-alt" id="item_añadido"></i>'+
+				'</div>';
 		$('#items_nuevos').append(newcampo)
 
 		$('.mostrar_items').toggle('slow')

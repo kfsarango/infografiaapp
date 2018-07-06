@@ -92,6 +92,13 @@ class InfografiaController extends Controller
               
     }
 
+
+    public function getItemsOfCategory($idcategory){
+        $msg = 'hola';
+        return Response($msg);
+
+    }
+    
     public function plantillaenviada(Request $request, $id)
     {   
         $info = Infografia::find($id);

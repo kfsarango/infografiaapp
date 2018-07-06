@@ -111,7 +111,7 @@
 						<h3>Super Administradores</h3>
 						<ul>
 							@foreach ($todos as $miData)
-								@if($miData->tipousuario == 1)
+								@if($miData->tipousuario == 2)
 									<li>
 										@ {{$miData->username}}
 
