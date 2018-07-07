@@ -30,8 +30,6 @@ Route::get('/itemsc', 'InfografiaController@items');
 Route::post('/sendplantilla/{id}', 'InfografiaController@plantillaenviada');
 Route::post('/editarplantilla/{id}', 'InfografiaController@plantillaeditar');
 
-//Ajax
-Route::get('/getitems', 'InfografiaController@getItemsOfCategory');
 
 
 

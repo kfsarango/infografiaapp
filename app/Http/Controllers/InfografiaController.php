@@ -94,7 +94,8 @@ class InfografiaController extends Controller
 
 
     public function getItemsOfCategory($idcategory){
-        $msg = 'hola';
+        //dd("hola");
+        $msg = {'hola'};
         return Response($msg);
 
     }
@@ -110,14 +111,9 @@ class InfografiaController extends Controller
 
         $infografia = Infografia::find($id);
         $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
-
-        if($request->get('numplan')==1){
-            return view('plantillas.plantilla1')->with('items',$items);
-        }else{
-            if($request->get('numplan')==2){
-                return view('plantillas.plantilla2')->with('items',$items);
-            }            
-        }
+        $numT=$request->get('numplan');
+        $nameTemplate= 'plantillas.plantilla'.$numT;
+        return view($nameTemplate)->with('items',$items);
 
     }
 }
