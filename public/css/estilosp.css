@@ -550,6 +550,19 @@ hr{
 
 /*Fin parte de infografiaFinish*/
 
+
+
+
+/* Parte del mapa */
+#map{
+    width:400px;
+    height:400px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+/* Fin parte del mapa */
+
 footer{
   width: 100%;
   overflow: hidden;

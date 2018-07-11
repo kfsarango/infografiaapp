@@ -95,7 +95,7 @@ class InfografiaController extends Controller
 
     public function getItemsOfCategory($idcategory){
         //dd("hola");
-        $msg = {'hola'};
+        
         return Response($msg);
 
     }
