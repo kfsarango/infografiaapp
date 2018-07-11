@@ -60,5 +60,8 @@ class Kernel extends HttpKernel
         'guest' => \InstaInfo\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'notuseradmin' => \InstaInfo\Http\Middleware\UserAdminMiddleware::class,
+        'notsuperadmin' => \InstaInfo\Http\Middleware\SuperAdminMiddleware::class,
+        
     ];
 }
