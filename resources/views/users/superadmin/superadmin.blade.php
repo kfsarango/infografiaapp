@@ -97,7 +97,7 @@
 											<i class="far fa-trash-alt"></i>	
 										</a>
 
-										<a href="#" class="edit">
+										<a href="{{url('superadmin/edit-user')}}{{'/'}}{{$miData->id}}" class="edit">
 												<i class="far fa-edit"></i>
 										</a>
 									</li>									

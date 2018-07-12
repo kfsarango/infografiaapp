@@ -25,14 +25,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function goAdmin()
-    {
-        
-        $tipoUsuarios = DB::table('tipousuarios')->get();
-        //dd($tipoUsuarios);
-        return view('users.admin.admin')
-        ->with('tipos',$tipoUsuarios);
-    }
+    // ********************************* Usuario SuperAdministrador Metodos ********************************* //
+
+    // ---- Ir a la pagina del SuperAdmistrador ---- //
     public function superAdmin()
     {
         $todosUsuarios = DB::table('users')->get();
@@ -43,6 +38,33 @@ class UserController extends Controller
         ->with('suscritos',$suscritores);
 
     }
+
+    // ---- El SuperAdmistrador va a editar un usuario  ---- // 
+    public function goEditUser($id)
+    {
+        return view('users.superadmin.edituser');
+
+    }
+
+    // ---- Vista que utiliza el SuperAdmistrador para enviar correos  ---- // 
+    public function mail()
+    {
+        return view('users.superadmin.mail');
+
+    }
+
+
+    // ********************************* Usuario Administrador Metodos ********************************* //
+    public function goAdmin()
+    {
+        
+        $tipoUsuarios = DB::table('tipousuarios')->get();
+        //dd($tipoUsuarios);
+        return view('users.admin.admin')
+        ->with('tipos',$tipoUsuarios);
+    }
+
+
 
     public function perfil()
     {
@@ -56,11 +78,7 @@ class UserController extends Controller
 
     }
 
-    public function mail()
-    {
-        return view('users.superadmin.mail');
-
-    }
+    
 
     public function updateAdmin(Request $request, $id)
     {   
