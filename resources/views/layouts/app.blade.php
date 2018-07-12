@@ -13,7 +13,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="../js/jquery3.3.1.min.js"></script>
+    <script src="../../js/jquery3.3.1.min.js"></script>
 
     <!-- Fonts -->
     
@@ -24,9 +24,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      <link href="{{ asset('css/stylesL.css') }}" rel="stylesheet">
-    <link href="../css/estilosk.css" rel="stylesheet">
-    <link href="../css/estilosp.css" rel="stylesheet">
-    <link href="../css/stylesL.css" rel="stylesheet">
+    <link href="../../css/estilosk.css" rel="stylesheet">
+    <link href="../../css/estilosp.css" rel="stylesheet">
+    <link href="../../css/stylesL.css" rel="stylesheet">
 </head>
 <body>
     <nav class="encabezado navbar navbar-expand-md navbar-light navbar-laravel">
@@ -134,17 +134,17 @@
                 <div class="col-md-6">
                     <div class="col-md-12">
                             <figure>
-                                <img src="../img/logos/utpl.png" alt="Logo footer">
+                                <img src="../../img/logos/utpl.png" alt="Logo footer">
                             </figure>
                             <div class="row" id="cnt_2_logos">
                                 <div class="col-md-6">
                                     <figure>
-                                        <img src="../img/logos/medialab.png" alt="Logo footer">
+                                        <img src="../../img/logos/medialab.png" alt="Logo footer">
                                     </figure>
                                 </div>
                                 <div class="col-md-6">
                                         <figure>
-                                            <img src="../img/logos/taw.png" alt="Logo footer">
+                                            <img src="../../img/logos/taw.png" alt="Logo footer">
                                         </figure>
                                     </div>
                             </div>
@@ -165,7 +165,7 @@
                             </div>
                             <div class="cnt_img">
                                 <figure>
-                                    <img src="../img/equipo/klever.jpg" alt="Img Profile">
+                                    <img src="../../img/equipo/klever.jpg" alt="Img Profile">
                                 </figure>
                             </div>   
                         </li>
@@ -179,7 +179,7 @@
                             </div>
                             <div class="cnt_img">
                                 <figure>
-                                    <img src="../img/equipo/liz.jpg" alt="Img Profile">
+                                    <img src="../../img/equipo/liz.jpg" alt="Img Profile">
                                 </figure>
                             </div> 
                         </li>
@@ -193,7 +193,7 @@
                             </div>
                             <div class="cnt_img">
                                 <figure>
-                                    <img src="../img/equipo/paul.jpg" alt="Img Profile">
+                                    <img src="../../img/equipo/paul.jpg" alt="Img Profile">
                                 </figure>
                             </div>
                         </li>
@@ -202,7 +202,7 @@
             </div>
         </section>
      </footer>
-    <script src="../js/scriptk.js"></script>
-    <script src="../js/superadmin.js"></script>
+    <script src="../../js/scriptk.js"></script>
+    <script src="../../js/superadmin.js"></script>
 </body>
 </html>
