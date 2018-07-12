@@ -46,7 +46,11 @@ html, body {
     .encabezado #logeado a {
       float: right; }
     .encabezado #logeado .dropdown-item {
-      color: #ccc !important; }
+      color: #5f5f5f !important; }
+    .encabezado #logeado .dropdown-item:hover {
+      color: #000 !important;
+      background-color: #ccc;
+      border-right: 6px solid #0066ff; }
 
 .encabezado-aux, .encabezado-nothome {
   background: #482cbf;
