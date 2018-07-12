@@ -134,17 +134,17 @@
                 <div class="col-md-6">
                     <div class="col-md-12">
                             <figure>
-                                <img src="img/logos/utpl.png" alt="Logo footer">
+                                <img src="../img/logos/utpl.png" alt="Logo footer">
                             </figure>
                             <div class="row" id="cnt_2_logos">
                                 <div class="col-md-6">
                                     <figure>
-                                        <img src="img/logos/medialab.png" alt="Logo footer">
+                                        <img src="../img/logos/medialab.png" alt="Logo footer">
                                     </figure>
                                 </div>
                                 <div class="col-md-6">
                                         <figure>
-                                            <img src="img/logos/taw.png" alt="Logo footer">
+                                            <img src="../img/logos/taw.png" alt="Logo footer">
                                         </figure>
                                     </div>
                             </div>
