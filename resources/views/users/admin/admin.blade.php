@@ -16,7 +16,6 @@
 		</div>
 	</div>
 	<ul>
-		
 	</ul>
 </section>
 
