@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \InstaInfo\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \InstaInfo\Http\Middleware\TrustProxies::class,
+        \Barryvdh\Cors\HandleCors::class,
     ];
 
     /**

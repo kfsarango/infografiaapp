@@ -55,28 +55,11 @@
 			</div>
 			<form method="post" class="form-inline" action="{{url('prueba')}}">
         	@csrf
-				<div id="items_nuevos">
-					@foreach ($campos as $cam)
-						<div>{{$cam->campo}}</div>
-					@endforeach
-					
+				<div id="items_nuevos">					
 					<div class="form-group">
 						<input id="idcat" type="text" name="idcat" hidden>
 					</div>
-					<div class="form-group">
-<<<<<<< HEAD
-						<label class="col-sm-6" for="campo1">Campo 1:</label>
-						<input class="col-sm-6 form-control"type="text" name="campo1">
-=======
-						<label for="">Nombres:</label>
-						<input type="text" name="nombre">
-						<span id="eliminar_item">
-							eliminar
-						</span>
->>>>>>> 79fb46daeb5089ce6de3b5a2585410f5f5cf1461
-					</div>
-
-					
+						
 				</div>
 
 				<div class="cont_boton">
@@ -97,10 +80,10 @@
 			id = $('input:radio[name=optradio]:checked').val();
 			$('#idcat').val(id)
 			$.ajax({
-				method: 'POST', // Type of response and matches what we said in the route
+				method: 'GET', // Type of response and matches what we said in the route
 				url: 'http://localhost:8000/getitems', // This is the url we gave in the route
 				dataType: 'json',
-				data: {'id' : id}, // a JSON object to send back
+				//data: {'id' : id}, // a JSON object to send back
 				success: function(response){ // What to do if we succeed
 					console.log(response); 
 				},

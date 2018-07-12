@@ -26,6 +26,7 @@
      <link href="{{ asset('css/stylesL.css') }}" rel="stylesheet">
     <link href="../css/estilosk.css" rel="stylesheet">
     <link href="../css/estilosp.css" rel="stylesheet">
+    <link href="../css/stylesL.css" rel="stylesheet">
 </head>
 <body>
     <nav class="encabezado navbar navbar-expand-md navbar-light navbar-laravel">
