@@ -53,7 +53,7 @@
 					<button type="button" class="btn btn-sm btn-default btn2">Cancelar</button>
 				</div>	
 			</div>
-			<form method="post" class="form-inline" action="{{url('prueba')}}">
+			<form method="post" class="form-inline" action="{{url('/useradmin/prueba')}}">
         	@csrf
 				<div id="items_nuevos">					
 					<div class="form-group">

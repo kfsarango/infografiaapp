@@ -31,7 +31,7 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
     Route::get('/nuevain', 'InfografiaController@Categoria')->name('nuevain');
     Route::post('/nuevacategoria', 'InfografiaController@createCategoria');
     Route::resource('catego','CategoriaController');
-    Route::post('/prueba', 'InfografiaController@probandodatos');
+    Route::post('/prueba', 'InfografiaController@probandodatos')->name('prueba');
     Route::get('/itemsc', 'InfografiaController@items');
     Route::post('/sendplantilla/{id}', 'InfografiaController@plantillaenviada');
 
