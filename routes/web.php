@@ -33,7 +33,10 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
     Route::resource('catego','CategoriaController');
     Route::post('/prueba', 'InfografiaController@probandodatos')->name('prueba');
     Route::get('/itemsc', 'InfografiaController@items');
-    Route::post('/sendplantilla/{id}', 'InfografiaController@plantillaenviada');
+    Route::post('/sendplantilla/{id}', 'InfografiaController@plantillaenviada')->name('sendplantilla');
+    Route::get('/updateInfo{id}', 'InfografiaController@updateInfografia')->name('updateInfo');
+
+
 
     //Ajax
     Route::get('/getitems', 'InfografiaController@getItemsOfCategory');
