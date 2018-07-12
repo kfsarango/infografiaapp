@@ -560,19 +560,8 @@ hr{
     margin-left: 2%;
     margin-bottom: 2%;
 }
-
 /* Fin parte del mapa */
 
-footer{
-  width: 100%;
-  overflow: hidden;
-  background-color: #0d0d26;
-  color: #fff;
-  background-image: url("../image/pie-logos.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: inline-block;
-}
 
 #col{
     width: 32%;
