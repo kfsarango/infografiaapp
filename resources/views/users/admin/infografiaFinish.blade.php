@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form  method="post" class="form-horizontal finish_info" action="{{url('sendplantilla')}}/{{$infografia}}">
+                <form  method="post" class="form-horizontal finish_info" action="{{url('/useradmin/sendplantilla')}}/{{$infografia}}">
                 @csrf  
                     <legend class="text-center header"><i class="fa fa-list bigicon"> INFORMACIÓN DE LA INFOGRAFÍA</i></legend>
                     <div class="form-group">
