@@ -371,6 +371,15 @@ hr{
 }
 /*Fin parte de edicion*/
 
+
+/*Parte de canvas*/
+.general{
+    width: 100%;
+    background: red;
+    position: relative;
+}
+/*Fin parte de canvas*/
+
 /*Parte de Admin*/
 main{
  
