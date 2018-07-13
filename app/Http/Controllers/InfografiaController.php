@@ -4,11 +4,12 @@ namespace InstaInfo\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use InstaInfo\Item;
+
 
 use Carbon\Carbon;
 use Auth; 
 use InstaInfo\User;
+use InstaInfo\Item;
 use InstaInfo\Categoria;
 use InstaInfo\Infografia;
 
@@ -30,8 +31,7 @@ class InfografiaController extends Controller
     public function Categoria()
     {
         $todasCategorias = DB::table('categoria')->get();
-        $items = DB::table('items')->distinct()->select('campo')->where('categoria_idcategoria', '=', 4)->get();
-       // dd($todosUsuarios);
+        $items = DB::table('items')->distinct()->select('campo')->where('categoria_idcategoria', '=', 2)->get();
         return view('users.admin.nuevacate') ->with('categoriasAll',$todasCategorias)->with('campos',$items); 
     }
 
@@ -40,6 +40,7 @@ class InfografiaController extends Controller
         $id = DB::table('categoria')->insertGetId(
             ['nombre' =>$request->get('nom')]
         );
+        
         return redirect('nuevain');
 
     }
@@ -93,10 +94,11 @@ class InfografiaController extends Controller
     }
 
 
-    public function getItemsOfCategory($idcategory){
-        //dd("hola");
-        
-        return Response($msg);
+    public function getItemsOfCategory(Request $request, $id){
+        if ($request->ajax()) {
+            $items = DB::table('items')->distinct()->select('campo')->where('categoria_idcategoria', '=', $id)->get();
+            return response()->json($items);
+        }
 
     }
     

@@ -1,6 +1,6 @@
 $(document).ready(function(){ 
-  
-    
+	//boton continuar inabilitado
+    $('#btnContinuar').prop('disabled', true);
 
     $('#ocultar_boton').click(function(){
         
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		$('.save').toggle('slow'),
 		newcampo = '<div class="form-group">'+
 					'<label class="col-sm-6" for="">'+$('#nombre').val()+':</label>'+
-					'<input class="col-sm-6 form-control"type="text" name="'+$('#nombre').val()+'">'+
+					'<input class="col-sm-6 form-control"type="text" name="'+$('#nombre').val()+'"required>'+
 					'<i class="fas fa-trash-alt" id="item_añadido"></i>'+
 				'</div>';
 		$('#items_nuevos').append(newcampo)

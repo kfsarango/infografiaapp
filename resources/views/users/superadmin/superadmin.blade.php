@@ -93,7 +93,7 @@
 									<li>
 										@ {{$miData->username}}
 
-										<a href="#" class="drop">
+										<a href="{{url('superadmin/drop-user')}}{{'/'}}{{$miData->id}}" class="drop">
 											<i class="far fa-trash-alt"></i>	
 										</a>
 
