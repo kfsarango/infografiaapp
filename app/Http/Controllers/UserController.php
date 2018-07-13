@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use InstaInfo\User;
+use InstaInfo\Item;
+
+use Carbon\Carbon;
+use Auth; 
+use InstaInfo\Categoria;
+use InstaInfo\Infografia;
+
 class UserController extends Controller
 {
     /**
@@ -82,11 +89,12 @@ class UserController extends Controller
     // ********************************* Usuario Administrador Metodos ********************************* //
     public function goAdmin()
     {
-        
         $tipoUsuarios = DB::table('tipousuarios')->get();
         //dd($tipoUsuarios);
-        return view('users.admin.admin')
-        ->with('tipos',$tipoUsuarios);
+        $info = DB::table('infografias')->get();
+        //dd($info);
+
+        return view('users.admin.admin')->with('tipos',$tipoUsuarios)->with('dataInfo',$info);
     }
 
 
