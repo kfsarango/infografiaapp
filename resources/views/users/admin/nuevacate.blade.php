@@ -55,7 +55,7 @@
         	@csrf
 				<div id="items_nuevos">					
 					<div class="form-group">
-						<input id="idcat" type="text" name="idcat" hidden>
+						<input id="idcat" type="text" name="idcat" hidden required>
 					</div>
 						
 				</div>
