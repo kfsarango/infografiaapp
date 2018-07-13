@@ -63,7 +63,7 @@
 				</div>
 
 				<div class="cont_boton">
-					<button type="submit" class="btn btn-success save">Continuar</button>
+					<button type="submit" class="btn btn-success save" id="btnContinuar">Continuar</button>
 				</div>
 					
 
@@ -78,20 +78,26 @@
 		var id;
 		$("input[name=optradio]").click(function () {
 			id = $('input:radio[name=optradio]:checked').val();
-			$('#idcat').val(id)
-			$.ajax({
-				method: 'GET', // Type of response and matches what we said in the route
-				url: 'http://localhost:8000/getitems', // This is the url we gave in the route
-				dataType: 'json',
-				//data: {'id' : id}, // a JSON object to send back
-				success: function(response){ // What to do if we succeed
-					console.log(response); 
-				},
-				error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-					console.log(JSON.stringify(jqXHR));
-					console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-				}
-			});
+			$.get("getitems/"+id+"",function(response){
+					newcampo = '';
+					$('#items_nuevos').empty();
+					console.log('iendo');
+					if(response.length > 0){
+						$('#btnContinuar').prop('disabled', false);
+					}else{
+						$('#btnContinuar').prop('disabled', true);
+					}
+                    for (var i = 0; i < response.length; i++) {
+						console.log(response[i].campo);
+						newcampo += '<div class="form-group">'+
+									'<label class="col-sm-6" for="">'+response[i].campo+':</label>'+
+									'<input class="col-sm-6 form-control"type="text" name="'+response[i].campo+'" required>'+
+									'<i class="fas fa-trash-alt" id="item_añadido"></i>'+
+								'</div>';
+					}
+					$('#items_nuevos').append(newcampo);
+					
+                });
     	})
 	})
 </script>

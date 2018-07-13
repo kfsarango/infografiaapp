@@ -20,6 +20,8 @@ Route::group(['prefix'=>'superadmin', 'middleware' => 'notsuperadmin'], function
     Route::get('/super', 'UserController@superAdmin')->name('super');
     Route::get('/mail', 'UserController@mail')->name('mail');
     Route::get('/edit-user/{id}', 'UserController@goEditUser');
+    Route::get('/drop-user/{id}', 'UserController@dropUserAdmin');
+    Route::post('/go-edit', 'UserController@updateUserAdmin');
 
 });
 
@@ -39,7 +41,7 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
 
 
     //Ajax
-    Route::get('/getitems', 'InfografiaController@getItemsOfCategory');
+    Route::get('/getitems/{id}', 'InfografiaController@getItemsOfCategory');
 });
 
 
