@@ -2,7 +2,7 @@
 @section('content')
 <div class="box_aux"></div>
 <section class="container" id="cnt_superadmin">
-	@include('flash::message')
+@include('flash::message')
 	<div class="row">
 		<div class="col-md-12" id="cont_super_admin">
 			<ul class="nav nav-tabs">

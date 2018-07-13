@@ -438,15 +438,6 @@ main{
     display: inline;
 }
 
-.mostrar_items{
-    display: none;
-}
-
-.mostrar_items input{
-    display: block;
-    margin-bottom: 2%;
-    margin-left: 2%;
-}
 
 #cont_categoria  .der{
     border:2px solid #ccc;

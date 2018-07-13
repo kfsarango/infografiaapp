@@ -241,6 +241,8 @@ html, body {
       overflow: hidden; }
       #cont_categoria #cnt-data form #items_nuevos .form-group {
         margin: 1% 0; }
+        #cont_categoria #cnt-data form #items_nuevos .form-group label {
+          float: left; }
         #cont_categoria #cnt-data form #items_nuevos .form-group i {
           position: absolute;
           color: #ff8080;

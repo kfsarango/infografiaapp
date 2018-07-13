@@ -75,8 +75,24 @@ class UserController extends Controller
     // ---- El SuperAdmistrador actualiza los datos de un usuario  ---- // 
     public function updateUserAdmin( Request $request)
     {
-        dd("hola");
-    }
+      // dd($request->all());
+       $user = User::find($request->get('id'));
+        $user->nombres=$request->get('name');
+        $user->apellidos=$request->get('lastname');
+        $user->correo=$request->get('mail');
+        $user->telefono=$request->get('phone');
+        $user->departamento=$request->get('department');
+        $user->seccion=$request->get('section'); 
+        $user->save();
+        $todosUsuarios = DB::table('users')->get();
+        $suscritores = DB::table('suscritos')->get();
+        flash('Se ha actualizado', 'success');
+
+        return view('users.superadmin.superadmin')
+        ->with('todos',$todosUsuarios)
+        ->with('suscritos',$suscritores);
+
+    }   
 
     // ---- Vista que utiliza el SuperAdmistrador para enviar correos  ---- // 
     public function mail()

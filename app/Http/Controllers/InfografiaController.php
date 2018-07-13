@@ -40,8 +40,8 @@ class InfografiaController extends Controller
         $id = DB::table('categoria')->insertGetId(
             ['nombre' =>$request->get('nom')]
         );
-        
-        return redirect('nuevain');
+        flash('Se ha creado una nueva categoría', 'info');
+        return redirect('/useradmin/nuevain');
 
     }
 
