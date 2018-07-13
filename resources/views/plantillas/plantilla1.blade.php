@@ -143,16 +143,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 </script>  
 
 <script>
-	var canvas = new fabric.Canvas('plantilla1');
+	var canvas = new fabric.Canvas('general');
 	// Define an array with all fonts
 	var fonts = ["Pacifico", "VT323", "Quicksand", "Inconsolata"];
 	var dato=document.getElementById("Nro_muertos").value;
 
 	var textbox = new fabric.Textbox('Lorum ipsum dolor sit amet', {
-	left: 50,
-	top: 50,
-	width: 150,
-	fontSize: 20
+
 	});
 	canvas.add(textbox).setActiveObject(textbox);
 	fonts.unshift('Times New Roman');
