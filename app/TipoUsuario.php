@@ -10,4 +10,8 @@ class TipoUsuario extends Model
 	protected $fillable = [
 	    'idtipouser', 'tipo'
 	 ];
+
+	 protected $primaryKey = 'idtipouser';
+	
+	public $timestamps = false;
 }

@@ -8,10 +8,9 @@
     @endforeach
     
     <div>
-        <button>Text</button>
-    </div>
-</section>
+    
+    <span class="glyphicon">&#xe051;</span>
+    
 
-<section>
-    esta d eprueba
+    </div>
 </section>

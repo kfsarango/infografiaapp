@@ -114,11 +114,7 @@
 
                     <li>Paul Cuenca | pacuenca@utpl.edu.ec | <i class="far fa-envelope"></i><a href="https://www.facebook.com/paulandres.cuencamacas" target="_blank"><img alt="siguenos en facebook" height="32" src="http://2.bp.blogspot.com/-q_Tm1PpPfHo/UiXnJo5l-VI/AAAAAAAABzU/MKdrVYZjF0c/s1600/face.png" title="siguenos en facebook" width="32" /></a> <i class="fab fa-facebook-square"></i></a></li>
                     <br>
-
-                     
-
                     <li>Lizbeth Pacheco | lcpacheco1@utpl.edu.ec | <i class="far fa-envelope"></i><a href="https://www.facebook.com/kfsarango1?fref=hovercard&hc_location=chat" target="_blank"><img alt="siguenos en facebook" height="32" src="http://2.bp.blogspot.com/-q_Tm1PpPfHo/UiXnJo5l-VI/AAAAAAAABzU/MKdrVYZjF0c/s1600/face.png" title="siguenos en facebook" width="32" /></a><i class="fab fa-facebook-square"></i></a></li>
-
                   </ul>
                 </div>
               </section>

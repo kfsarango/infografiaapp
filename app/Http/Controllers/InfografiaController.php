@@ -46,7 +46,7 @@ class InfografiaController extends Controller
 
     public function probandodatos(Request $request)
     {
-        
+        /*
         $campos = DB::table('items')->select('campo')->distinct('campo')->get();
         $date = new Carbon();
         //creando una nueva infografia para poder guardar los items
@@ -58,9 +58,7 @@ class InfografiaController extends Controller
             'ultima_modificacion' => $date,
             'usuarios_idusuario' => Auth::User()->id
         ]);
-        
-        
-
+        */
         //Recuperando ultimo id de la infografia insertada
         $infografiaData = DB::table('infografias')
                                 ->select('idinfografia')
@@ -69,7 +67,7 @@ class InfografiaController extends Controller
                                 ->first();
 
         $idInfo = $infografiaData->idinfografia;
-        
+        /*
         //Recorriendo los datos del formulario de items
         $items = $request->all();
         $cont = 0;
@@ -86,10 +84,17 @@ class InfografiaController extends Controller
                 ]);
             }
             $cont++;
-        }
-
+        }*/
         return view('users.admin.infografiaFinish')->with('infografia',$idInfo);
               
+    }
+
+    public function updateInfografia($id)
+    {
+        $infos = Infografia::find($id);
+
+        //dd($infos);
+        return view('users.admin.editInfografia')->with('info',$infos);
     }
 
 
@@ -102,6 +107,7 @@ class InfografiaController extends Controller
     
     public function plantillaenviada(Request $request, $id)
     {   
+        $date = new Carbon();
         $info = Infografia::find($id);
         $info->nombre=$request->get('nombre');
         $info->concepto=$request->get('detalle');
