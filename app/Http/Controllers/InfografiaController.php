@@ -12,6 +12,7 @@ use InstaInfo\User;
 use InstaInfo\Item;
 use InstaInfo\Categoria;
 use InstaInfo\Infografia;
+use InstaInfo\Detalle;
 
 
 class InfografiaController extends Controller
@@ -92,9 +93,10 @@ class InfografiaController extends Controller
     public function updateInfografia($id)
     {
         $infos = Infografia::find($id);
-
+        $iden = DB::table('infografias')->distinct('plantilla')->select('plantilla')->where('idinfografia', '=', $id)->get();        
+        //dd($iden);
         //dd($info);
-        return view('users.admin.editInfografia')->with('info',$infos);
+        return view('users.admin.editInfografia')->with('info',$infos)->with('id',$iden);
     }
 
 
@@ -108,6 +110,7 @@ class InfografiaController extends Controller
     
     public function plantillaenviada(Request $request, $id)
     {   
+        
         $date = new Carbon();
         $info = Infografia::find($id);
         $info->nombre=$request->get('nombre');
@@ -120,7 +123,31 @@ class InfografiaController extends Controller
         $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
         $numT=$request->get('numplan');
         $nameTemplate= 'plantillas.plantilla'.$numT;
-        return view($nameTemplate)->with('items',$items);
+        return view($nameTemplate)->with('items',$items)->with('id',$id);
+
+    }
+
+    public function templateeditada(Request $request, $id)
+    {   
+        $items = $request->all();
+        
+        dd($items);
+        //Recorriendo los datos del formulario de items
+        $detalles = $request->all();
+        $cont = 0;
+        foreach ($detalles as $detalle => $value) {
+            if ($cont > 1) {
+                //Insertando los items
+                DB::table('detalles')->insert([
+                    'iddetalle' => $name,
+                    'contenido' => $value,
+                    'presentaciones_idpresentacione' => $idcategoria
+                ]);
+            }
+            $cont++;
+        }
+
+        return view;
 
     }
 }

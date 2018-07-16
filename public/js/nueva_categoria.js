@@ -1,5 +1,10 @@
 $(document).ready(function(){
-	var nroCampos = 0; 
+	var nroCampos = 0;
+	
+    $('.radio input[type=radio]').click(function(){
+		$('#idcat').val($(this).val());
+	});
+	
 	//boton continuar inabilitado
     $('#btnContinuar').prop('disabled', true);
 

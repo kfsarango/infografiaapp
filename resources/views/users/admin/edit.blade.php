@@ -4,12 +4,14 @@
 @section('content')
 <div class="box_aux"></div>
 <div class="container" id="cont_p">
-			<h1>Editando perfil de: {{Auth::user()->nombres}}</h1>
-			<form method="post" class="formG" action="{{url('edit')}}/{{ Auth::user()->id }}" >
+@include('flash::message')
+
+			<h1>Actualizando Mis Datos</h1>
+			<form method="post" class="formG" action="{{url('useradmin/edit')}}/{{ Auth::user()->id }}" >
         	@csrf	
 		  		<div class="form-group row formC">
 				    <label class="col-sm-2" for="nombre">Nombre:</label>
-				    <input type="text" class="col-sm-3" id="name" name="nombre" value="{{ Auth::user()->nombres }}">
+				    <input type="text" class="col-sm-3" id="name" name="nombre" required value="{{ Auth::user()->nombres }}">
 			 	</div>
 
 			 	<div class="form-group row formC">

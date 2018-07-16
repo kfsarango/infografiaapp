@@ -140,6 +140,9 @@ class UserController extends Controller
         $user->seccion=$request->get('seccion'); 
         $user->save();
 
-        return redirect('edit')->with('success','Information has been  deleted');
+
+        flash('Los datos del perfil se actualizaron exitosamente', 'success');
+
+        return redirect('useradmin/edit')->with('success','Information has been  deleted');
     }
 }
