@@ -45,6 +45,10 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
     Route::get('/getitems/{id}', 'InfografiaController@getItemsOfCategory');
 });
 
+//Ajax Home
+Route::get('/getnrosuscriptores/{id}', 'HomeController@getCantidadSuscriptores');
+Route::post('/suscribirme', 'HomeController@setSuscribe');
+
 
 
 

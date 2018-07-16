@@ -11,7 +11,7 @@ html, body {
   width: 100%;
   padding: 0;
   position: fixed;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 3; }
   .encabezado a {
     color: #fff !important; }
@@ -100,21 +100,12 @@ html, body {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: rgba(0, 0, 0, 0.6); }
 
 .cont_home {
   width: 100%;
   height: 100vh;
   padding-top: 3em; }
-  .cont_home .cnt_title {
-    width: 100%;
-    margin: 2% 0;
-    overflow: hidden;
-    border-top: solid 1px #3366ff; }
-    .cont_home .cnt_title h2 {
-      background-color: #3366ff;
-      padding: 15px;
-      color: #fff; }
 
 #estadisticas h2 {
   float: left; }
@@ -168,6 +159,37 @@ html, body {
     float: left; }
   .cnt_btns .btn2 {
     float: right; }
+
+.cnt_btn {
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center; }
+  .cnt_btn .boton-md {
+    text-decoration: none;
+    padding: 10px 35px !important;
+    border-radius: 30px;
+    background-color: #fff;
+    color: #5052cb;
+    border: 1px solid #5052cb; }
+  .cnt_btn .boton-md:hover {
+    background-color: #5052cb;
+    color: #fff; }
+
+.cnt_title {
+  width: 100%;
+  margin: 2% 0 0;
+  overflow: hidden;
+  border-top: solid 1px #3366ff; }
+  .cnt_title h2 {
+    background-color: #3366ff;
+    padding: 15px 30px;
+    color: #fff; }
+  .cnt_title .h2-left {
+    float: left;
+    border-radius: 0px 70px 0px 70px; }
+  .cnt_title .h2-right {
+    float: right;
+    border-radius: 70px 0px 70px 0px; }
 
 #cont_super_admin .nav-tabs {
   text-align: center;
@@ -223,6 +245,89 @@ html, body {
           color: #ff8533; }
         #cont_super_admin .tab-content .users_content ul li .drop:hover {
           color: #ff3333; }
+
+#categorias-home {
+  width: 100%;
+  position: relative;
+  overflow: hidden; }
+  #categorias-home .cnt_title p {
+    clear: both; }
+  #categorias-home .container-card .card {
+    width: 100%;
+    margin-bottom: 5%; }
+    #categorias-home .container-card .card .presentation-side {
+      width: 100%;
+      background-color: #343a40; }
+      #categorias-home .container-card .card .presentation-side .title-cont {
+        width: 100%;
+        text-align: center;
+        padding: 8rem 0;
+        overflow: hidden; }
+        #categorias-home .container-card .card .presentation-side .title-cont span {
+          padding: 10px 15px;
+          color: #f2f2f2;
+          border: 3px solid #ccc; }
+        #categorias-home .container-card .card .presentation-side .title-cont i {
+          background-color: #0066ff;
+          padding: 10px;
+          border-radius: 50%;
+          color: #fff;
+          position: absolute;
+          right: 20px;
+          bottom: 1rem;
+          display: none; }
+    #categorias-home .container-card .card .body {
+      width: 100%;
+      padding: 20px 10px 5px;
+      display: none;
+      position: absolute;
+      background-color: #000; }
+      #categorias-home .container-card .card .body h3 {
+        color: #fff; }
+      #categorias-home .container-card .card .body .btn-close {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        color: #0066ff;
+        position: absolute;
+        right: 20px;
+        top: 1rem; }
+      #categorias-home .container-card .card .body .btn-close:hover {
+        cursor: pointer;
+        background-color: #0066ff;
+        color: #fff; }
+      #categorias-home .container-card .card .body p span {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #0066ff; }
+      #categorias-home .container-card .card .body p i {
+        font-size: 18px; }
+      #categorias-home .container-card .card .body p:hover i {
+        color: #535fcf; }
+      #categorias-home .container-card .card .body hr {
+        background-color: #ccc; }
+      #categorias-home .container-card .card .body .cnt-resultado {
+        width: 100%; }
+        #categorias-home .container-card .card .body .cnt-resultado p {
+          padding: 10px;
+          color: #000;
+          font-weight: bold; }
+        #categorias-home .container-card .card .body .cnt-resultado .resultado-ok {
+          background-color: #00ff55;
+          border-right: 5px solid #009933; }
+        #categorias-home .container-card .card .body .cnt-resultado .resultado-bad {
+          background-color: #ffa366;
+          border-right: 5px solid #ff6600; }
+  #categorias-home .container-card .card:hover {
+    border: 1px solid #000; }
+    #categorias-home .container-card .card:hover .presentation-side {
+      background-color: #000; }
+      #categorias-home .container-card .card:hover .presentation-side span {
+        color: #ffffff;
+        border: 3px solid #0066ff; }
+      #categorias-home .container-card .card:hover .presentation-side i {
+        display: block;
+        cursor: pointer; }
 
 #cont_categoria {
   min-height: 38em; }

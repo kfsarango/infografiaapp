@@ -76,7 +76,7 @@ class UserController extends Controller
     public function updateUserAdmin( Request $request)
     {
       // dd($request->all());
-       $user = User::find($request->get('id'));
+       $user = User::find($request->get('idw'));
         $user->nombres=$request->get('name');
         $user->apellidos=$request->get('lastname');
         $user->correo=$request->get('mail');
