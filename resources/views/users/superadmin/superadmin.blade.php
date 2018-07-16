@@ -107,26 +107,7 @@
 						
 					</section>
 					
-					<section class="users_content">
-						<h3>Super Administradores</h3>
-						<ul>
-							@foreach ($todos as $miData)
-								@if($miData->tipousuario == 2)
-									<li>
-										@ {{$miData->username}}
-
-										<a href="#" class="drop">
-											<i class="far fa-trash-alt"></i>	
-										</a>
-
-										<a href="#" class="edit">
-												<i class="far fa-edit"></i>
-										</a>
-									</li>									
-								@endif
-							@endforeach
-						</ul>
-					</section>
+					
 					<section class="users_content">
 						<h3>Suscritos</h3>
 						<ul>
