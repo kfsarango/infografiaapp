@@ -16,9 +16,10 @@
 					<div class="col-md-4 templates">
 						<img src="../img/vistaPrevia/template.jpg" class="img-thumbnail" alt="Cinque Terre">
 						<section class="templates-text">
-							<h6>{{ $Datos->nombre }}</h6>
-							<spam>Última Modificación {{$Datos->ultima_modificacion}}</spam>							
+							<h2>{{ $Datos->nombre }}</h2>
+							<spam>Última Modificación: {{$Datos->ultima_modificacion}}</spam>							
 							<a href="{{ url ('/useradmin/updateInfo') }}/{{$Datos->idinfografia}}" class="btn btn-primary btn-sm" type="submit">Editar</a>
+							<a href="{{ url ('/useradmin/sendplantilla')}}/{{$Datos->idinfografia}}" class="btn btn-primary btn-sm" type="submit">Plantilla</a>
 						</section>
 											
 					</div>				
