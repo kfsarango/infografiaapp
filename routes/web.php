@@ -20,6 +20,8 @@ Route::group(['prefix'=>'superadmin', 'middleware' => 'notsuperadmin'], function
     Route::get('/super', 'UserController@superAdmin')->name('super');
     Route::get('/mail', 'UserController@mail')->name('mail');
     Route::get('/edit-user/{id}', 'UserController@goEditUser');
+    Route::get('/drop-user/{id}', 'UserController@dropUserAdmin');
+    Route::post('/go-edit', 'UserController@updateUserAdmin');
 
 });
 
@@ -34,13 +36,18 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
     Route::post('/prueba', 'InfografiaController@probandodatos')->name('prueba');
     Route::get('/itemsc', 'InfografiaController@items');
     Route::post('/sendplantilla/{id}', 'InfografiaController@plantillaenviada')->name('sendplantilla');
-    Route::get('/updateInfo{id}', 'InfografiaController@updateInfografia')->name('updateInfo');
+    Route::get('/updateInfo/{id}', 'InfografiaController@updateInfografia')->name('updateInfo');
+    Route::post('/templateEditado/{id}', 'InfografiaController@templateeditada')->name('sendplantilla');
 
 
 
     //Ajax
-    Route::get('/getitems', 'InfografiaController@getItemsOfCategory');
+    Route::get('/getitems/{id}', 'InfografiaController@getItemsOfCategory');
 });
+
+//Ajax Home
+Route::get('/getnrosuscriptores/{id}', 'HomeController@getCantidadSuscriptores');
+Route::post('/suscribirme', 'HomeController@setSuscribe');
 
 
 

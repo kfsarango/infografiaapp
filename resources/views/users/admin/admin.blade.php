@@ -3,27 +3,34 @@
 
 @section('content')
 <div class="box_aux"></div>
-<section class="container" id="cnt_admin">
+<section class="container" id="">
 	<div class="row">
-		<div class="col-md-11 templatesCreate">
-			<h2>Infografías Creadas</h2>
+		<div class="col-md-12 templatesCreate">
+			<div class="row admintitulo">
+					<h2>Infografías Creadas</h2>
+					<a href="{{ route('nuevain') }}" class="btn btn-primary btn-md" >Nueva Infografía</a>
+			</div>
+
 			<div class="row">
 				@foreach ($dataInfo as $Datos)
-					<div class="col-md-5 templates">
-						<h4>{{ $Datos->nombre }}</h4>
+					<div class="col-md-4 templates">
 						<img src="../img/vistaPrevia/template.jpg" class="img-thumbnail" alt="Cinque Terre">
-						<a href="{{ url ('/useradmin/updateInfo') }}{{$Datos->idinfografia}}" class="btn btn-primary btn-sm" type="submit">Editar</a>
+						<section class="templates-text">
+							<h6>{{ $Datos->nombre }}</h6>
+							<spam>Última Modificación {{$Datos->ultima_modificacion}}</spam>							
+							<a href="{{ url ('/useradmin/updateInfo') }}/{{$Datos->idinfografia}}" class="btn btn-primary btn-sm" type="submit">Editar</a>
+						</section>
+											
 					</div>				
 				@endforeach
 			</div>
 		</div>
-		<div class="col-md-1">
-			
-			<a href="{{ route('nuevain') }}" class="btn btn-primary btn-md" >Nueva Infografía</a>
-		</div>
 	</div>
+<<<<<<< HEAD
 	<ul>
 	</ul>
+=======
+>>>>>>> 9d2322c3b07d20fd2e43743051245909a3936af9
 </section>
 
 @endsection

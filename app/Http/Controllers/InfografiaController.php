@@ -4,13 +4,15 @@ namespace InstaInfo\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use InstaInfo\Item;
+
 
 use Carbon\Carbon;
 use Auth; 
 use InstaInfo\User;
+use InstaInfo\Item;
 use InstaInfo\Categoria;
 use InstaInfo\Infografia;
+use InstaInfo\Detalle;
 
 
 class InfografiaController extends Controller
@@ -30,8 +32,7 @@ class InfografiaController extends Controller
     public function Categoria()
     {
         $todasCategorias = DB::table('categoria')->get();
-        $items = DB::table('items')->distinct()->select('campo')->where('categoria_idcategoria', '=', 4)->get();
-       // dd($todosUsuarios);
+        $items = DB::table('items')->distinct()->select('campo')->where('categoria_idcategoria', '=', 2)->get();
         return view('users.admin.nuevacate') ->with('categoriasAll',$todasCategorias)->with('campos',$items); 
     }
 
@@ -40,7 +41,8 @@ class InfografiaController extends Controller
         $id = DB::table('categoria')->insertGetId(
             ['nombre' =>$request->get('nom')]
         );
-        return redirect('nuevain');
+        flash('Se ha creado una nueva categoría', 'info');
+        return redirect('/useradmin/nuevain');
 
     }
 
@@ -95,18 +97,26 @@ class InfografiaController extends Controller
 
         //dd($infos);
         return view('users.admin.editInfografia')->with('info',$infos);
+
+        $iden = DB::table('infografias')->distinct('plantilla')->select('plantilla')->where('idinfografia', '=', $id)->get();        
+        //dd($iden);
+        //dd($info);
+        return view('users.admin.editInfografia')->with('info',$infos)->with('id',$iden);
+
     }
 
 
-    public function getItemsOfCategory($idcategory){
-        //dd("hola");
-        
-        return Response($msg);
+    public function getItemsOfCategory(Request $request, $id){
+        if ($request->ajax()) {
+            $items = DB::table('items')->distinct()->select('campo')->where('categoria_idcategoria', '=', $id)->get();
+            return response()->json($items);
+        }
 
     }
     
     public function plantillaenviada(Request $request, $id)
     {   
+        
         $date = new Carbon();
         $info = Infografia::find($id);
         $info->nombre=$request->get('nombre');
@@ -119,7 +129,31 @@ class InfografiaController extends Controller
         $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
         $numT=$request->get('numplan');
         $nameTemplate= 'plantillas.plantilla'.$numT;
-        return view($nameTemplate)->with('items',$items);
+        return view($nameTemplate)->with('items',$items)->with('id',$id);
+
+    }
+
+    public function templateeditada(Request $request, $id)
+    {   
+        $items = $request->all();
+        
+        dd($items);
+        //Recorriendo los datos del formulario de items
+        $detalles = $request->all();
+        $cont = 0;
+        foreach ($detalles as $detalle => $value) {
+            if ($cont > 1) {
+                //Insertando los items
+                DB::table('detalles')->insert([
+                    'iddetalle' => $name,
+                    'contenido' => $value,
+                    'presentaciones_idpresentacione' => $idcategoria
+                ]);
+            }
+            $cont++;
+        }
+
+        return view;
 
     }
 }

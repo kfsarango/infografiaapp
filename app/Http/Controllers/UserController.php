@@ -39,7 +39,6 @@ class UserController extends Controller
     {
         $todosUsuarios = DB::table('users')->get();
         $suscritores = DB::table('suscritos')->get();
-        ($suscritores);
         return view('users.superadmin.superadmin')
         ->with('todos',$todosUsuarios)
         ->with('suscritos',$suscritores);
@@ -49,9 +48,51 @@ class UserController extends Controller
     // ---- El SuperAdmistrador va a editar un usuario  ---- // 
     public function goEditUser($id)
     {
-        return view('users.superadmin.edituser');
+        $userObj = DB::table('users')
+                ->where('id', $id)
+                ->get();
+       
+        return view('users.superadmin.edituser')
+                ->with('myUser',$userObj[0]);
 
     }
+     // ---- El SuperAdmistrador va a eliminar un usuario  ---- // 
+     public function dropUserAdmin($id)
+     {
+        DB::table('users')->where('id', $id)->delete();
+        $todosUsuarios = DB::table('users')->get();
+        $suscritores = DB::table('suscritos')->get();
+        
+        flash('Se ha eliminado un usuario', 'success');
+
+
+        return view('users.superadmin.superadmin')
+        ->with('todos',$todosUsuarios)
+        ->with('suscritos',$suscritores);
+ 
+     }
+
+    // ---- El SuperAdmistrador actualiza los datos de un usuario  ---- // 
+    public function updateUserAdmin( Request $request)
+    {
+      // dd($request->all());
+       $user = User::find($request->get('idw'));
+        $user->nombres=$request->get('name');
+        $user->apellidos=$request->get('lastname');
+        $user->correo=$request->get('mail');
+        $user->telefono=$request->get('phone');
+        $user->departamento=$request->get('department');
+        $user->seccion=$request->get('section'); 
+        $user->save();
+        $todosUsuarios = DB::table('users')->get();
+        $suscritores = DB::table('suscritos')->get();
+        flash('Se ha actualizado', 'success');
+
+        return view('users.superadmin.superadmin')
+        ->with('todos',$todosUsuarios)
+        ->with('suscritos',$suscritores);
+
+    }   
 
     // ---- Vista que utiliza el SuperAdmistrador para enviar correos  ---- // 
     public function mail()
@@ -99,6 +140,9 @@ class UserController extends Controller
         $user->seccion=$request->get('seccion'); 
         $user->save();
 
-        return redirect('edit')->with('success','Information has been  deleted');
+
+        flash('Los datos del perfil se actualizaron exitosamente', 'success');
+
+        return redirect('useradmin/edit')->with('success','Information has been  deleted');
     }
 }

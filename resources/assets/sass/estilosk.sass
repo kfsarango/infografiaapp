@@ -12,7 +12,7 @@ html,body
 	width: 100%
 	padding: 0
 	position: fixed
-	background-color: transparent
+	background-color: rgba(0,0,0,.6)
 	z-index: 3
 	a
 		color: #fff !important
@@ -111,7 +111,7 @@ html,body
 	width: 100%
 	height: 100%
 	position: absolute
-	background-color: rgba(0, 0, 0, 0.3)
+	background-color: rgba(0, 0, 0, 0.6)
 
 
 //etilos home
@@ -119,15 +119,7 @@ html,body
 	width: 100%
 	height: 100vh
 	padding-top: 3em
-	.cnt_title
-		width: 100%
-		margin: 2% 0
-		overflow: hidden
-		border-top: solid 1px #3366ff
-		h2
-			background-color: #3366ff
-			padding: 15px
-			color: #fff
+	
 
 #estadisticas
 	h2
@@ -181,6 +173,45 @@ html,body
 #cnt_admin
 	width: 100%
 	min-height: 35em
+
+.cnt_btns
+	width: 90%
+	margin: auto
+	.btn1
+		float: left
+	.btn2
+		float: right
+
+.cnt_btn
+	width: 100%
+	padding: 1rem 0
+	text-align: center
+	.boton-md
+		text-decoration: none
+		padding: 10px 35px !important
+		border-radius: 30px
+		background-color: #fff
+		color: #5052cb
+		border: 1px solid #5052cb
+	.boton-md:hover
+		background-color: #5052cb
+		color: #fff
+
+.cnt_title
+	width: 100%
+	margin: 2% 0 0
+	overflow: hidden
+	border-top: solid 1px #3366ff
+	h2
+		background-color: #3366ff
+		padding: 15px 30px
+		color: #fff
+	.h2-left
+		float: left
+		border-radius: 0px 70px 0px 70px
+	.h2-right
+		float: right
+		border-radius: 70px 0px 70px 0px
 
 
 #cont_super_admin
@@ -245,6 +276,100 @@ html,body
 					.drop:hover
 						color: #ff3333
 
+#categorias-home
+	width: 100%
+	position: relative
+	overflow: hidden
+	.cnt_title
+		p
+			clear: both
+	.container-card
+		.card
+			width: 100%
+			margin-bottom: 5%
+
+			.presentation-side
+				width: 100%
+				background-color: #343a40			
+				.title-cont
+					width: 100%
+					text-align: center
+					padding: 8rem 0
+					overflow: hidden
+						
+					span
+						padding: 10px 15px
+						color: #f2f2f2
+						border: 3px solid #ccc
+					i
+						background-color: #0066ff
+						padding: 10px
+						border-radius: 50%
+						color: #fff
+						position: absolute
+						right: 20px
+						bottom: 1rem
+						display: none
+			.body
+				width: 100%
+				padding: 20px 10px 5px
+				display: none
+				position: absolute
+				background-color: #000
+				h3
+					color: #fff
+
+				.btn-close
+					background-color: #fff
+					padding: 10px
+					border-radius: 50%
+					color: #0066ff
+					position: absolute
+					right: 20px
+					top: 1rem
+					
+				.btn-close:hover
+					cursor: pointer
+					background-color: #0066ff
+					color: #fff
+				p
+					span
+						font-size: 1rem
+						font-weight: bold
+						color: #0066ff
+					i
+						font-size: 18px
+				p:hover
+					i
+						color: #535fcf
+				hr
+					background-color: #ccc
+				.cnt-resultado
+					width: 100%
+					p
+						padding: 10px
+						color: #000
+						font-weight: bold
+						
+					.resultado-ok
+						background-color: #00ff55
+						border-right: 5px solid #009933
+					.resultado-bad
+						background-color: #ffa366
+						border-right: 5px solid #ff6600	
+	
+		.card:hover
+			border: 1px solid #000
+			.presentation-side
+				background-color: #000
+				span
+					color: #ffffff
+					border: 3px solid #0066ff
+				i
+					display: block
+					cursor: pointer
+
+
 #cont_categoria
 	min-height: 38em
 	#cnt-category
@@ -264,6 +389,8 @@ html,body
 				overflow: hidden
 				.form-group
 					margin: 1% 0
+					label
+						float: left
 					i
 						position: absolute
 						color: #ff8080
@@ -303,7 +430,11 @@ html,body
 				float: right
 	.new:hover
 		box-shadow: 0 0 0.3rem #66a3ff
-
+#contEditUserSuperA
+	width: 100%
+	form
+		width: 40%
+		margin: 0 20% 40%
 
 footer
 	width: 100%
