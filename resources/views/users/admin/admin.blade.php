@@ -26,11 +26,8 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
 	<ul>
 	</ul>
-=======
->>>>>>> 9d2322c3b07d20fd2e43743051245909a3936af9
 </section>
 
 @endsection
