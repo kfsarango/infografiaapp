@@ -296,12 +296,15 @@ html, body {
         cursor: pointer;
         background-color: #0066ff;
         color: #fff; }
-      #categorias-home .container-card .card .body p span {
-        font-size: 1rem;
-        font-weight: bold;
-        color: #0066ff; }
-      #categorias-home .container-card .card .body p i {
-        font-size: 18px; }
+      #categorias-home .container-card .card .body p {
+        font-size: 15px;
+        color: #ccc; }
+        #categorias-home .container-card .card .body p span {
+          font-size: 1rem;
+          font-weight: bold;
+          color: #0066ff; }
+        #categorias-home .container-card .card .body p i {
+          font-size: 18px; }
       #categorias-home .container-card .card .body p:hover i {
         color: #535fcf; }
       #categorias-home .container-card .card .body hr {

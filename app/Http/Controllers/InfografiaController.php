@@ -14,6 +14,8 @@ use InstaInfo\Categoria;
 use InstaInfo\Infografia;
 use InstaInfo\Detalle;
 
+use Mail;
+
 
 class InfografiaController extends Controller
 {
@@ -149,5 +151,23 @@ class InfografiaController extends Controller
 
         return view;
 
+    }
+
+    //Envia a la vista que permite publicar la infografia
+    public function publicateInfografia()
+    {
+        return view('users.admin.publicateinfo');
+    }
+
+    //Envia el correo a todos los suscriptores de una categoria
+    public function enviarMailSuscritos(Request $request)
+    {
+        $data = $request->all();
+        Mail::send('users.admin.attachment', $data, function ($message) use($data){     //
+            $message->from('kleverfsarango@gmail.com', 'InstaInfo');  //
+            $message->to('kleversarango@yahoo.com');                            //
+            $message->subject('Test img');                                   //
+           });
+        return view('users.admin.publicateinfo');
     }
 }
