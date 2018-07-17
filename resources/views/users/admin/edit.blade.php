@@ -6,7 +6,7 @@
 <div class="container" id="cont_p">
 @include('flash::message')
 
-			<h1>Actualizando Mis Datos</h1>
+			<h1 class="editando_perfil">Actualizando Mis Datos</h1>
 			<form method="post" class="formG" action="{{url('useradmin/edit')}}/{{ Auth::user()->id }}" >
         	@csrf	
 		  		<div class="form-group row formC">

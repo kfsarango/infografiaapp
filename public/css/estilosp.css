@@ -147,7 +147,7 @@ header .titulo{
 }
 
     
-h1 {
+.editando_perfil {
   font-family: 'Roboto', sans-serif;
   font-weight:400;
   font-size:24px;
@@ -438,7 +438,7 @@ main{
 }
 
 .templates-text a{
-    margin-left: 20%;
+    margin-left: 25%;
     margin-top: 5%;
 }
 
