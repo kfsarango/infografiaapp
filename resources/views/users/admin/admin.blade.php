@@ -27,6 +27,8 @@
 			</div>
 		</div>
 	</div>
+	<ul>
+	</ul>
 </section>
 
 @endsection
