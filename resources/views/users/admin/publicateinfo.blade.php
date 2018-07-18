@@ -6,29 +6,65 @@
 @section('content')
     <div class="box_aux"></div>
     <section class="container" id="publication-container">
-        <h1 class="centrar">Publicando mi Infografía</h1>
         <div class="row">
-            <div class="col-md-8">
-                <figure>
-                    <img src="" alt="Img de la infografia" id="imgInfografia">
-                </figure>
-            </div>
             <div class="col-md-4">
-                <form method="post" class="form-inline" action="{{url('/useradmin/sendtosuscribers')}}" enctype="multipart/form-data">
-                @csrf
-                    <div class="form-group">
-                        <input id="imgvalue" type="text" name="imgvalue">
-                    </div>
+                <div id="cnt-sendmail">
+                    <form method="post" action="{{url('/useradmin/sendtosuscribers')}}" enctype="multipart/form-data">
+                    @csrf
+                        <h3 class="centrar">Enviar Infografía</h3>
+                        <label>Para</label>
 
-                    <!--div class="form-group">
-                        {!! Form::file('image', ['id' => 'imgvalue']) !!}
-                    </div-->
-    
-                    <div class="cont_boton">
-                        <button type="submit" class="btn btn-success save" id="btnContinuar">Enviar</button>
-                    </div>    
-    
-                </form>		
+                        <div class="cnt-suscritores">
+                            <p class="nro-suscritores">{{$cantidadSuscritos}}</p>
+                            <p>Suscriptores</p>
+                            <a href="#" data-toggle="modal" data-target="#myModal">Ver</a>
+                        </div>
+                        <div class="form-group">
+                            <label for="concept">Asunto</label>
+                        <input type="text" name="concept" class="form-control" value="{{$infografia->nombre}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="concept">Descripción</label>
+                        <textarea class="form-control" name="desc" required>{{$infografia->concepto}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="imgvalue" name="imgvalue" hidden></textarea>
+                            <input type="text" name="categoria" required value="{{$infografia->idcategoria}}" hidden>
+                        </div>
+        
+                        <div class="cnt_btn">
+                            <button type="submit" class="btn btn-success boton-md" id="btnContinuar">Enviar</button>
+                        </div>    
+                    </form>	
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h4 class="modal-title">{{$infografia->nombrecategoria}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                @foreach ($correos as $row)
+                                    <p>{{$row->mail}}</p>
+                                @endforeach
+                            <p></p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>	
+            </div>
+            <div class="col-md-8" id="cnt-infografia">
+                <section class="cnt-img">
+                    <h3 class="centrar">{{$infografia->nombre}}</h3>
+                    <figure>
+                        <img src="" alt="Img de la infografia" id="imgInfografia">
+                    </figure>
+                </section>
+                
             </div>
         </div>
     </section>

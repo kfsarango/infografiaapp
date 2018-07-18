@@ -14,7 +14,7 @@
 					@foreach ($categoriasAll as $categoria)
 						<div class="radio">
 							<label>
-								<input type="radio" name="optradio" id="cate" value="{{$categoria->idcategoria}}">{{$categoria->nombre}}
+								<input type="radio" name="optradio" id="cate" value="{{$categoria->idcategoria}}">{{$categoria->nombrecategoria}}
 							</label>
 						</div>
 					@endforeach

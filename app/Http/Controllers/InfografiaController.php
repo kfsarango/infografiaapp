@@ -160,15 +160,39 @@ class InfografiaController extends Controller
     }
 
     //Envia a la vista que permite publicar la infografia
-    public function publicateInfografia()
+    public function publicateInfografia($id)
     {
-        return view('users.admin.publicateinfo');
+        $infografia = DB::table('infografias')
+                ->select('infografias.nombre','infografias.concepto','categoria.idcategoria','categoria.nombrecategoria')
+                ->join('items','infografias.idinfografia','=','items.infografias_idinfografia')
+                ->join('categoria','items.categoria_idcategoria','=','categoria.idcategoria')
+                ->where('infografias.idinfografia', $id)
+                ->first();
+        $suscritores = DB::table('suscritos')
+                ->select('suscritos.mail')
+                ->join('categoria_has_suscritos','suscritos.idsuscritos','=','categoria_has_suscritos.idsuscritos')
+                ->join('categoria','categoria_has_suscritos.idcategoria','=','categoria.idcategoria')
+                ->where('categoria.idcategoria', $infografia->idcategoria)
+                ->get();
+
+        $nrosuscritores = count($suscritores);
+        return view('users.admin.publicateinfo')
+        ->with('cantidadSuscritos',$nrosuscritores)
+        ->with('infografia',$infografia)
+        ->with('correos',$suscritores);
     }
 
     //Envia el correo a todos los suscriptores de una categoria
     public function enviarMailSuscritos(Request $request)
     {
         $data = $request->all();
+        $mails = DB::table('suscritos')
+                ->select('suscritos.mail')
+                ->join('categoria_has_suscritos','suscritos.idsuscritos','=','categoria_has_suscritos.idsuscritos')
+                ->join('categoria','categoria_has_suscritos.idcategoria','=','categoria.idcategoria')
+                ->where('categoria.idcategoria', $request->get('categoria'))
+                ->get();
+        dd($mails);
         Mail::send('users.admin.attachment', $data, function ($message) use($data){     //
             $message->from('kleverfsarango@gmail.com', 'InstaInfo');  //
             $message->to('kleversarango@yahoo.com');                            //
