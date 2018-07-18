@@ -48,7 +48,7 @@ class InfografiaController extends Controller
 
     public function probandodatos(Request $request)
     {
-        /*
+        
         $campos = DB::table('items')->select('campo')->distinct('campo')->get();
         $date = new Carbon();
         //creando una nueva infografia para poder guardar los items
@@ -60,7 +60,7 @@ class InfografiaController extends Controller
             'ultima_modificacion' => $date,
             'usuarios_idusuario' => Auth::User()->id
         ]);
-        */
+        
         //Recuperando ultimo id de la infografia insertada
         $infografiaData = DB::table('infografias')
                                 ->select('idinfografia')
@@ -69,7 +69,7 @@ class InfografiaController extends Controller
                                 ->first();
 
         $idInfo = $infografiaData->idinfografia;
-        /*
+
         //Recorriendo los datos del formulario de items
         $items = $request->all();
         $cont = 0;
@@ -86,7 +86,7 @@ class InfografiaController extends Controller
                 ]);
             }
             $cont++;
-        }*/
+        }
         return view('users.admin.infografiaFinish')->with('infografia',$idInfo);
               
     }
@@ -126,9 +126,23 @@ class InfografiaController extends Controller
         $info->save();
 
         $infografia = Infografia::find($id);
-        $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
+        $items = DB::table('items')->distinct()->select('idItem', 'campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
         $numT=$request->get('numplan');
         $nameTemplate= 'plantillas.plantilla'.$numT;
+
+        //insertamos los datos pre-establecidos en la tabla d ela plantilla1
+        if($numT == 1){
+            DB::insert('insert into detalles (presentaciones_idpresentacione, titulo1, foto1, titulo2, parrafo1, titulo3, titulo4, titulo5, parrafo2, titulo6, foto2) 
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [$id, 'Title 1', '../../img/us.png', 'Title2', 'Texto del parrafo', 'Title 3', 'Title 4', 'Title 5', 'Texto del parrafo', 'Title 6', '../../img/grafico.png']);
+
+        }else{
+            DB::table('detalles')->insert([
+                'iddetalle' => $name,
+                'contenido' => $value,
+                'presentaciones_idpresentacione' => $idcategoria
+            ]);
+        }
         return view($nameTemplate)->with('items',$items)->with('id',$id);
 
     }
@@ -136,7 +150,7 @@ class InfografiaController extends Controller
     public function template($id)
     {
         $infografia = Infografia::find($id);
-        $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
+        $items = DB::table('items')->distinct()->select('idItem', 'campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
         $iden = DB::table('infografias')->select('plantilla')->where('idinfografia', '=', $id)->first();                
         //$plantilla = DB::table('infografias')->select('plantilla')->get();
         $plantilla=$iden->plantilla;
