@@ -41,7 +41,7 @@
 						<div class="row" id="color-aside">
 							<div class="col-md-4">
 								<h2 id="ttttttt" name="titulo1" contenteditable="true">
-									ITEM 1
+									Porbando
 								</h2>
 								<input type="color" name="color" id="color" >
 								<img src="../../img/us.png" name="foto1">
