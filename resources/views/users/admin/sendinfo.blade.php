@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Publicar
+    Enviar correo
 @endsection
 
 @section('content')
@@ -9,19 +9,16 @@
         <div class="row">
             <div class="col-md-4">
                 <div id="cnt-sendmail">
-                    <form method="post" action="{{url('/useradmin/sendtosuscribers')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{url('/useradmin/sendtomail')}}" enctype="multipart/form-data">
                     @csrf
                         <h3 class="centrar">Enviar Infografía</h3>
-                        <label>Para</label>
-
-                        <div class="cnt-suscritores">
-                            <p class="nro-suscritores">{{$cantidadSuscritos}}</p>
-                            <p>Suscriptores</p>
-                            <a href="#" data-toggle="modal" data-target="#myModal">Ver</a>
+                        <div class="form-group">
+                            <label for="tomail">Para:</label>
+                            <input type="email" name="tomail" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="concept">Asunto</label>
-                        <input type="text" name="concept" class="form-control" value="{{$infografia->nombre}}" required>
+                            <label for="concept">Asunto:</label>
+                            <input type="text" name="concept" class="form-control" value="{{$infografia->nombre}}" required>
                         </div>
                         <div class="form-group">
                             <label for="concept">Descripción</label>
@@ -37,25 +34,6 @@
                             <button type="submit" class="btn btn-success boton-md" id="btnContinuar">Enviar</button>
                         </div>    
                     </form>	
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog modal-sm">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">{{$infografia->nombrecategoria}}</h4>
-                            </div>
-                            <div class="modal-body">
-                                @foreach ($correos as $row)
-                                    <p>{{$row->mail}}</p>
-                                @endforeach
-                            <p></p>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
                 </div>	
             </div>
             <div class="col-md-8" id="cnt-infografia">

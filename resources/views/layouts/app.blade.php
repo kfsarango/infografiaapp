@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>InstaInfo @yield('title')</title>
+    <title>InstaInfo | @yield('title')</title>
     <!---title>{{ config('app.name', 'IntaInfo') }}</title-->
 
     <!-- Scripts -->
