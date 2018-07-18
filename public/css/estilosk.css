@@ -296,12 +296,15 @@ html, body {
         cursor: pointer;
         background-color: #0066ff;
         color: #fff; }
-      #categorias-home .container-card .card .body p span {
-        font-size: 1rem;
-        font-weight: bold;
-        color: #0066ff; }
-      #categorias-home .container-card .card .body p i {
-        font-size: 18px; }
+      #categorias-home .container-card .card .body p {
+        font-size: 15px;
+        color: #ccc; }
+        #categorias-home .container-card .card .body p span {
+          font-size: 1rem;
+          font-weight: bold;
+          color: #0066ff; }
+        #categorias-home .container-card .card .body p i {
+          font-size: 18px; }
       #categorias-home .container-card .card .body p:hover i {
         color: #535fcf; }
       #categorias-home .container-card .card .body hr {
@@ -391,6 +394,49 @@ html, body {
   #contEditUserSuperA form {
     width: 40%;
     margin: 0 20% 40%; }
+
+#publication-container #cnt-infografia .cnt-img {
+  width: 100%;
+  background-color: #283739;
+  overflow: hidden;
+  margin-bottom: 2%; }
+  #publication-container #cnt-infografia .cnt-img h3 {
+    color: #fff;
+    padding: 10px; }
+  #publication-container #cnt-infografia .cnt-img figure {
+    width: 95%;
+    margin: auto;
+    padding: 0 0 2rem; }
+    #publication-container #cnt-infografia .cnt-img figure img {
+      width: 100%; }
+#publication-container #cnt-sendmail {
+  width: 100%;
+  background: linear-gradient(45deg, #4A4771 0%, #7C3875 100%); }
+  #publication-container #cnt-sendmail form {
+    width: 90%;
+    margin: auto;
+    padding: 10px; }
+    #publication-container #cnt-sendmail form h3 {
+      color: #fff; }
+    #publication-container #cnt-sendmail form label {
+      color: #ccc; }
+    #publication-container #cnt-sendmail form .cnt-suscritores {
+      width: 100%;
+      overflow: hidden;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 4%; }
+      #publication-container #cnt-sendmail form .cnt-suscritores p {
+        float: left;
+        color: #bcb1bc;
+        margin-bottom: 2%;
+        font-size: 1rem; }
+      #publication-container #cnt-sendmail form .cnt-suscritores .nro-suscritores {
+        font-weight: bold;
+        color: #fff;
+        padding-right: 3px; }
+      #publication-container #cnt-sendmail form .cnt-suscritores a {
+        float: right;
+        color: #ccc; }
 
 footer {
   width: 100%;

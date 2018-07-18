@@ -31,16 +31,19 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
     Route::post('/edit/{id}', 'UserController@updateAdmin');
     Route::get('/plantilla', 'UserController@diseño');
     Route::get('/nuevain', 'InfografiaController@Categoria')->name('nuevain');
+    Route::get('/publicateinfo/{id}', 'InfografiaController@publicateInfografia')->name('publicateinfo');
+    Route::get('/sendtomailinfo/{id}', 'InfografiaController@goToSendInfografia')->name('sendtomailinfo');
     Route::post('/nuevacategoria', 'InfografiaController@createCategoria');
     Route::resource('catego','CategoriaController');
     Route::post('/prueba', 'InfografiaController@probandodatos')->name('prueba');
     Route::get('/itemsc', 'InfografiaController@items');
     Route::post('/sendplantilla/{id}', 'InfografiaController@plantillaenviada')->name('sendplantilla');
     Route::get('/updateInfo/{id}', 'InfografiaController@updateInfografia')->name('updateInfo');
+    Route::post('/templateEditado/{id}', 'InfografiaController@templateeditada')->name('sendplantilla');
+    Route::post('/sendtosuscribers', 'InfografiaController@enviarMailSuscritos')->name('sendtosuscribers');
+    Route::post('/sendtomail', 'InfografiaController@enviarMail')->name('sendtosuscribers');
     Route::get('/template/{id}', 'InfografiaController@template')->name('template');
     Route::post('/templateEditado/{id}', 'InfografiaController@templateeditada')->name('templateEditado');
-
-
 
     //Ajax
     Route::get('/getitems/{id}', 'InfografiaController@getItemsOfCategory');

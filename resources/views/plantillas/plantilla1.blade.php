@@ -1,24 +1,25 @@
 @extends('layouts.app')
 
 @section('content') 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 <div class="box_aux"></div>
 
 <div class="container" id="cont_plan1">
+	@include('flash::message')
 	<!-- Sección de los botones de el contendio para editar la infografía -->
 	<div class="row seccion_botones">
 		<legend class="text-center header"><i class="fa"> Edita tu Plantilla 1 elegida</i></legend>				
 		<div class="col-md-3">
-			<button type="submit" class="btn btn-success">Exportar</button>				
+			<button type="submit" class="btn btn-success">Exportar <i class="fas fa-file-export"></i></button>				
 		</div>
 		<div class="col-md-3">
-			<button type="submit" class="btn btn-success">Enviar Correo</button>				
+			<a href="/useradmin/sendtomailinfo/{{$id}}" class="btn btn-success">Enviar <i class="far fa-envelope"></i></a>				
 		</div>
 		<div class="col-md-3">
-			<button type="submit" class="btn btn-success">Publicar Noticia</button>				
+			<a href="/useradmin/publicateinfo/{{$id}}" class="btn btn-success" id="saveImgPreview">Publicar <i class="far fa-file-image"></i></a>				
 		</div>
 		<div class="col-md-3">
-			<button type="submit" class="btn btn-success">Vista Previa</button>				
+			<button type="submit" class="btn btn-success">Vista Previa <i class="fas fa-eye"></i></button>				
 		</div>
 	</div>
 	<div class="row">
@@ -177,5 +178,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 
 });
 </script>  
+@endsection
+
+@section('scripts')
+<script src="../../js/manageinfografia.js"></script>
+<script src="../../js/html2canvas.js"></script>
 @endsection
 

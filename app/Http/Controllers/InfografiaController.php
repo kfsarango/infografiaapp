@@ -13,6 +13,9 @@ use InstaInfo\Item;
 use InstaInfo\Categoria;
 use InstaInfo\Infografia;
 use InstaInfo\Detalle;
+use InstaInfo\Correo;
+
+use Mail;
 
 
 class InfografiaController extends Controller
@@ -180,5 +183,142 @@ class InfografiaController extends Controller
 
         return view;
 
+    }
+
+    //Envia a la vista que permite publicar la infografia
+    public function publicateInfografia($id)
+    {
+        $infografia = DB::table('infografias')
+                ->join('items','infografias.idinfografia','=','items.infografias_idinfografia')
+                ->join('categoria','items.categoria_idcategoria','=','categoria.idcategoria')
+                ->where('infografias.idinfografia', $id)
+                ->first();
+        $suscritores = DB::table('suscritos')
+                ->select('suscritos.mail')
+                ->join('categoria_has_suscritos','suscritos.idsuscritos','=','categoria_has_suscritos.idsuscritos')
+                ->join('categoria','categoria_has_suscritos.idcategoria','=','categoria.idcategoria')
+                ->where('categoria.idcategoria', $infografia->idcategoria)
+                ->get();
+
+        $nrosuscritores = count($suscritores);
+        return view('users.admin.publicateinfo')
+        ->with('cantidadSuscritos',$nrosuscritores)
+        ->with('infografia',$infografia)
+        ->with('correos',$suscritores);
+    }
+
+    //Envia el correo a todos los suscriptores de una categoria
+    public function enviarMailSuscritos(Request $request)
+    {
+
+        $data = $request->all();
+        $dataMails = DB::table('suscritos')
+                ->select('suscritos.mail')
+                ->join('categoria_has_suscritos','suscritos.idsuscritos','=','categoria_has_suscritos.idsuscritos')
+                ->join('categoria','categoria_has_suscritos.idcategoria','=','categoria.idcategoria')
+                ->where('categoria.idcategoria', $request->get('categoria'))
+                ->get();
+        
+        //Armando la lista de correos
+        $correos = array();
+        for ($i=0; $i < count($dataMails); $i++) { 
+            $correos[] = $dataMails[$i]->mail;
+        }                
+        $razon = $request->get('concept');
+        $redaction = $request->get('desc');
+
+        //Enviando los correos
+        Mail::send('users.admin.attachment', $data, function ($message) use($data, $correos, $razon, $redaction){     //
+            $message->from('kleverfsarango@gmail.com', 'InstaInfo');  //
+            $message->to($correos);                            //
+            $message->subject($razon);
+            $message->setBody($redaction);                                   //
+           });
+
+        //Creando un registro de los Mails Enviados
+        $date = new Carbon();
+
+        DB::table('correos')->insert([
+            'asunto' => $data['concept'],
+            'para' => 's',
+            'descripcion' => $data['desc'],
+            'fecha' => $date,
+            'idusuario' => Auth::User()->id,
+            'idinfografia' => $request->get('infografia')
+        ]);
+        
+        //recuperando los datos nuevamente de la infografia
+        $infografia = DB::table('infografias')
+                ->where('idinfografia',$request->get('infografia'))
+                ->get();
+        $items = DB::table('items')
+            ->distinct()
+            ->select('campo', 'valor')
+            ->where('infografias_idinfografia', '=', $request->get('infografia'))
+            ->get();
+        
+
+        $nameTemplate= 'plantillas.plantilla'.$infografia[0]->plantilla;
+        flash('Tu infografia a sido enviada los suscriptores', 'info');
+        return view($nameTemplate)
+            ->with('items',$items)
+            ->with('id',$request
+            ->get('infografia'));
+    }
+
+    //Iendo a la vista que permite enviar un correo en especifico
+    public function goToSendInfografia($id)
+    {
+        $infografia = DB::table('infografias')
+                ->join('items','infografias.idinfografia','=','items.infografias_idinfografia')
+                ->join('categoria','items.categoria_idcategoria','=','categoria.idcategoria')
+                ->where('infografias.idinfografia', $id)
+                ->first();
+
+        return view('users.admin.sendinfo')
+        ->with('infografia',$infografia);
+    }
+
+    //Envia un correo con una infografia
+    public function enviarMail(Request $request)
+    {
+
+        $data = $request->all();
+
+        //Enviando los correos
+        Mail::send('users.admin.attachment', $data, function ($message) use($data){     //
+            $message->from('kleverfsarango@gmail.com', 'InstaInfo');  //
+            $message->to($data['tomail']);                            //
+            $message->subject($data['concept']);
+           });
+
+        //Creando un registro de los Mails Enviados
+        $date = new Carbon();
+
+        DB::table('correos')->insert([
+            'asunto' => $data['concept'],
+            'para' => $data['tomail'],
+            'descripcion' => $data['desc'],
+            'fecha' => $date,
+            'idusuario' => Auth::User()->id,
+            'idinfografia' => $request->get('infografia')
+        ]);
+        
+        //recuperando los datos nuevamente de la infografia
+        $infografia = DB::table('infografias')
+                ->where('idinfografia',$request->get('infografia'))
+                ->get();
+        $items = DB::table('items')
+            ->distinct()
+            ->select('campo', 'valor')
+            ->where('infografias_idinfografia', '=', $request->get('infografia'))
+            ->get();
+        
+
+        $nameTemplate= 'plantillas.plantilla'.$infografia[0]->plantilla;
+        flash('Tu infografia a sido enviada a '.$data['tomail'], 'info');
+        return view($nameTemplate)
+            ->with('items',$items)
+            ->with('id',$request->get('infografia'));
     }
 }

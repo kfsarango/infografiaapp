@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>InstaInfo</title>
+    <title>InstaInfo | @yield('title')</title>
     <!---title>{{ config('app.name', 'IntaInfo') }}</title-->
 
     <!-- Scripts -->
@@ -213,5 +213,6 @@
      </footer>
     <script src="../../js/scriptk.js"></script>
     <script src="../../js/superadmin.js"></script>
+    @yield('scripts')
 </body>
 </html>

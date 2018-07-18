@@ -26,15 +26,15 @@
                     
                     <div class="presentation-side">
                         <div class="title-cont">
-                        <span>{{$cat->nombre}}</span>
+                        <span>{{$cat->nombrecategoria}}</span>
                             <i class="fas fa-plus btn-show" id="{{$cat->idcategoria}}"></i>
                         </div>
                     </div>
                 <div class="body" id="body{{$cat->idcategoria}}">
                         <i class="fas fa-window-close btn-close"></i>
-                        <h3 class="centrar">{{$cat->nombre}}</h3>
+                        <h3 class="centrar">{{$cat->nombrecategoria}}</h3>
                         <p>
-                                <i class="far fa-file-image"></i>
+                            <i class="far fa-file-image"></i>
                             Infografías creadas: 
                             <span class="nro-infografias">
                                 0
