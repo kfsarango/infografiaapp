@@ -133,10 +133,21 @@ class InfografiaController extends Controller
 
     }
 
+    public function template($id)
+    {
+        $infografia = Infografia::find($id);
+        $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
+        $iden = DB::table('infografias')->select('plantilla')->where('idinfografia', '=', $id)->first();                
+        //$plantilla = DB::table('infografias')->select('plantilla')->get();
+        $plantilla=$iden->plantilla;
+        $nameTemplate= 'plantillas.plantilla'.$plantilla;
+        return view($nameTemplate)->with('items',$items)->with('id',$id);   
+    }
+
     public function templateeditada(Request $request, $id)
     {   
         $items = $request->all();
-        
+
         dd($items);
         //Recorriendo los datos del formulario de items
         $detalles = $request->all();
