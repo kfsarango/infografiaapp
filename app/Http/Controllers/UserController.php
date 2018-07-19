@@ -105,12 +105,17 @@ class UserController extends Controller
     // ********************************* Usuario Administrador Metodos ********************************* //
     public function goAdmin()
     {
-        $tipoUsuarios = DB::table('tipousuarios')->get();
-        //dd($tipoUsuarios);
-        $info = DB::table('infografias')->get();
+        //$tipoUsuarios = DB::table('tipousuarios')->get();
+        //recuperando los datos nuevamente de la infografia
+
+        $info = DB::table('infografias')
+                ->select('infografias.idinfografia', 'infografias.nombre', 'infografias.concepto','infografias.plantilla', 'infografias.ultima_modificacion')
+                ->join('users','infografias.usuarios_idusuario','id')
+                ->where('users.id', Auth::user()->id)->get();
+        //$info = DB::table('infografias')->get();
         //dd($info);
 
-        return view('users.admin.admin')->with('tipos',$tipoUsuarios)->with('dataInfo',$info);
+        return view('users.admin.admin')->with('dataInfo',$info);
     }
 
 

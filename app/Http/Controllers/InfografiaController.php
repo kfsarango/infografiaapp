@@ -97,15 +97,29 @@ class InfografiaController extends Controller
     public function updateInfografia($id)
     {
         $infos = Infografia::find($id);
-
         //dd($infos);
-        return view('users.admin.editInfografia')->with('info',$infos);
-
-        $iden = DB::table('infografias')->distinct('plantilla')->select('plantilla')->where('idinfografia', '=', $id)->get();        
+        //return view('users.admin.editInfografia')->with('info',$infos);
+        $iden = DB::table('infografias')
+                ->distinct('plantilla')
+                ->select('plantilla')
+                ->where('idinfografia', '=', $id)->get();        
         //dd($iden);
         //dd($info);
         return view('users.admin.editInfografia')->with('info',$infos)->with('id',$iden);
+    }
 
+    public function saveUpdateInfografia(Request $request, $id){
+        $date = new Carbon();
+        $info = Infografia::find($id);
+        $info->nombre=$request->get('nombre');
+        $info->concepto=$request->get('detalle');
+        $info->plantilla=$request->get('numplan');
+        //$cabb_caja->fecha_fin = $datefin;
+        $info->ultima_modificacion = $date;
+        //$info->ultima_modificacion=>$date;
+        $info->save();
+
+        return redirect(route('admin'))->with('info',$info);
     }
 
 
@@ -119,13 +133,12 @@ class InfografiaController extends Controller
     
     public function plantillaenviada(Request $request, $id)
     {   
-        
         $date = new Carbon();
         $info = Infografia::find($id);
         $info->nombre=$request->get('nombre');
         $info->concepto=$request->get('detalle');
         $info->plantilla=$request->get('numplan');
-        $info->ultima_modificacion=$request->get('datemodificacion');
+        $info->ultima_modificacion->$date;
         $info->save();
 
         $infografia = Infografia::find($id);
