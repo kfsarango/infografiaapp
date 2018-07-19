@@ -19,7 +19,7 @@
             <div class="text-right">
                 <button type="button" class="btn btn-success " id="btn_editar">Editar</button>
                 <button type="button" class="btn btn-success">Guardar</button>
-				<button type="button" class="btn btn-success">Enviar </button>
+				<button type="button" class="btn btn-success" id="subir_archivos">Importar Imagenes </button>
 			</div>
 		</div>
 	</div>
@@ -79,14 +79,5 @@
 			
     </div>
 </div>
-<script>
-    /*
-    		$(document).ready(function()
-    {
-            $("btn_editar").click(function () {    
-    	    alert("Bien!!!, la edad seleccionada es: "	);
-    	    //alert("Bien!!!, la edad seleccionada es: " + $(this).val());  
-             });
-    });*/
-</script>
+
 @endsection

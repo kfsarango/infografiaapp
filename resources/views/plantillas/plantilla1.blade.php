@@ -266,6 +266,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 
 @section('scripts')
 <script src="../../js/manageinfografia.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
 <script src="../../js/html2canvas.js"></script>
 @endsection
 
