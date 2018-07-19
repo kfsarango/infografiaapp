@@ -42,7 +42,7 @@ class InfografiaController extends Controller
     public function createCategoria(Request $request)
     {   
         $id = DB::table('categoria')->insertGetId(
-            ['nombre' =>$request->get('nom')]
+            ['nombrecategoria' =>$request->get('nom')]
         );
         flash('Se ha creado una nueva categoría', 'info');
         return redirect('/useradmin/nuevain');
@@ -72,6 +72,7 @@ class InfografiaController extends Controller
                                 ->first();
 
         $idInfo = $infografiaData->idinfografia;
+        
 
         //Recorriendo los datos del formulario de items
         $items = $request->all();
@@ -130,6 +131,8 @@ class InfografiaController extends Controller
         }
 
     }
+
+
     
     public function plantillaenviada(Request $request, $id)
     {   
@@ -214,6 +217,7 @@ class InfografiaController extends Controller
                 ->get();
 
         $nrosuscritores = count($suscritores);
+        
         return view('users.admin.publicateinfo')
         ->with('cantidadSuscritos',$nrosuscritores)
         ->with('infografia',$infografia)
@@ -223,7 +227,6 @@ class InfografiaController extends Controller
     //Envia el correo a todos los suscriptores de una categoria
     public function enviarMailSuscritos(Request $request)
     {
-
         $data = $request->all();
         $dataMails = DB::table('suscritos')
                 ->select('suscritos.mail')
@@ -237,16 +240,32 @@ class InfografiaController extends Controller
         for ($i=0; $i < count($dataMails); $i++) { 
             $correos[] = $dataMails[$i]->mail;
         }                
-        $razon = $request->get('concept');
-        $redaction = $request->get('desc');
+
+        //haciendo la imagen
+        $file_data = $request->input('imgvalue'); 
+        $file_name = $data['concept'].'.png'; 
+
+        @list($type, $file_data) = explode(';', $file_data);
+        @list(, $file_data) = explode(',', $file_data); 
+        if($file_data!=""){ // storing image in storage/app/public Folder 
+            \Storage::disk('public')->put($file_name,base64_decode($file_data)); 
+        }
 
         //Enviando los correos
-        Mail::send('users.admin.attachment', $data, function ($message) use($data, $correos, $razon, $redaction){     //
+        Mail::send('users.admin.attachment', $data, function ($message) use($data, $correos, $file_name){     //
             $message->from('kleverfsarango@gmail.com', 'InstaInfo');  //
             $message->to($correos);                            //
-            $message->subject($razon);
-            $message->setBody($redaction);                                   //
-           });
+            $message->subject($data['concept']);
+            $message->attach("C:\laragon\www\proyectoIngWeb\infografiaapp\storage\app\public/".$file_name,[
+                'as'=>$file_name,
+                'mime'=>'image/png',
+            ]);
+        });
+
+        //Eliminando el archivo creado anteriormente
+        if(\File::exists("C:\laragon\www\proyectoIngWeb\infografiaapp\storage\app\public/".$file_name)){
+            \File::delete("C:\laragon\www\proyectoIngWeb\infografiaapp\storage\app\public/".$file_name);
+          }
 
         //Creando un registro de los Mails Enviados
         $date = new Carbon();
@@ -291,21 +310,36 @@ class InfografiaController extends Controller
         return view('users.admin.sendinfo')
         ->with('infografia',$infografia);
     }
-
+    protected $uri;
     //Envia un correo con una infografia
     public function enviarMail(Request $request)
     {
-
         $data = $request->all();
+        //haciendo imagen       
+        $file_data = $request->input('imgvalue'); 
+        $file_name = $data['concept'].'.png'; 
+
+        @list($type, $file_data) = explode(';', $file_data);
+        @list(, $file_data) = explode(',', $file_data); 
+        if($file_data!=""){ // storing image in storage/app/public Folder 
+            \Storage::disk('public')->put($file_name,base64_decode($file_data)); 
+        }
 
         //Enviando los correos
-        Mail::send('users.admin.attachment', $data, function ($message) use($data){     //
-            $message->from('kleverfsarango@gmail.com', 'InstaInfo');  //
+        Mail::send('users.admin.attachment', $data, function ($message) use($data, $file_name){     //
+            $message->from(Auth::User()->correo, 'InstaInfo');  //
             $message->to($data['tomail']);                            //
             $message->subject($data['concept']);
-           });
-
-        //Creando un registro de los Mails Enviados
+            $message->attach("C:\laragon\www\proyectoIngWeb\infografiaapp\storage\app\public/".$file_name,[
+                'as'=>$file_name,
+                'mime'=>'image/png',
+            ]);
+        });
+        //Eliminando el archivo
+        if(\File::exists("C:\laragon\www\proyectoIngWeb\infografiaapp\storage\app\public/".$file_name)){
+            \File::delete("C:\laragon\www\proyectoIngWeb\infografiaapp\storage\app\public/".$file_name);
+          }
+        //Creando un registro del Mail Enviado
         $date = new Carbon();
 
         DB::table('correos')->insert([
@@ -334,4 +368,20 @@ class InfografiaController extends Controller
             ->with('items',$items)
             ->with('id',$request->get('infografia'));
     }
+
+    //Guardar imagen previa ajax
+    public function savePreviewImage(Request $request){
+        //haciendo la imagen
+        $file_data = $request->img; 
+        $file_name = $request->infografia.'.png'; 
+
+        @list($type, $file_data) = explode(';', $file_data);
+        @list(, $file_data) = explode(',', $file_data); 
+        if($file_data!=""){ // storing image in storage/app/public Folder 
+            \Storage::disk('infografias')->put($file_name,base64_decode($file_data)); 
+        }
+        
+        return response()->json('ok');
+    }
+
 }

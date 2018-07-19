@@ -18,6 +18,7 @@
 			
 			<!-- Contenido de la parte donde editaremos la plantilla de la infografía -->
 			<div class="col-md-9 plantilla1" id="plantilla1">
+				<span id="{{$id}}" class="myInfo" hidden></span>
 				<form method="post" class="form-inline" action="{{url('/useradmin/templateEditado')}}/{{$id}}">
 				@csrf
 				<input type="text" name="idinfografia" value="{{$id}}" hidden>
@@ -209,10 +210,16 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 		string='#titulo1';
 	});
 
-	$('#titulo1').click(function(){
+	$('#titulo2').click(function(){
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
-		string='#titulo1';
+		string='#titulo2';
+	});
+
+	$('#parrafo1').click(function(){
+		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		string='#parrafo1';
 	});
 
 	$('#ok_letra').click(function(){
@@ -221,7 +228,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 			$('#titulo1').css({'color': color});
 			$('#titulo1').css({'font-family': var2});
 		}else{
-
+			if(string == '#titulo2'){
+				$('#titulo2').css({'color': color});
+				$('#titulo2').css({'font-family': var2});
+			}
 		}
 	});
 	//Fin de los métodos para editar los estilos

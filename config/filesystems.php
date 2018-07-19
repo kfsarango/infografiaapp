@@ -47,6 +47,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        'infografias' => [
+            'driver' => 'local',
+            'root' => public_path().'/img/infografias',
+        ],
 
         'public' => [
             'driver' => 'local',

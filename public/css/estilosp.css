@@ -403,7 +403,7 @@ main{
 }
 
 .templates:hover .templates-text{
-    transform: translateY(0%);
+    transform: translateY(10%);
 }
 
 .templates-text{

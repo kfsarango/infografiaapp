@@ -26,17 +26,28 @@
                         </div>
                         <div class="form-group">
                             <label for="concept">Descripción</label>
-                            <textarea class="form-control" name="desc" required>{{$infografia->concepto}}</textarea>
+                            <textarea class="form-control" name="desc">{{$infografia->concepto}}</textarea>
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" id="imgvalue" name="imgvalue" hidden></textarea>
                             <input type="text" name="categoria" required value="{{$infografia->idcategoria}}" hidden>
                             <input type="text" name="infografia" required value="{{$infografia->idinfografia}}" hidden>
                         </div>
-        
-                        <div class="cnt_btn">
-                            <button type="submit" class="btn btn-success boton-md" id="btnContinuar">Enviar</button>
-                        </div>    
+                        @if ($cantidadSuscritos >= 1)
+                            <div class="cnt_btn">
+                                <button type="submit" class="btn btn-success boton-md" id="btnContinuar">Enviar</button>
+                            </div> 
+                        @else
+                            <div class="cnt_btn">
+                                <button type="submit" class="btn btn-success boton-md" id="btnContinuar" disabled>Enviar</button>
+                                <p>
+                                    Ops! .. Parece que no tienes suscriptores
+                                </p>
+                                <a href="/useradmin/sendtomailinfo/{{$infografia->idinfografia}}">Intenta Aquí</a>
+                            </div> 
+                            
+                        @endif
+                           
                     </form>	
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" role="dialog">
