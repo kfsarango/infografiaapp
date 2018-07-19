@@ -27,15 +27,16 @@ $(document).ready(function(){
                     dataType: 'JSON',
                     success: function (data) {
                         console.log(data);
-                        return "You have some unsaved changes";
                     }
                 });
 
             }
         });
         
-        
+    return "You have some unsaved changes";
+       
     });
+
 
 
     $('#saveImgPreview').mouseenter(function(){

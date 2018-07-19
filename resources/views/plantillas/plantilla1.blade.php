@@ -18,15 +18,15 @@
 			
 			<!-- Contenido de la parte donde editaremos la plantilla de la infografía -->
 			<div class="col-md-9 plantilla1" id="plantilla1">
-			<textarea id="bodyInfografia" hidden>{{$body}}</textarea>
+				<textarea id="bodyInfografia" hidden>{{$body}}</textarea>
 				<span id="{{$id}}" class="myInfo" hidden></span>
 				<form method="post" class="form-inline" action="{{url('/useradmin/templateEditado')}}/{{$id}}">
 				@csrf
-				<input type="text" name="idinfografia" value="{{$id}}" hidden>
-				<span class="elemento" hidden></span>
-				<!-- Sección de la plantilla de la infografía que editaremos -->
-				<div class="row seccion_plantilla">
-					<div class="col-md-12">
+					<input type="text" name="idinfografia" value="{{$id}}" hidden>
+					<span class="elemento" hidden></span>
+					<!-- Sección de la plantilla de la infografía que editaremos -->
+					<div class="row seccion_plantilla">
+						<div class="col-md-12">
 							<!-- Fila 1 -->
 							<div class="row" id="color-aside">
 								<div class="col-md-4" id="color-aside-i">
@@ -48,7 +48,7 @@
 									<div class="figura"></div>
 								</div>
 								<div class="col-md-7 " id="color-aside-2-d">
-									<h2 contenteditable="true" nme="titulo4" id="titulo4">TITTLE</h2>
+									<h2 contenteditable="true" name="titulo4" id="titulo4">TITTLE</h2>
 									<div id="map">My map will go here</div>  
 								</div>
 
@@ -56,7 +56,7 @@
 							<!-- Fila 3 -->
 							<div class="row" id="color-aside3">
 								<div class="col-md-8" id="color-aside-3-i">
-									<h3 contenteditable="true" nem="titulo5" id="titulo5">Lorem ipsum</h3>
+									<h3 contenteditable="true" name="titulo5" id="titulo5">Lorem ipsum</h3>
 
 									<p contenteditable="true" name="parrafo2" id="parrafo2">	
 										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -71,10 +71,12 @@
 									<img src="../../img/grafico.png" name="foto2">
 								</div>
 							</div>						
+						</div>
 					</div>
-				</div>
 				</form>
 			</div>
+			<!-- Fin contenido de la parte donde editaremos la plantilla de la infografía -->
+
 		</div>
 	</div>
 </section>
@@ -93,9 +95,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 	var lati=null;
 	var long=null;
 	//Aqui comenzamos a mover los datos de la infografia al area requerida
-	const days = [].slice.call( document.querySelectorAll( '.figura' ), 0 );
-	const items = [].slice.call( document.querySelectorAll( '.itemT' ), 0 );
-	const days1 = [].slice.call( document.querySelectorAll( '.figura1' ), 0 );
+	const days = [].slice.call( document.querySelectorAll( '#color-aside2', '.figura' ), 0 );
+	const items = [].slice.call( document.querySelectorAll( '.data_infografia1', '.itemT' ), 0 );
+	const days1 = [].slice.call( document.querySelectorAll( '.data_infografia1', '.figura1' ), 0 );
 
 	let currentlyDragging = null;
 	var c=0;
@@ -134,32 +136,32 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 
 	//Comenzamos con los eventos click para poder editar el fondo de la partes de la infografía.
 	var ej=null;
-	$('#color-aside-d').click(function(){
+	$('#plantilla1').on('click', '#color-aside-d', function(){
 		$('#ok_fondo').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		ej='#color-aside-d';
 	});
 
-	$('#color-aside-i').click(function(){
+	$('#plantilla1').on('click', '#color-aside-i', function(){
 		$('#ok_fondo').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		ej='#color-aside-i';	
 	});
 
-	$('#color-aside-2-d').click(function(){
+	$('#plantilla1').on('click', '#color-aside-2-d', function(){	
 		$('#ok_fondo').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		ej='#color-aside-2-d';	
 	});
 
-	$('#color-aside-2-i').click(function(){
+	$('#plantilla1').on('click', '#color-aside-2-i', function(){	
 		$('#ok_fondo').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		ej='#color-aside-2-i';	
 	});
 
-	$('#color-aside-3-d').click(function(){
+	$('#plantilla1').on('click', '#color-aside-3-d', function(){		
 		$('#ok_fondo').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		ej='#color-aside-3-d';	
 	});
 
-	$('#color-aside-3-i').click(function(){
+	$('#plantilla1').on('click', '#color-aside-3-i', function(){		
 		$('#ok_fondo').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		ej='#color-aside-3-i';	
 	});
@@ -198,55 +200,55 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 	var var2 = null;
 
 	//Para obtene rel tipo de letra
-	$("#tipoLetra").click(function(){
+	$('.letras').on('click', '#tipoLetra', function(){		
         //var select = $("#formaDePago option:selected").text();
 		var2 = $("#tipoLetra option:selected").text();
         var1 = $("#tipoLetra").val();
     });
 
-	$('#titulo1').click(function(){
+	$('#plantilla1').on('click', '#titulo1', function(){
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		string='#titulo1';
 	});
 
-	$('#titulo2').click(function(){
+	$('#plantilla1').on('click', '#titulo2', function(){
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		string='#titulo2';
 	});
 
-	$('#parrafo1').click(function(){
+	$('#plantilla1').on('click', '#parrafo1', function(){
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		string='#parrafo1';
 	});
 
-	$('#titulo3').click(function(){
+	$('#plantilla1').on('click', '#titulo3', function(){
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		string='#titulo3';
 	});
 
-	$('#titulo4').click(function(){
+	$('#plantilla1').on('click', '#titulo4', function(){	
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		string='#titulo4';
 	});
 
-	$('#titulo5').click(function(){
+	$('#plantilla1').on('click', '#titulo5', function(){	
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		string='#titulo5';
 	});
 
-	$('#parrafo2').click(function(){
+	$('#plantilla1').on('click', '#parrafo2', function(){	
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		string='#parrafo2';
 	});
 
-	$('#titulo6').click(function(){
+	$('#plantilla1').on('click', '#titulo6', function(){	
 		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
 		string='#titulo6';

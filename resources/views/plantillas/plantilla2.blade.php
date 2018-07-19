@@ -17,12 +17,6 @@
         </div>
         <div class="col-md-12" id="plantilla2">
 			<span id="{{$id}}" class="myInfo" hidden></span>
-
-            <div class="text-right">
-                <button type="button" class="btn btn-success " id="btn_editar">Editar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
-				<button type="button" class="btn btn-success">Enviar </button>
-			</div>
 		</div>
 	</div>
 	<div class="row">
