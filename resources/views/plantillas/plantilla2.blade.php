@@ -10,12 +10,14 @@
 <div class="box_aux"></div>
 
 <div class="container" id="cnt_plantilla2">
-    <div class="row">
-      <!--  <div class="col-md-2">
-            @include('layouts.controlInfografia')
 
-        </div>-->
+    <div class="row">
+      	<div class="col-md-2">
+            @include('layouts.controlInfografia')
+        </div>
         <div class="col-md-12" id="plantilla2">
+			<span id="{{$id}}" class="myInfo" hidden></span>
+
             <div class="text-right">
                 <button type="button" class="btn btn-success " id="btn_editar">Editar</button>
                 <button type="button" class="btn btn-success">Guardar</button>
@@ -81,3 +83,21 @@
 </div>
 
 @endsection
+
+<script>
+    /*
+    		$(document).ready(function()
+    {
+            $("btn_editar").click(function () {    
+    	    alert("Bien!!!, la edad seleccionada es: "	);
+    	    //alert("Bien!!!, la edad seleccionada es: " + $(this).val());  
+             });
+    });*/
+</script>
+@endsection
+
+@section('scripts')
+<script src="../../js/manageinfografia.js"></script>
+<script src="../../js/html2canvas.js"></script>
+@endsection
+
