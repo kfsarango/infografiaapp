@@ -8,7 +8,7 @@ class Infografia extends Model
 {
     protected $table = 'infografias';
 	protected $fillable = [
-	    'idinfografia', 'nombre', 'concepto', 'plantilla', 'fecha_creacion', 'ultima_modificacion', 'usuarios_idusuario'
+	    'idinfografia', 'nombre', 'concepto', 'plantilla', 'fecha_creacion', 'ultima_modificacion', 'body','usuarios_idusuario'
 	 ];
 
 	protected $primaryKey = 'idinfografia';
