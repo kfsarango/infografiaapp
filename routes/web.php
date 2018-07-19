@@ -44,6 +44,8 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
     Route::post('/sendtomail', 'InfografiaController@enviarMail')->name('sendtosuscribers');
     Route::get('/template/{id}', 'InfografiaController@template')->name('template');
     Route::post('/templateEditado/{id}', 'InfografiaController@templateeditada')->name('templateEditado');
+    Route::post('/saveUpdateInfografia/{id}', 'InfografiaController@saveUpdateInfografia')->name('saveUpdateInfografia');
+    
 
     //Ajax
     Route::get('/getitems/{id}', 'InfografiaController@getItemsOfCategory');
