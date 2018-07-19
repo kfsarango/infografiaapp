@@ -36,19 +36,19 @@
 									<img src="../../img/us.png" name="foto1">
 								</div>
 								<div class="col-md-8" id="color-aside-d">
-									<h3 contenteditable="true" name="titulo2" contenteditable="true">Lorem ipsum</h3>
-									<p contenteditable="true" name="parrafo1" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, laudantium est, architecto voluptate fugiat a recusandae consequatur id doloribus 
+									<h3 contenteditable="true" name="titulo2" contenteditable="true" id="titulo2">Lorem ipsum</h3>
+									<p contenteditable="true" name="parrafo1" contenteditable="true" id="parrafo1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eius, laudantium est, architecto voluptate fugiat a recusandae consequatur id doloribus 
 									culpa voluptatibus libero dolor, minus enim distinctio iusto aliquam commodi!</p>
 								</div>
 							</div>
 							<!-- Fila 2 -->
 							<div class="row" id="color-aside2">
 								<div class="col-md-5" id="color-aside-2-i">
-									<h3 contenteditable="true" name="titulo3">Title</h3>
+									<h3 contenteditable="true" name="titulo3" id="titulo3">Title</h3>
 									<div class="figura"></div>
 								</div>
 								<div class="col-md-7 " id="color-aside-2-d">
-									<h2 contenteditable="true" nme="titulo4">TITTLE</h2>
+									<h2 contenteditable="true" nme="titulo4" id="titulo4">TITTLE</h2>
 									<div id="map">My map will go here</div>  
 								</div>
 
@@ -56,16 +56,16 @@
 							<!-- Fila 3 -->
 							<div class="row" id="color-aside3">
 								<div class="col-md-8" id="color-aside-3-i">
-									<h3 contenteditable="true" nem="titulo5">Lorem ipsum</h3>
+									<h3 contenteditable="true" nem="titulo5" id="titulo5">Lorem ipsum</h3>
 
-									<p contenteditable="true" name="parrafo2">	
+									<p contenteditable="true" name="parrafo2" id="parrafo2">	
 										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
 										irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 									</p>
 								</div>
 								<div class="col-md-4" id="color-aside-3-d">
-									<h2 contenteditable="true" name="titulo6">
+									<h2 contenteditable="true" name="titulo6" id="titulo6">
 										ITEM 3
 									</h2>
 									<img src="../../img/grafico.png" name="foto2">
@@ -222,6 +222,37 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 		string='#parrafo1';
 	});
 
+	$('#titulo3').click(function(){
+		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		string='#titulo3';
+	});
+
+	$('#titulo4').click(function(){
+		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		string='#titulo4';
+	});
+
+	$('#titulo5').click(function(){
+		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		string='#titulo5';
+	});
+
+	$('#parrafo2').click(function(){
+		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		string='#parrafo2';
+	});
+
+	$('#titulo6').click(function(){
+		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		string='#titulo6';
+	});
+
+
 	$('#ok_letra').click(function(){
 		var color=$('#color-letra').val();
 		if(string == '#titulo1'){
@@ -231,6 +262,36 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 			if(string == '#titulo2'){
 				$('#titulo2').css({'color': color});
 				$('#titulo2').css({'font-family': var2});
+			}else{
+				if(string == '#parrafo1'){
+					$('#parrafo1').css({'color': color});
+					$('#parrafo1').css({'font-family': var2});
+				}else{
+					if(string == '#titulo3'){
+						$('#titulo3').css({'color': color});
+						$('#titulo3').css({'font-family': var2});
+					}else{
+						if(string == '#titulo4'){
+							$('#titulo4').css({'color': color});
+							$('#titulo4').css({'font-family': var2});
+						}else{
+							if(string == '#titulo5'){
+								$('#titulo5').css({'color': color});
+								$('#titulo5').css({'font-family': var2});
+							}else{
+								if(string == '#parrafo2'){
+									$('#parrafo2').css({'color': color});
+									$('#parrafo2').css({'font-family': var2});
+								}else{
+									if(string == '#titulo6'){
+										$('#titulo6').css({'color': color});
+										$('#titulo6').css({'font-family': var2});
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	});

@@ -5,9 +5,9 @@
                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" id="export">Exportar <i class="fas fa-file-export"></i></button>
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu" id="formatos">
-                        <li><a href="#" id="jpg">JPG</a></li>
-                        <li><a href="#" id="png">PNG</a></li>
-                        <li><a href="#" id="pdf">PDF</a></li>
+                        <li><a href="#" id="jpg" class="opt">JPG</a></li>
+                        <li><a href="#" id="png" class="opt">PNG</a></li>
+                        <li><a href="#" id="pdf" class="opt">PDF</a></li>
                     </ul>   
             </div>
 
