@@ -134,15 +134,91 @@ class UserController extends Controller
      public function dropUserAdmin($id)
      {
         DB::table('users')->where('id', $id)->delete();
-        $todosUsuarios = DB::table('users')->get();
-        $suscritores = DB::table('suscritos')->get();
-        
+
         flash('Se ha eliminado un usuario', 'success');
 
 
+        $usuarios = DB::table('users')
+                ->where('tipousuario',1)
+                ->get();
+        $mailIdependientes = DB::table('correos')
+                ->select(
+                    'correos.asunto',
+                    'correos.para',
+                    'correos.descripcion',
+                    'correos.fecha',
+                    'infografias.nombre',
+                    'infografias.concepto',
+                    'users.nombres',
+                    'users.apellidos'
+                )
+                ->join('infografias','correos.idinfografia','infografias.idinfografia')
+                ->join('users','infografias.usuarios_idusuario','id')
+                ->where('correos.para','<>','s')
+                ->orderBy('correos.fecha','desc')
+                ->get();
+        $categoria = DB::table('infografias')
+                ->select('categoria.idcategoria','categoria.nombrecategoria')
+                ->join('items','infografias.idinfografia','infografias_idinfografia')
+                ->join('categoria','idcategoria','categoria_idcategoria')
+                ->first();
+
+        $mailSuscritos = DB::table('correos')
+                ->select(
+                    'correos.asunto',
+                    'correos.descripcion',
+                    'correos.fecha',
+                    'infografias.idinfografia',
+                    'infografias.nombre',
+                    'infografias.concepto',
+                    'users.nombres',
+                    'users.apellidos',
+                    'categoria.idcategoria',
+                    'categoria.nombrecategoria'
+                )
+                ->join('infografias','correos.idinfografia','infografias.idinfografia')
+                ->join('users','infografias.usuarios_idusuario','id')
+                ->join('items','infografias.idinfografia','infografias_idinfografia')
+                ->join('categoria','idcategoria','categoria_idcategoria')
+                ->where('correos.para','s')
+                ->orderBy('correos.fecha','desc')
+                ->distinct('infografias.idinfografia')
+                ->get();
+
+        //$Todas las Infografias
+        $infografias = DB::table('infografias')
+                ->select(
+                    'infografias.idinfografia',
+                    'infografias.nombre',
+                    'infografias.ultima_modificacion',
+                    'infografias.fecha_creacion',
+                    'users.nombres',
+                    'users.apellidos',
+                    'users.departamento',
+                    'users.seccion'
+                    )
+                ->join('users','infografias.usuarios_idusuario','id')
+                ->orderBy('infografias.fecha_creacion','desc')
+                ->get();
+        //$Todas las Categorias
+        $categorias = DB::table('categoria')->get();
+
+        $items = DB::table('items')
+                ->select('campo', 'categoria_idcategoria')
+                ->distinct()
+                ->get();
+
+        $suscritores = DB::table('suscritos')->get();
         return view('users.superadmin.superadmin')
-        ->with('todos',$todosUsuarios)
-        ->with('suscritos',$suscritores);
+        ->with('todos',$usuarios)
+        ->with('suscritos',$suscritores)
+        ->with('undestinatario',$mailIdependientes)
+        ->with('parasuscritores',$mailSuscritos)
+        ->with('dataInfo',$infografias)
+        ->with('categorias',$categorias)
+        ->with('items',$items);
+
+
  
      }
 
@@ -150,7 +226,7 @@ class UserController extends Controller
     public function updateUserAdmin( Request $request)
     {
       // dd($request->all());
-       $user = User::find($request->get('idw'));
+       $user = User::find($request->get('id'));
         $user->nombres=$request->get('name');
         $user->apellidos=$request->get('lastname');
         $user->correo=$request->get('mail');
@@ -158,15 +234,90 @@ class UserController extends Controller
         $user->departamento=$request->get('department');
         $user->seccion=$request->get('section'); 
         $user->save();
-        $todosUsuarios = DB::table('users')->get();
+
+        flash('Se ha actualizado la información del usuario', 'success');
+
+        $usuarios = DB::table('users')
+                    ->where('tipousuario',1)
+                    ->get();
+        $mailIdependientes = DB::table('correos')
+                    ->select(
+                        'correos.asunto',
+                        'correos.para',
+                        'correos.descripcion',
+                        'correos.fecha',
+                        'infografias.nombre',
+                        'infografias.concepto',
+                        'users.nombres',
+                        'users.apellidos'
+                    )
+                    ->join('infografias','correos.idinfografia','infografias.idinfografia')
+                    ->join('users','infografias.usuarios_idusuario','id')
+                    ->where('correos.para','<>','s')
+                    ->orderBy('correos.fecha','desc')
+                    ->get();
+        $categoria = DB::table('infografias')
+                    ->select('categoria.idcategoria','categoria.nombrecategoria')
+                    ->join('items','infografias.idinfografia','infografias_idinfografia')
+                    ->join('categoria','idcategoria','categoria_idcategoria')
+                    ->first();
+        
+        $mailSuscritos = DB::table('correos')
+                    ->select(
+                        'correos.asunto',
+                        'correos.descripcion',
+                        'correos.fecha',
+                        'infografias.idinfografia',
+                        'infografias.nombre',
+                        'infografias.concepto',
+                        'users.nombres',
+                        'users.apellidos',
+                        'categoria.idcategoria',
+                        'categoria.nombrecategoria'
+                    )
+                    ->join('infografias','correos.idinfografia','infografias.idinfografia')
+                    ->join('users','infografias.usuarios_idusuario','id')
+                    ->join('items','infografias.idinfografia','infografias_idinfografia')
+                    ->join('categoria','idcategoria','categoria_idcategoria')
+                    ->where('correos.para','s')
+                    ->orderBy('correos.fecha','desc')
+                    ->distinct('infografias.idinfografia')
+                    ->get();
+        
+        //$Todas las Infografias
+        $infografias = DB::table('infografias')
+                    ->select(
+                        'infografias.idinfografia',
+                        'infografias.nombre',
+                        'infografias.ultima_modificacion',
+                        'infografias.fecha_creacion',
+                        'users.nombres',
+                        'users.apellidos',
+                        'users.departamento',
+                        'users.seccion'
+                        )
+                    ->join('users','infografias.usuarios_idusuario','id')
+                    ->orderBy('infografias.fecha_creacion','desc')
+                    ->get();
+        //$Todas las Categorias
+        $categorias = DB::table('categoria')->get();
+
+        $items = DB::table('items')
+                    ->select('campo', 'categoria_idcategoria')
+                    ->distinct()
+                    ->get();
+
         $suscritores = DB::table('suscritos')->get();
-        flash('Se ha actualizado', 'success');
-
         return view('users.superadmin.superadmin')
-        ->with('todos',$todosUsuarios)
-        ->with('suscritos',$suscritores);
+        ->with('todos',$usuarios)
+        ->with('suscritos',$suscritores)
+        ->with('undestinatario',$mailIdependientes)
+        ->with('parasuscritores',$mailSuscritos)
+        ->with('dataInfo',$infografias)
+        ->with('categorias',$categorias)
+        ->with('items',$items);
 
-    }   
+    } 
 
     // ---- El SuperAdmistrador consulta los correos de usuarios suscritos  ---- // 
     public function getSuscriptores($id)

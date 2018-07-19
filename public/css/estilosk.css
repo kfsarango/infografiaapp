@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Cherry+Swash);
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
 * {
   margin: 0;
   padding: 0; }
@@ -80,6 +81,15 @@ html, body {
   height: 100vh;
   max-height: 100%;
   transform: translate3d(0, 0, 0); }
+  .panel_completo .box_flecha {
+    width: 100%;
+    bottom: 5rem; }
+    .panel_completo .box_flecha i {
+      position: absolute;
+      top: 80%;
+      font-size: 4rem;
+      color: #fff;
+      z-index: 100; }
 
 .box_foto {
   position: absolute;
@@ -102,6 +112,17 @@ html, body {
   height: 100%;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6); }
+  .box_opacidad .cnt-text {
+    width: 100%;
+    text-align: center;
+    margin-top: 17%; }
+    .box_opacidad .cnt-text p {
+      color: #69c0ee;
+      font-size: 4.5rem;
+      font-family: "Kaushan Script", cursive;
+      text-shadow: -5px -5px 5px #000; }
+    .box_opacidad .cnt-text p:hover {
+      color: #fff; }
 
 .cont_home {
   width: 100%;
