@@ -69,6 +69,22 @@
 	-moz-box-shadow: 0 7px 6px -6px #777;
 	box-shadow: 0 12px 6px -6px #777; 
 }
+/*ESTILOS MENU PLANTILLA 1 */
+
+#formatos  :hover{
+    background: rgb(0, 0, 0, 0.5);
+}
+#formatos {
+    background:#28a745;
+}   
+
+#formatos li .opt{
+    color: white !important;
+    text-decoration: none;
+    margin-left: 22px;
+}
+
+
 
 
 
