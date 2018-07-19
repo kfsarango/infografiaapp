@@ -2,6 +2,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+@section ('title')
+Editar Inforgrafía
+@endsection
 <div class="box_aux"></div>
 
 <div class="container" id="cont_edit_info">

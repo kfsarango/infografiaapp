@@ -2,6 +2,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+@section ('title')
+Edit
+@endsection
+
 <div class="box_aux"></div>
 <div class="container" id="cont_p">
 @include('flash::message')
