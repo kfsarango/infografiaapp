@@ -22,6 +22,8 @@ Route::group(['prefix'=>'superadmin', 'middleware' => 'notsuperadmin'], function
     Route::get('/edit-user/{id}', 'UserController@goEditUser');
     Route::get('/drop-user/{id}', 'UserController@dropUserAdmin');
     Route::post('/go-edit', 'UserController@updateUserAdmin');
+    //Ajax Home
+    Route::get('/getsuscriptores/{id}', 'UserController@getSuscriptores');
 
 });
 
@@ -47,6 +49,7 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
 
     //Ajax
     Route::get('/getitems/{id}', 'InfografiaController@getItemsOfCategory');
+    Route::post('/saveimg', 'InfografiaController@savePreviewImage');
 });
 
 //Ajax Home

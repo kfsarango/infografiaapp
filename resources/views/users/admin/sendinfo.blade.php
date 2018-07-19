@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label for="concept">Descripción</label>
-                            <textarea class="form-control" name="desc" required>{{$infografia->concepto}}</textarea>
+                            <textarea class="form-control" name="desc">{{$infografia->concepto}}</textarea>
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" id="imgvalue" name="imgvalue" hidden></textarea>

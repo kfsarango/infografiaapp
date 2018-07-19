@@ -31,6 +31,7 @@
 		
 		<!-- Contenido de la parte donde editaremos la plantilla de la infografía -->
 		<div class="col-md-9 plantilla1" id="plantilla1">
+			<span id="{{$id}}" class="myInfo" hidden></span>
 			<form method="post" class="form-inline" action="{{url('/useradmin/templateEditado')}}/{{$id}}">
         	@csrf
 			<button type="submit" class="btn btn-success">SAVE</button>
@@ -183,5 +184,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 @section('scripts')
 <script src="../../js/manageinfografia.js"></script>
 <script src="../../js/html2canvas.js"></script>
+
 @endsection
 

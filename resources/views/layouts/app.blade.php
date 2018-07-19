@@ -212,7 +212,6 @@
         </section>
      </footer>
     <script src="../../js/scriptk.js"></script>
-    <script src="../../js/superadmin.js"></script>
     @yield('scripts')
 </body>
 </html>

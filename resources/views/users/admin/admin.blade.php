@@ -14,7 +14,7 @@
 			<div class="row">
 				@foreach ($dataInfo as $Datos)
 					<div class="col-md-4 templates">
-						<img src="../img/vistaPrevia/template.jpg" class="img-thumbnail" alt="Cinque Terre">
+						<img src="../img/infografias/{{$Datos->idinfografia}}.png" class="img-thumbnail" alt="Cinque Terre">
 						<section class="templates-text">
 							<h2>{{ $Datos->nombre }}</h2>
 							<spam>Última Modificación: {{$Datos->ultima_modificacion}}</spam>							
