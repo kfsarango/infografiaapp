@@ -21,7 +21,7 @@
             <div class="text-right">
                 <button type="button" class="btn btn-success " id="btn_editar">Editar</button>
                 <button type="button" class="btn btn-success">Guardar</button>
-				<button type="button" class="btn btn-success">Enviar </button>
+				<button type="button" class="btn btn-success" id="subir_archivos">Importar Imagenes </button>
 			</div>
 		</div>
 	</div>
@@ -81,6 +81,9 @@
 			
     </div>
 </div>
+
+@endsection
+
 <script>
     /*
     		$(document).ready(function()
@@ -97,3 +100,4 @@
 <script src="../../js/manageinfografia.js"></script>
 <script src="../../js/html2canvas.js"></script>
 @endsection
+
