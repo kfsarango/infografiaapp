@@ -7,7 +7,8 @@
 	<div class="container" id="cont_plan1">
 		@include('flash::message')
 		<!-- Sección de los botones de el contendio para editar la infografía -->
-		@include('layouts.seccionBotonesInfografia')			
+		@include('layouts.seccionBotonesInfografia')	
+				
 		<div class="row">
 			<!-- Datos de la infografia consumidos de la Base de Datos -->
 			<div class="col-md-3 data_infografia1">
