@@ -389,7 +389,7 @@ main{
     margin-left: 59%;
 }
 
-.templatesCreate h2{
+.templatesCreate h3{
     color: #23232c;
     text-shadow: #000405;
     font-weight: bold;
@@ -544,6 +544,12 @@ main{
     text-align: center;
 }
 /*Fin parte de Catgeoria e Item*/
+
+/*Parte de la edicion de los cmapos generales de la infografía*/
+.form_edit_infografia{
+    margin-left: 26%;
+}
+/*Fin parte de la edicion de los cmapos generales de la infografía*/
 
 /*Parte de Modal*/
 .contenedor-modal {

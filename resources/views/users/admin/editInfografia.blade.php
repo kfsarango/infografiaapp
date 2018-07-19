@@ -7,7 +7,7 @@
 <div class="container" id="cont_edit_info">
 <div class="row">
         <div class="col-md-12">
-            <div class="well well-sm">
+            <div class="well well-sm form_edit_infografia">
                 <form  method="post" class="form-horizontal finish_info" action="{{url('/useradmin/saveUpdateInfografia')}}/{{$info->idinfografia}}">
                 @csrf
                     <h3>INFORMACIÓN DE LA INFOGRAFÍA</h3>

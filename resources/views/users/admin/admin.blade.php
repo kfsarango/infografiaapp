@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col-md-12 templatesCreate">
 			<div class="row admintitulo">
-					<h2>Infografías Creadas</h2>
+					<h3>INFOGRAFÍAS CREADAS</h3>
 					<a href="{{ route('nuevain') }}" class="btn btn-primary btn-md" >Nueva Infografía</a>
 			</div>
 

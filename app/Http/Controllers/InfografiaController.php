@@ -138,7 +138,7 @@ class InfografiaController extends Controller
         $info->nombre=$request->get('nombre');
         $info->concepto=$request->get('detalle');
         $info->plantilla=$request->get('numplan');
-        $info->ultima_modificacion->$date;
+        $info->ultima_modificacion = $date;
         $info->save();
 
         $infografia = Infografia::find($id);
