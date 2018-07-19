@@ -6,8 +6,6 @@
             <input type="text" class="dato" id="{{$item->campo}}" value="{{$item->valor}}" hidden>
         </div>
     @endforeach
-    
-
     <div class="row">
         <div class="col-md-12 fondos">
             <legend>BACKGROUND</legend>

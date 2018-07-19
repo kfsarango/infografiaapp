@@ -149,22 +149,17 @@ class InfografiaController extends Controller
         $numT=$request->get('numplan');
         $nameTemplate= 'plantillas.plantilla'.$numT;
 
-        //insertamos los datos pre-establecidos en la tabla d ela plantilla1
+        //insertamos los datos pre-establecidos en la tabla de la plantilla
         if($numT == 1){
             DB::insert('insert into detalles (presentaciones_idpresentacione, titulo1, foto1, titulo2, parrafo1, titulo3, titulo4, titulo5, parrafo2, titulo6, foto2) 
             values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [$id, 'Title 1', '../../img/us.png', 'Title2', 'Texto del parrafo', 'Title 3', 'Title 4', 'Title 5', 'Texto del parrafo', 'Title 6', '../../img/grafico.png']);
 
-        }else{
-            DB::table('detalles')->insert([
-                'iddetalle' => $name,
-                'contenido' => $value,
-                'presentaciones_idpresentacione' => $idcategoria
-            ]);
         }
+        
         return view($nameTemplate)->with('items',$items)->with('id',$id);
 
-    }
+        }
 
     public function template($id)
     {

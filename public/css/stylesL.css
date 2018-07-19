@@ -1,13 +1,119 @@
 #cnt_plantilla2{
-	width: 75%;
+	width: 100%;
     text-align: center;
-    background: #9BE0A0;
-    border-right: 1px solid gray;
-    padding: 2% 2% 2% 2%;
+    background: #23232c;
+    padding: 8% 2% 2% 2%;
     color: black;
 }
+
+#cnt_plantilla2 .seccion_botones{
+    background: #23232c; 
+    padding: 2% 0% 2% 0%;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/*Parte de los datos de la infografia*/
+#cnt_plantilla2 #data_infografia2{
+    background: #23232c;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding-top: 3%;
+    height: 800px;
+    padding-bottom: 2%;
+}
+
+.data_infografia2 .figura1{
+    width: 68%;
+    margin-left: 2%;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    height: 25px;
+    -moz-border-radius: 0 50% / 0 100%;
+    -webkit-border-radius: 0 50% / 0 100%;
+    border-radius: 0 10% / 0 100%;
+    background: #F1C40F;
+    border: 1px solid white;
+    color: black;
+}
+
+.data_infografia2 .figura1 .itemT{
+    font-size: 0.8em;    
+    margin-left: 1.9em;
+}
+
+.data_infografia2 .figura1 .itemT span{
+    font-size: 1.2em;
+
+}
+
+.fondos{
+    color: #fff;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-top: 1px solid #ccc;
+}
+
+.fondos button{
+    opacity:0.2;
+    filter:alpha(opacity=20);
+}
+
+.fondos input{
+    display: inline;
+}
+
+.letras{
+    color: #fff;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-top: 1px solid #ccc;
+}
+
+.letras button{
+    opacity:0.2;
+    filter:alpha(opacity=20);
+}
+
+.letras input{
+}
+
+.letras .formatos{
+    margin-top: 1em; 
+}
+
+.letras #tipoLetra{
+    width: 90%;
+    opacity:0.2;
+    filter:alpha(opacity=20);
+}
+
+.imagenes{
+    color:#fff;
+    border-top: 1px solid #ccc;
+    padding-top: 5%;
+}
+/* Fin de los datos de la infografia del mapa */
+
+.label{
+	border: 5px solid #F1C40F;
+	color: black;	
+}
+
+/* Parte del canvas */
+
+#general{
+	width: 100%;
+}
+
+/*Fin parte de la plantilla1 de la infografia editandola*/
+
+
 #cnt_plantilla2 #plantilla2{
-    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    border-right: 1px solid gray;
+    padding: 2% 2% 2% 2%;
 }
 
     

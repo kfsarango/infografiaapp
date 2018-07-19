@@ -57,7 +57,7 @@ $(document).ready(function(){
         });
     });
 
-    
+  /*Fumción para exportar imagenes y pdf*/  
     $('#formatos a').click(function(){
         var formato = $(this).attr("id");
         if(formato != 'pdf'){
@@ -85,7 +85,7 @@ $(document).ready(function(){
                 }
             });
         }
-   });
 
-   
+	});   
 });
+

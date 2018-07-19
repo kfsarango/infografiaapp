@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <div class="col-md-5 text-center">
-					        <button type="submit" class="btn btn-success">Actualizar</button>
+					        <button type="submit" class="btn btn-success">Continuar</button>
                         </div>
                     </div>
                 </form>
