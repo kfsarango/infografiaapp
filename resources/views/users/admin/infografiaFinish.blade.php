@@ -18,15 +18,6 @@
                             <input id="fname" name="nombre" type="text" placeholder="Name" class="form-control">
                         </div>
                     </div>
-                    <div class="fechas">
-
-                        <div class="for">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon"> Ultima Modificación</i></span>
-                            <div class="col-md-11">
-                                <input type="datetime-local" class="form-control" name="datemodificacion">
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-tag bigicon"> Detalle</i></span>
@@ -40,14 +31,14 @@
                         <div class="fo">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-camera bigicon"> <input type="radio" name="numplan" id="cate" value="1"> Plantilla 1</i></span>
                             <div class="col-md-12">
-                                <img  src = "../img/grafica.png" class="form-control">
+                                <img  src = "../img/vistaPrevia/template.jpg" class="form-control">
                             </div>
                         </div>
 
                         <div class="fo">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-camera bigicon"> <input type="radio" name="numplan" id="cate" value="2"> Plantilla 2</i></span>
                             <div class="col-md-12">
-                                <img  src = "../img/grafica.png" class="form-control">
+                                <img  src = "../img/vistaPrevia/template2.png" class="form-control">
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,7 @@
 							<!-- Fila 1 -->
 							<div class="row" id="color-aside">
 								<div class="col-md-4" id="color-aside-i">
-									<h2 id="ttttttt" name="titulo1" contenteditable="true">
+									<h2 id="titulo1" name="titulo1" contenteditable="true">
 										Porbando
 									</h2>
 									<img src="../../img/us.png" name="foto1">
@@ -131,7 +131,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 	lati=document.getElementById("Latitud").value;
 	long=document.getElementById("Longitud").value;
 
-	//Comenzamos con los eventos click para poder editar los estilos de la partes de la infografía.
+	//Comenzamos con los eventos click para poder editar el fondo de la partes de la infografía.
 	var ej=null;
 	$('#color-aside-d').click(function(){
 		$('#ok_fondo').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
@@ -164,7 +164,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 	});
 
 	$('#ok_fondo').click(function(){
-		var color=$('#color').val();
+		var color=$('#color-fondo').val();
 		if(ej == '#color-aside-d'){
 			$('#color-aside-d').css({'background': color});
 		}else{
@@ -187,6 +187,41 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 					}
 				}
 			}
+		}
+	});
+	//Fin de los métodos para editar los estilos
+
+	//Iniciamosmetodos para poder cambiar el estilo de letras
+	var string=null;
+	var var1 = null;
+	var var2 = null;
+
+	//Para obtene rel tipo de letra
+	$("#tipoLetra").click(function(){
+        //var select = $("#formaDePago option:selected").text();
+		var2 = $("#tipoLetra option:selected").text();
+        var1 = $("#tipoLetra").val();
+    });
+
+	$('#titulo1').click(function(){
+		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		string='#titulo1';
+	});
+
+	$('#titulo1').click(function(){
+		$('#ok_letra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		$('#tipoLetra').css({'opacity':'0.9', 'filter':'alpha(opacity=20)'} );
+		string='#titulo1';
+	});
+
+	$('#ok_letra').click(function(){
+		var color=$('#color-letra').val();
+		if(string == '#titulo1'){
+			$('#titulo1').css({'color': color});
+			$('#titulo1').css({'font-family': var2});
+		}else{
+
 		}
 	});
 	//Fin de los métodos para editar los estilos
