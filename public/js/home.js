@@ -61,6 +61,33 @@ $(document).ready(function(){
         });
     });
         
-        
+    // Ir a clasificados pantalla principal flecha //
+	$(".box_flecha i").click(function(){
+        $('html,body').animate({
+            scrollTop: $(".container").offset().top
+        }, 1000);
+    });
+
+    // Mantener en movimiento flecha ir abajo //
+	function AnimarFlecha(){
+		$( ".box_flecha i" ).animate({ "top": "+=50px" }, "slow" ,
+			function(){
+				$(".box_flecha i").fadeOut(10,
+					function(){
+						$(".box_flecha i" ).animate({ "top": "-=50px" }, "fast",
+							function(){
+								$(".box_flecha i").fadeIn(10);
+							}
+						);
+					}
+				);	
+			}
+		);
+	}
+
+	// Flecha ir abajo se mueve cada 2 segundo //
+	setInterval(AnimarFlecha,2000);
+
+
       
 });

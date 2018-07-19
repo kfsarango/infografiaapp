@@ -22,9 +22,20 @@ class HomeController extends Controller
 
     public function index()
     {
-        $categories = DB::table('categoria')->get();
+        $categories = DB::table('categoria')
+                        ->take(6)
+                        ->get();
         
         return view('home')
+        ->with('categorias', $categories);
+    }
+
+    public function allCategories()
+    {
+        $categories = DB::table('categoria')
+                        ->get();
+        
+        return view('allcategories')
         ->with('categorias', $categories);
     }
 

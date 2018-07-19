@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('index');
+Route::get('/allcategories', 'HomeController@allCategories')->name('allcategories');
 
 Auth::routes();
 
@@ -29,14 +30,14 @@ Route::group(['prefix'=>'superadmin', 'middleware' => 'notsuperadmin'], function
 
 Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(){
     Route::get('/admin', 'UserController@goAdmin')->name('admin');
-    Route::get('/edit', 'UserController@perfil')->name('edit');
-    Route::post('/edit/{id}', 'UserController@updateAdmin');
     Route::get('/plantilla', 'UserController@diseño');
     Route::get('/nuevain', 'InfografiaController@Categoria')->name('nuevain');
     Route::get('/publicateinfo/{id}', 'InfografiaController@publicateInfografia')->name('publicateinfo');
     Route::get('/sendtomailinfo/{id}', 'InfografiaController@goToSendInfografia')->name('sendtomailinfo');
     Route::post('/nuevacategoria', 'InfografiaController@createCategoria');
     Route::resource('catego','CategoriaController');
+    Route::get('/edit', 'UserController@perfil')->name('edit');
+    Route::post('/edit/{id}', 'UserController@updateAdmin');
     Route::post('/prueba', 'InfografiaController@probandodatos')->name('prueba');
     Route::get('/itemsc', 'InfografiaController@items');
     Route::post('/sendplantilla/{id}', 'InfografiaController@plantillaenviada')->name('sendplantilla');
@@ -57,6 +58,7 @@ Route::group(['prefix'=>'useradmin',  'middleware' => 'notuseradmin'], function(
 //Ajax Home
 Route::get('/getnrosuscriptores/{id}', 'HomeController@getCantidadSuscriptores');
 Route::post('/suscribirme', 'HomeController@setSuscribe');
+
 
 
 

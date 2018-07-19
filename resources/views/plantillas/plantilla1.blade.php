@@ -18,7 +18,7 @@
 			
 			<!-- Contenido de la parte donde editaremos la plantilla de la infografía -->
 			<div class="col-md-9 plantilla1" id="plantilla1">
-			<textarea id="bodyInfografia" hidden>{{$body}}</textarea>
+				<textarea id="bodyInfografia" hidden>{{$body}}</textarea>
 				<span id="{{$id}}" class="myInfo" hidden></span>
 				<form method="post" class="form-inline" action="{{url('/useradmin/templateEditado')}}/{{$id}}">
 				@csrf

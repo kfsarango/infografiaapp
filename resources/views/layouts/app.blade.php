@@ -44,15 +44,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul id="items_center">
-                    <li>
-                        <a href="">Home</a>
-                    </li>
-                    <li>
-                        <a href="#estadisticas">Estadisticas</a>
-                    </li>
-                    <li>
-                        <a href="#graficas">Graficas</a>
-                    </li>
+                    @yield('menus')
+                    
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -74,11 +67,11 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @if ( Auth::user()->tipousuario == 1)
                                     <a class="dropdown-item" href="{{ route('admin') }}">
-                                        {{ __('Inicio') }}
+                                        {{ __('Panel') }}
                                     </a>
                                 @else
                                     <a class="dropdown-item" href="{{ route('super') }}">
-                                        {{ __('Inicio') }}
+                                        {{ __('Panel') }}
                                     </a>
                                 @endif
                                 <a class="dropdown-item" href="{{ route('edit') }}">
