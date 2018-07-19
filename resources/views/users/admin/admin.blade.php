@@ -2,6 +2,9 @@
 @extends('layouts.app')
 
 @section('content')
+@section ('title')
+Todos tus diseños
+@endsection
 <div class="box_aux"></div>
 <section class="container" id="">
 	<div class="row">

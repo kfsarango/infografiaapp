@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+@section ('title')
+Editar Perfil 
+@endsection
+
 <div class="box_aux"></div>
 <div class="container" id="contEditUserSuperA">
 	<h3 class="centrar">Editando Usuario</h3>

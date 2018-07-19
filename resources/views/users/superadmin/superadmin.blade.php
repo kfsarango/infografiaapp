@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+
+@section ('title')
+Administrar Usuarios 
+@endsection
+
 <div class="box_aux"></div>
 <section class="container" id="cnt_superadmin">
 @include('flash::message')

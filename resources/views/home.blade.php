@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
+@section ('title')
+Home
+@endsection
+
 @section('content')
 <section class="box_inicial panel_completo" id="home_page">
     <div class="box_foto cont_foto">
         <div class="box_opacidad">
         </div>
-        
     </div>
     <div class="box_flecha">
         <span class="glyphicon glyphicon-menu-down"></span>  
