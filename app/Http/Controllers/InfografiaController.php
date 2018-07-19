@@ -63,6 +63,7 @@ class InfografiaController extends Controller
             'ultima_modificacion' => $date,
             'usuarios_idusuario' => Auth::User()->id
         ]);
+        
         //Recuperando ultimo id de la infografia insertada
         $infografiaData = DB::table('infografias')
                                 ->select('idinfografia')
@@ -72,6 +73,7 @@ class InfografiaController extends Controller
 
         $idInfo = $infografiaData->idinfografia;
         
+
         //Recorriendo los datos del formulario de items
         $items = $request->all();
         $cont = 0;
@@ -96,15 +98,29 @@ class InfografiaController extends Controller
     public function updateInfografia($id)
     {
         $infos = Infografia::find($id);
-
         //dd($infos);
-        return view('users.admin.editInfografia')->with('info',$infos);
-
-        $iden = DB::table('infografias')->distinct('plantilla')->select('plantilla')->where('idinfografia', '=', $id)->get();        
+        //return view('users.admin.editInfografia')->with('info',$infos);
+        $iden = DB::table('infografias')
+                ->distinct('plantilla')
+                ->select('plantilla')
+                ->where('idinfografia', '=', $id)->get();        
         //dd($iden);
         //dd($info);
         return view('users.admin.editInfografia')->with('info',$infos)->with('id',$iden);
+    }
 
+    public function saveUpdateInfografia(Request $request, $id){
+        $date = new Carbon();
+        $info = Infografia::find($id);
+        $info->nombre=$request->get('nombre');
+        $info->concepto=$request->get('detalle');
+        $info->plantilla=$request->get('numplan');
+        //$cabb_caja->fecha_fin = $datefin;
+        $info->ultima_modificacion = $date;
+        //$info->ultima_modificacion=>$date;
+        $info->save();
+
+        return redirect(route('admin'))->with('info',$info);
     }
 
 
@@ -120,19 +136,32 @@ class InfografiaController extends Controller
     
     public function plantillaenviada(Request $request, $id)
     {   
-        
         $date = new Carbon();
         $info = Infografia::find($id);
         $info->nombre=$request->get('nombre');
         $info->concepto=$request->get('detalle');
         $info->plantilla=$request->get('numplan');
-        $info->ultima_modificacion=$request->get('datemodificacion');
+        $info->ultima_modificacion = $date;
         $info->save();
 
         $infografia = Infografia::find($id);
-        $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
+        $items = DB::table('items')->distinct()->select('idItem', 'campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
         $numT=$request->get('numplan');
         $nameTemplate= 'plantillas.plantilla'.$numT;
+
+        //insertamos los datos pre-establecidos en la tabla d ela plantilla1
+        if($numT == 1){
+            DB::insert('insert into detalles (presentaciones_idpresentacione, titulo1, foto1, titulo2, parrafo1, titulo3, titulo4, titulo5, parrafo2, titulo6, foto2) 
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [$id, 'Title 1', '../../img/us.png', 'Title2', 'Texto del parrafo', 'Title 3', 'Title 4', 'Title 5', 'Texto del parrafo', 'Title 6', '../../img/grafico.png']);
+
+        }else{
+            DB::table('detalles')->insert([
+                'iddetalle' => $name,
+                'contenido' => $value,
+                'presentaciones_idpresentacione' => $idcategoria
+            ]);
+        }
         return view($nameTemplate)->with('items',$items)->with('id',$id);
 
     }
@@ -140,7 +169,7 @@ class InfografiaController extends Controller
     public function template($id)
     {
         $infografia = Infografia::find($id);
-        $items = DB::table('items')->distinct()->select('campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
+        $items = DB::table('items')->distinct()->select('idItem', 'campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
         $iden = DB::table('infografias')->select('plantilla')->where('idinfografia', '=', $id)->first();                
         //$plantilla = DB::table('infografias')->select('plantilla')->get();
         $plantilla=$iden->plantilla;

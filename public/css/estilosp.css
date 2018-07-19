@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
 html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -388,9 +389,10 @@ main{
     margin-left: 59%;
 }
 
-.templatesCreate h2{
-    color: gold;
+.templatesCreate h3{
+    color: #23232c;
     text-shadow: #000405;
+    font-weight: bold;
 }
 
 
@@ -543,6 +545,12 @@ main{
 }
 /*Fin parte de Catgeoria e Item*/
 
+/*Parte de la edicion de los cmapos generales de la infografía*/
+.form_edit_infografia{
+    margin-left: 26%;
+}
+/*Fin parte de la edicion de los cmapos generales de la infografía*/
+
 /*Parte de Modal*/
 .contenedor-modal {
   position: absolute;
@@ -615,54 +623,60 @@ main{
 /* Parte del mapa */
 #map{
     width:100%;
-    height:400px;
+    height:350px;
     margin-bottom: 2%;
 }
 /* Fin parte del mapa */
 
 /*Parte de todo el contenido de la edición de infografía*/
-#cont_plan1{
-    margin-bottom: 2%;
-    border-bottom: 1px solid gray;
+.all_page_infografia{
+    width: 100%;
+    background: #23232c;
+    margin-top: 4%;
 }
 
-.seccion_botones{
-    background: rgb(202, 197, 197);    
-    padding: 0% 0% 2% 0%;
+.all_page_infografia #cont_plan1{
+    margin-bottom: 2%;
+    background: #23232c;
+}
+
+.all_page_infografia .seccion_botones{
+    background: #23232c;   
+    padding: 2% 0% 2% 0%;
     text-align: center;
-    border: 1px solid gray;
+    border: 1px solid #ccc;
 }
 /*Fin parte de todo el contenido de la edición de infografía*/
-
-/*Parte de los datos de la infografia*/
-.data_infografia1{
-    background: rgb(202, 197, 197);
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    padding-top: 2%;
-}
-
-/*Fin parte de los datos de la infografia*/
 
 /*Parte de la plantilla1 de la infografia editandola*/
 .plantilla1{
 	width: 100%;
     text-align: center;
-    background: rgb(226, 220, 220);
+    background: #fff;
     border-right: 1px solid gray;
     padding: 2% 2% 2% 2%;
 }
 
 .plantilla1 #color-aside{
-	background: #3365BB;
 	text-align: center;
     margin: 0 0 1% 0;
     color: black;
 }
 
+.plantilla1 #color-aside #color-aside-i{
+    background: #F1C40F;
+    color: black;
+    margin: 0 0 1% 0;
+}
+
+.plantilla1 #color-aside #color-aside-d{
+    background: #3365BB;
+    color: black;
+    margin: 0 0 1% 0;
+}
+
 .plantilla1 #color-aside h2{
     width: 100%;
-    background: red;
 }
 
 .plantilla1 #color-aside h3{
@@ -670,48 +684,157 @@ main{
 	text-align: center;
 }
 
+.plantilla1 #color-aside2{
+    text-align: center;
+    margin: 0 0 1% 0;
+    color: black;
+}
+
+.plantilla1 #color-aside2 #color-aside-2-i{
+    background:#3365BB;
+	text-align: center;	
+	margin: 0 0 1% 0;
+}
+
+.figura{
+    width: 70%;
+    height: 250px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    background: #3365BB;
+    color: black;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.figura .itemT{
+    font-size: 1.5em;
+    margin: 6% 0% 0% 10%;
+    -moz-border-radius: 0 50% / 0 100%;
+    -webkit-border-radius: 0 50% / 0 100%;
+    border-radius: 0 15% / 0 100%;
+    background: #F1C40F;
+    border: 2px solid white;    
+}
+
+.figura .itemT span{
+    font-size: 0.7em;
+    padding-left: 5%;
+}
+
+.itemI{
+border-radius: 5px;
+background-color: #eee;
+border: 0;
+}
+
+.plantilla1 #color-aside2 #color-aside-2-d{
+	text-align: center;
+    background: #F1C40F;
+    margin: 0 0 1% 0;
+}
+
+.plantilla1 #color-aside2 h3{
+	text-align: center;
+	color: #F1C40F;	
+}
 
 .plantilla1 #color-article{
 	background: #FDFEFE;
 	text-align: justify;
 }
 
-.plantilla1 #color-item2{
-	text-align: center;
+.plantilla1 #color-aside3{
+    text-align: center;
+    margin: 0 0 1% 0;
+    color: black;
+}
+
+.plantilla1 #color-aside3 #color-aside-3-i{
+    width: 100%;
 	background: #F1C40F;
-}
-.plantilla1 #color-aside2{
-	background:#3365BB;
-	text-align: center;	
-	margin: 0 0 1% 0;
-}
-.plantilla1 #color-aside2 h3{
-	text-align: center;
-	color: #F1C40F;
-	
-}
-.plantilla1 #color-aside3 {
-	background: #5DADE2;
 	text-align: center;
 	margin: 0 0 2% 0;	
 }
+
 .plantilla1 #color-aside3 h3{
 	text-align: center;
-	color:#5DADE2;
+    color:#5DADE2;
+}
+
+.plantilla1 #color-aside3 #color-aside-3-d{
+    width: 100%;
+    background: #3365BB;
+	margin: 0 0 2% 0;	
 }
 
 /*Fin parte de todo el contenido de la plantilla1 de la infografia editandola*/
 
+/*Parte de los datos de la infografia*/
+.data_infografia1{
+    background: #23232c;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding-top: 2%;
+    overflow-y:scroll;
+    height: 800px;
+    padding-bottom: 2%;
+}
 
-/* Parte de los datos de la infografia del mapa */
-.figura{
-    width: 50%;
-    height: 100px;
+.data_infografia1 .figura1{
+    width: 68%;
+    margin-left: 2%;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    height: 25px;
     -moz-border-radius: 0 50% / 0 100%;
     -webkit-border-radius: 0 50% / 0 100%;
-    border-radius: 0 50% / 0 100%;
-    background: #3365BB;
-    border: 5px solid #F1C40F;
+    border-radius: 0 10% / 0 100%;
+    background: #F1C40F;
+    border: 1px solid white;
+    color: black;
+}
+
+.data_infografia1 .figura1 .itemT{
+    font-size: 0.8em;    
+    margin-left: 1.9em;
+}
+
+.data_infografia1 .figura1 .itemT span{
+    font-size: 1.2em;
+
+}
+
+.fondos{
+    color: #fff;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-top: 1px solid #ccc;
+}
+
+.fondos button{
+    opacity:0.2;
+    filter:alpha(opacity=20);
+}
+
+.fondos input{
+    display: inline;
+}
+
+.fondos input:hover{
+}
+
+.letras{
+    color: #fff;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-top: 1px solid #ccc;
+}
+
+.letras button{
+    opacity:0.2;
+    filter:alpha(opacity=20);
+}
+
+.letras input{
 }
 /* Fin de los datos de la infografia del mapa */
 
@@ -757,17 +880,3 @@ main{
     -o-transition: all 500ms ease;
     transition: all 500ms ease; 
 }
-
-.day {
-    border: 5px dashed transparent;
-    background: #ddd;
-  }
-  
-  .day.hovering {
-    background: #b6d6fb;
-    border-color: #276cbc;
-  }
-  
-  .item {
-    cursor: pointer;
-  }

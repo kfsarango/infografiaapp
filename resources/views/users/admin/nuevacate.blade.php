@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@section ('title')
+Nueva Infografía
+@endsection
 <div class="box_aux"></div>
 <section class="container" id="cont_categoria">
 	@include('flash::message')
