@@ -128,7 +128,23 @@
 					</section>
 				</div>
 				<div id="menu1" class="tab-pane fade">
-					<h3>Correos</h3>
+					<div class="row">
+						<div class="col-md-6">
+							<h3 class="centrar">Independientes</h3>
+							<button class="accordion">Title</button>
+							<div class="panel">
+								mi panel
+							</div>
+							<button class="accordion">Title</button>
+							<div class="panel">
+								mi panel
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<h3 class="centrar">A suscritores</h3>
+						</div>
+					</div>
 				</div>
 				<div id="menu2" class="tab-pane fade">
 					<h3>Mis infografias</h3>

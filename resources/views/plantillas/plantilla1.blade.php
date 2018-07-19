@@ -1,24 +1,25 @@
 @extends('layouts.app')
 
 @section('content') 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 <div class="box_aux"></div>
 
 <div class="container" id="cont_plan1">
+	@include('flash::message')
 	<!-- Sección de los botones de el contendio para editar la infografía -->
 	<div class="row seccion_botones">
 		<legend class="text-center header"><i class="fa"> Edita tu Plantilla 1 elegida</i></legend>				
 		<div class="col-md-3">
-			<button type="submit" class="btn btn-success">Exportar</button>				
+			<button type="submit" class="btn btn-success">Exportar <i class="fas fa-file-export"></i></button>				
 		</div>
 		<div class="col-md-3">
-			<button type="submit" class="btn btn-success">Enviar Correo</button>				
+			<a href="/useradmin/sendtomailinfo/{{$id}}" class="btn btn-success">Enviar <i class="far fa-envelope"></i></a>				
 		</div>
 		<div class="col-md-3">
-			<button type="submit" class="btn btn-success">Publicar Noticia</button>				
+			<a href="/useradmin/publicateinfo/{{$id}}" class="btn btn-success" id="saveImgPreview">Publicar <i class="far fa-file-image"></i></a>				
 		</div>
 		<div class="col-md-3">
-			<button type="submit" class="btn btn-success">Vista Previa</button>				
+			<button type="submit" class="btn btn-success">Vista Previa <i class="fas fa-eye"></i></button>				
 		</div>
 	</div>
 	<div class="row">
@@ -54,15 +55,12 @@
 						</div>
 						<!-- Fila 2 -->
 						<div class="row" id="color-aside2">
-							<div class="col-md-6">
+							<div class="col-md-5">
 								<h3 contenteditable="true" name="titulo3">Title</h3>
-								<div class="day">
+								<div class="figura">
 								</div>
-								<div class="day">
-								</div>
-
 							</div>
-							<div class="col-md-6 " id="color-item2">
+							<div class="col-md-7 " id="color-item2">
 								<h2 contenteditable="true" nme="titulo4">TITTLE</h2>
 								<div id="map">My map will go here</div>  
 							</div>
@@ -104,42 +102,45 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 
 <script>
 	$(document).ready(function(){
+
 	var lati=null;
 	var long=null;
-
-	const item = document.getElementsByClassName( 'item' )[0];
-	const days = [].slice.call(
-	document.querySelectorAll( '.day' ), 0 );
+	//Aqui comenzamos a mover los datos de la infografia al area requerida
+	const days = [].slice.call( document.querySelectorAll( '.figura' ), 0 );
+	const items = [].slice.call( document.querySelectorAll( '.itemT' ), 0 );
+	const days1 = [].slice.call( document.querySelectorAll( '.figura1' ), 0 );
 
 	let currentlyDragging = null;
-
-	item.setAttribute( 'draggable', true );
-	item.ondragstart = function( ev ) {
-	ev.dataTransfer.effectAllowed = 'move';
-	ev.dataTransfer.setData( 'text/html', this.innerHTML )
-	currentlyDragging = ev.target;
-	}
+	var c=0;
+	items.forEach( item => {
+		item.setAttribute( 'draggable', true );
+		item.ondragstart = function( ev ) {
+		ev.dataTransfer.effectAllowed = 'move';
+		ev.dataTransfer.setData( 'text/html', this.innerHTML )
+		currentlyDragging = ev.target;
+		$(days1[c]).toggle('slow')
+		c++;
+		}
+	});
+	
 	days.forEach( day => {
-
 		day.ondragenter = day.ondragover = function( ev ) {
 			ev.preventDefault();
 			day.classList.add( 'hovering' );
 		};
-
+		
 		day.ondragleave = function() {
 			day.classList.remove( 'hovering' );
 		};
-
+		
 		day.ondrop = function( ev ) {
-			
 			currentlyDragging.parentNode.removeChild( currentlyDragging );
 			day.appendChild( currentlyDragging );
 			day.classList.remove( 'hovering' );
-			currentlyDragging = null;
-			
+			currentlyDragging = null;			
 		};
-	
 	});
+	//Aqui termina el metodo que nos permite el movimeinto de los datos de la infografia
 	
 	lati=document.getElementById("Latitud").value;
 	long=document.getElementById("Longitud").value;
@@ -177,5 +178,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYVGjUno8qc20yhUk92Pxpmh
 
 });
 </script>  
+@endsection
+
+@section('scripts')
+<script src="../../js/manageinfografia.js"></script>
+<script src="../../js/html2canvas.js"></script>
 @endsection
 

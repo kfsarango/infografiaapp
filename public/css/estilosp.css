@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
 html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -615,7 +616,7 @@ main{
 /* Parte del mapa */
 #map{
     width:100%;
-    height:400px;
+    height:350px;
     margin-bottom: 2%;
 }
 /* Fin parte del mapa */
@@ -640,6 +641,28 @@ main{
     border-left: 1px solid gray;
     border-right: 1px solid gray;
     padding-top: 2%;
+}
+
+.data_infografia1 .figura1{
+    width: 65%;
+    margin-left: 2%;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    height: 40px;
+    -moz-border-radius: 0 50% / 0 100%;
+    -webkit-border-radius: 0 50% / 0 100%;
+    border-radius: 0 10% / 0 100%;
+    background: #F1C40F;
+    border: 1px solid white;
+    color: black;
+}
+
+.data_infografia1 .figura1 .itemT{
+    font-size: 1.2em;
+    margin-left: 1.5em;
+}
+
+.data_infografia1 .figura1 .itemT span{
+    font-size: 0.7em;
 }
 
 /*Fin parte de los datos de la infografia*/
@@ -687,10 +710,10 @@ main{
 }
 .plantilla1 #color-aside2 h3{
 	text-align: center;
-	color: #F1C40F;
-	
+	color: #F1C40F;	
 }
-.plantilla1 #color-aside3 {
+
+.plantilla1 #color-aside3{
 	background: #5DADE2;
 	text-align: center;
 	margin: 0 0 2% 0;	
@@ -705,13 +728,36 @@ main{
 
 /* Parte de los datos de la infografia del mapa */
 .figura{
-    width: 50%;
-    height: 100px;
+    width: 70%;
+    height: 250px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    background: #3365BB;
+    color: black;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.figura .itemT{
+    font-size: 1.5em;
+    margin: 6% 0% 0% 10%;
     -moz-border-radius: 0 50% / 0 100%;
     -webkit-border-radius: 0 50% / 0 100%;
-    border-radius: 0 50% / 0 100%;
-    background: #3365BB;
-    border: 5px solid #F1C40F;
+    border-radius: 0 15% / 0 100%;
+    background: #F1C40F;
+    border: 2px solid white;    
+}
+
+.figura .itemT span{
+    font-size: 0.7em;
+    padding-left: 5%;
+}
+
+
+
+.itemI{
+border-radius: 5px;
+background-color: #eee;
+border: 0;
 }
 /* Fin de los datos de la infografia del mapa */
 
@@ -757,17 +803,3 @@ main{
     -o-transition: all 500ms ease;
     transition: all 500ms ease; 
 }
-
-.day {
-    border: 5px dashed transparent;
-    background: #ddd;
-  }
-  
-  .day.hovering {
-    background: #b6d6fb;
-    border-color: #276cbc;
-  }
-  
-  .item {
-    cursor: pointer;
-  }
