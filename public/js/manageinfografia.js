@@ -1,13 +1,14 @@
 $(document).ready(function(){
+    // load data de nueva info
+    var newHtml = $('#bodyInfografia').val();
+    $("#plantilla1").empty();
+    $("#plantilla1").append(newHtml);
 
- 
-    
     $(window).bind("beforeunload",function(event) {
         event.preventDefault();
         var myImage;
         var idinfografia = $('.myInfo').attr('id');
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        console.log(idinfografia);
 
         html2canvas($("#plantilla1"), {
             dpi: 192,
@@ -20,19 +21,20 @@ $(document).ready(function(){
                     data: {
                         _token: CSRF_TOKEN,
                         img: myImage,
-                        infografia: idinfografia
+                        infografia: idinfografia,
+                        body: $("#plantilla1").html()
                     },
                     dataType: 'JSON',
                     success: function (data) {
                         console.log(data);
-                        
+                        return "You have some unsaved changes";
                     }
                 });
 
             }
         });
         
-        return "You have some unsaved changes";
+        
     });
 
 
@@ -83,4 +85,6 @@ $(document).ready(function(){
             });
         }
    });
+
+   
 });

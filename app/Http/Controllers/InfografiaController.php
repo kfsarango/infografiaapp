@@ -168,13 +168,16 @@ class InfografiaController extends Controller
 
     public function template($id)
     {
-        $infografia = Infografia::find($id);
+        $infografia = DB::table('infografias')
+                        ->select('body')
+                        ->where('idinfografia',$id)
+                        ->get();
         $items = DB::table('items')->distinct()->select('idItem', 'campo', 'valor')->where('infografias_idinfografia', '=', $id)->get();
         $iden = DB::table('infografias')->select('plantilla')->where('idinfografia', '=', $id)->first();                
         //$plantilla = DB::table('infografias')->select('plantilla')->get();
         $plantilla=$iden->plantilla;
         $nameTemplate= 'plantillas.plantilla'.$plantilla;
-        return view($nameTemplate)->with('items',$items)->with('id',$id);   
+        return view($nameTemplate)->with('items',$items)->with('id',$id)->with('body',$infografia[0]->body);   
     }
 
     public function templateeditada(Request $request, $id)
@@ -371,6 +374,12 @@ class InfografiaController extends Controller
 
     //Guardar imagen previa ajax
     public function savePreviewImage(Request $request){
+
+        //cargando el nuevo contenido de la infografia
+        $info = Infografia::find($request->infografia);
+        $info->body=$request->body;
+        $info->save();
+
         //haciendo la imagen
         $file_data = $request->img; 
         $file_name = $request->infografia.'.png'; 
